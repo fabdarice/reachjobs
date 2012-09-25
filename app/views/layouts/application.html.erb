@@ -7,17 +7,39 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="header">
-    <div id="user_nav">
-      <% if user_signed_in? %>
-        Signed in as <%= current_user.email %>. Not you?
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-      <% end %>
-    </div>
-  </div>
-<%= yield %>
+    <!-- Header  : Logo + Menu -->
+    <div id="header">
 
+      <div id="header_logo">
+          <div id="logo">
+            <%= link_to image_tag("/images/reachjobs_logo.png"), root_path %>
+            <div class="header_text">
+              <% if user_signed_in? %>
+                Signed in as <%= current_user.email %>. Not you?
+                <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+              <% else %>
+                Already a member ? <%= link_to "Sign in", new_user_session_path %>
+              <% end %>
+            </div>  
+        </div>
+      </div>
+
+      <div id="header_menu">
+          <div id="search_bar">
+          </div>
+          <div id="search_bar_text">
+          </div>
+      </div>
+
+    </div>
+
+    <!-- Content : views in app/views/ -->
+    <div id="content">
+      <%= yield %>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+    </div>
 </body>
 </html>

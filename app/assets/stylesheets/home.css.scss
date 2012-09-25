@@ -1,3 +1,96 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the Home controller here.// They will automatically be included in application.css.// You can use Sass(SCSS)here:http://sass-lang.com/
+/*
+body {
+  background-image: url('/images/header_with_logo_repeat.png');
+  background-repeat: repeat-x;
+}
+*/
+
+body {
+  margin: auto;
+}
+
+body a {
+  text-decoration: none;
+}
+
+body a:hover {
+  color: white;
+}
+
+#header_logo {
+  background-image: url('/images/header_with_logo_repeat.png');
+  /*background-position:  center center;*/
+  background-repeat: repeat-x;
+  height: 36px;
+  #logo {
+    width: 900px;
+    height: 36px;
+    border: 1px solid red;
+    margin: auto;
+    
+    .header_text {
+    /*position: relative;
+    left: 600px;*/
+    float: right;
+    padding-right: 10px;
+    padding-top : 10px;
+    display: inline-block;
+    font-family: "Verdana";
+    font-size: 11px;
+    }
+  }
+}
+
+ 
+
+#header_menu {
+
+  background-image: url('/images/header_menu_repeat.png');
+  /*background-position:  center center;*/
+  background-repeat: repeat-x;
+/*  width: 2000px; */
+  height: 41px;
+
+  #search_bar {
+    width: 900px;
+    height: 41px;
+    border: 1px solid blue;
+    margin:auto;
+    background-image: url('/images/header_menu_searchbar.png');
+    background-repeat: none;
+  }
+}
+
+
+#blue_content_repeat {
+  background-image: url('/images/blue_content_repeat.png');
+  /*background-position:  center center;*/
+  background-repeat: none;
+/*  width: 2000px; */
+  height: 303px;
+    #blue_content {
+      width: 900px;
+      height: 303px;
+      /*background-image: url('/images/blue_content.png');
+      background-repeat: none;*/
+      border: 1px solid green;
+      margin: auto;
+
+      #blue_content_text {
+        width: 450px;
+      }
+      
+      #blue_content_img {
+        width: 450px;
+        float: right;
+      }
+    }
+}
+
+/*
+#content {
+  margin: auto;
+  border: 2px solid black;
+}
+*/
