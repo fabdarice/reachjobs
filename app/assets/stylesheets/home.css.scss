@@ -10,12 +10,16 @@ body {
   margin: auto;
 }
 
-body a {
+a:link {
   text-decoration: none;
 }
 
-body a:hover {
-  color: white;
+a:hover {
+  color: rgb(219, 137, 37);
+}
+
+a:visited {
+  text-decoration: none;
 }
 
 #header_logo {
@@ -50,11 +54,11 @@ body a:hover {
   /*background-position:  center center;*/
   background-repeat: repeat-x;
 /*  width: 2000px; */
-  height: 41px;
+  height: 40px;
 
   #search_bar {
     width: 900px;
-    height: 41px;
+    height: 40px;
     border: 1px solid blue;
     margin:auto;
     background-image: url('/images/header_menu_searchbar.png');
@@ -78,19 +82,71 @@ body a:hover {
       margin: auto;
 
       #blue_content_text {
-        width: 450px;
+        width: 426px;
+        height: 280px;
+        border: 2px dashed red;
+        float: left;
+        padding-top: 20px;
+        padding-right : 20px;
       }
       
       #blue_content_img {
-        width: 450px;
-        float: right;
+        width: 446px;
+        height: 280px;
+        border: 2px dashed blue;
+        display: inline-block;
+        padding-top: 20px;
+      }
+
+      .head_title {
+        font-family: "Verdana";
+        font-size: 36px;
+        color: rgb(219, 137, 37);
+      }
+      .second_title {
+        font-family: "Verdana";
+        font-size: 24px;
+        color: white;
       }
     }
 }
 
-/*
-#content {
+
+#main_content {
+  width: 900px;
   margin: auto;
   border: 2px solid black;
+
+  #create_profile_img {
+    width: 440px;
+    float: left;
+    border: 2px dashed red;
+    text-align: right;
+    display: table;
+
+
+
+    p {
+      vertical-align: middle;
+      display: table-cell;
+      text-align: left;
+    }
+  }
+    
+
+  #search_someone_img {
+    width: 440px;
+    border: 2px solid green;
+    display : inline-block;
+    display: table;
+    text-align: right;
+
+    p {
+      vertical-align: middle;
+      display: table-cell;
+      text-align: left;
+    }
+  }
+
 }
-*/
+
