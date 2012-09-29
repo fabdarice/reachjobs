@@ -1,35 +1,33 @@
-<div id="blue_content_repeat">
-  <div id="blue_content">
-    <div id="blue_content_text">
-        <span class="head_title">Want to Reach a Job?? </span><br/>
-        <span class="second_title">Make Your Free Online Profile</span><br/><br/>
 
-        de la Pandaria ouvre ses portes ce jeudi et nous connaissons désormais les cinq divisions. Deux équipes non françaises sont présentes dans le premier groupe. Les belges de BsC ainsi que PZ, qui a une forte consonance portugaise, tenteront de l'emporter devant les formations tricolores. Il ne faudra pas non plus sous-estimer Nuit Blanche, Soleil Noir ou en FSC2 pour la victoire finale.
-    </div>
+<div id="head_description">
+  <div id="head_description_create">
+     
+      <span class="head_description_create_reachjobs_txt">Reach Jobs</span> 
+      <span class="head_description_create_your_online_txt">Your Online Resume And Portfolio</span>
+      <div id="head_description_button_create">
+          Create Your Profile
+      </div>
+  </div>
 
-    <div id="blue_content_img">
-        <%= image_tag("/images/macbook.png") %>
-    </div>
+  <hr width="850" align="center">
+
+  <div id="head_description_img">
+      <%= image_tag("/images/macbook.png") %>
+  </div>
+
+  <div id="head_description_text">
+      <span class="head_title">Free Online Resume and Portfolio Generator</span><br/>
+      <span class="second_title">Showcase your experience and your projects</span>
+
+      <ul>
+        <li>Customize your Profile</li>
+        <li>Create fucking thing</li>
+        <li>This is just awesome</li>
+      </ul>
+      <br/>
+      <br/> 
+      
   </div>
 </div>
 
-<div id="main_content">
-  <div id="create_profile_img">   
-    <%= image_tag("/images/ico_create_profile.png") %>
-      <p>
-        <% if user_signed_in? %>
-            <%= link_to "Create Profile", root_path %>
-        <% else %>    
-            <%= link_to "Create Profile", new_user_registration_path %>    
-        <% end %>    
-      </p>
-  </div>
-  
-  <div id="search_someone_img">
-        <%= image_tag("/images/ico_search_someone.png") %>
-        <p>
-            Search for Someone
-        </p>
-    </div>
-
-</div>
+<hr width="850" align="center">

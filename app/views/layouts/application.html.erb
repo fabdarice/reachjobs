@@ -33,13 +33,20 @@
 
     </div>
 
-    <!-- Content : views in app/views/ -->
-    <div id="content">
-      <%= yield %>
+    
+    <div id="main_content">
+      <!-- Content : views in app/views/ -->
+      <div id="content">
+        <%= yield %>
+
+        <!-- Footer -->
+        <hr width="850" align="center"> 
+        <div id="footer">       
+          Website created by Fabrice Cheng. All Rights Reserved.
+        </div>
+      </div> 
     </div>
 
-    <!-- Footer -->
-    <div id="footer">
-    </div>
+
 </body>
 </html>
