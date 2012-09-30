@@ -1,0 +1,126 @@
+@import "shared_color";
+
+
+#sign_in_page {
+  width: 850px;
+  margin: auto;
+  position: relative;
+
+  #sign_in_description {
+    width: 450px;
+    height: 450px;
+    float: left;
+  }
+
+  #sign_in_two_form {
+    width: 380px;
+    float: right;
+
+    h2 {
+      font-family: "Verdana";
+      font-size: 16px;
+      color: $my_second_blue;
+      font-weight: bold;
+    }
+
+    #login_form {
+      margin: auto;
+      width: 350px;
+      height: 260px;
+      border: 3px outset darken($body_background, 5%);
+      border-radius: 5px;
+      text-align: center;
+
+      #login_form_button {
+        width: 200px;
+        margin-left: 145px;
+        text-align: left;
+        font-family: "Verdana";
+        font-size: 12px;
+        font-style: italic;
+        line-height: 20px;
+      }
+
+      #login_form_group {
+        width: 340px;
+        height: 50px;
+
+        #login_form_label {
+          width: 130px;
+          text-align: right;
+          height: 30px;
+          font-family: "Verdana";
+          font-size: 12px;
+          color: #414142;
+          font-weight: bold;
+          float: left;
+        }
+
+        #login_form_field {
+          width: 2OOpx;
+          text-align: left;
+          padding-left: 10px;
+          height: 30px;
+        }
+      }
+    }
+
+    #register_form {
+      margin: auto;
+      width: 330px;
+      height : 130px;
+      border: 3px outset darken($body_background, 5%);
+      border-radius: 5px;
+      text-align: center;
+      font-size: 12px;
+      font-family: "Verdana";
+
+      #register_button {
+        display: inline-block;
+        background-color: $my_orange;
+        border: 1px outset grey;
+        border-radius: 5px;
+        width: 120px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        font-family: "Verdana",sans-serif;
+        color: white;
+        font-style: bold;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.sign_in_button {
+  background-color: $my_orange;
+  border: 1px outset grey;
+  border-radius: 5px;
+  width: 80px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 12px;
+  font-family: "Verdana",sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.sign_in_button:hover {
+  background-color: darken($my_orange, 10%);
+  color: white;
+}
+
+
+#password_form {
+  padding-left: 25px;
+  font-size: 12px;
+  font-family: "Verdana",sans-serif;
+
+  h2 {
+    font-family: "Verdana";
+      font-size: 16px;
+      color: $my_second_blue;
+      font-weight: bold;
+  }
+}
