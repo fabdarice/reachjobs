@@ -1,0 +1,197 @@
+// Place all the styles related to the Informations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "shared_color";
+
+#profile_save_or_view {
+  width: 900px;
+  margin-top: 10px;
+  height: 40px;
+  background-color : lighten($my_orange, 10%);
+  border-top: 1px solid $my_orange;
+  text-align: right;
+  padding-top: 10px;
+}
+
+
+
+#profile_header {
+  width: 900px;
+  background-color: lighten($my_orange, 47%);
+  border-top: 1px solid $my_orange;
+  border-bottom: 1px solid $my_orange;
+  height: 250px;
+  position: relative;
+
+  input, textarea {
+    border: 1px dashed #C2C2C2;
+  }
+
+}
+
+#profile_header_idcard {
+  top: 25px;
+  left: 15px;
+
+  position: absolute;
+  width: 400px;
+  /*background-color: #E8E8E8;*/
+  background-color: lighten($my_orange, 30%);
+  border: 1px ridge $my_orange;
+  border-radius: 5px;
+  height : 200px;
+
+  #profile_header_idcard_photo {
+    margin-top: 23px;
+    margin-bottom: 23px;
+    margin-left : 10px;
+    margin-right: 10px;
+    border: 3px ridge white;
+    width: 130px;
+    height: 150px;
+    float: left;
+  }
+
+  #profile_header_idcard_description {
+    width: 230px;
+    height: 150px;
+    float: left;
+    margin-top: 23px;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      font-family: "Verdana";
+      font-size: 12px;
+    }
+    img {
+      vertical-align: middle;
+    }
+
+    .profile_fullname {
+      font-family: "klavika-web",sans-serif;
+      font-size: 32px;
+      color: $my_blue;
+      font-weight: bold;
+    }
+    
+  }
+}
+
+
+#profile_header_description {
+  width: 440px;
+  height: 200px;
+  float: right;
+  margin : 25px;
+  font-size: 13px;
+  font-family: "Verdana";
+  color: $my_blue;
+}
+
+#profile_tab {
+  width: 900px;
+  height: 40px;
+  border-top: 1px solid $my_orange  ;
+  background-color: lighten($my_orange, 47%);
+
+  .one_tab_empty {
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 40px;
+    border-bottom: 1px solid $my_orange;
+  }
+  
+
+  .one_tab {
+    display: inline-block;
+    float: left;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid $my_orange;
+    font-size : 13px;
+    font-family: "Verdana";
+    color: $my_blue;
+  }
+
+  .one_tab:hover {
+    background-color: lighten($my_orange, 30%);
+  }
+
+  .one_tab_selected {
+    display: inline-block;
+    float: left;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: $background;
+    border-left: 1px solid $my_orange;
+    border-right: 1px solid $my_orange;
+    border-bottom: none;
+    font-size : 13px;
+    font-family: "Verdana";
+    color: $my_blue;
+  }
+}
+
+hr.profile_hr{
+  height: 1px;
+  background-color: $my_orange;
+  font-size: 0px;
+}
+
+#profile_aboutme {
+  width: 860px;
+  margin: 20px;
+  overflow: hidden;
+
+  input, textarea {
+    border: 1px dashed #C2C2C2;
+  }
+
+  .profile_aboutme_title {
+    display: block;
+    color: $my_blue;
+    font-size: 22px;
+    font-family: "klavika-web",sans-serif;
+    font-weight: bold;
+  } 
+
+  hr {
+    height: 1px;
+    background-color: $my_blue;
+    font-size: 0px;
+  }
+
+  #profile_aboutme_description {
+    width: 520px;
+    float: left;
+  }
+
+  #profile_aboutme_rightside {
+    width: 310px;
+    float: left;
+    margin-left: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+  color: grey;
+  font-size: 10px;
+  font-family: "Verdana";
+}
+
+:-moz-placeholder {
+  font-style: italic;
+  color: grey;
+  font-size: 10px;
+  font-family: "Verdana";
+}

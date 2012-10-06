@@ -41,13 +41,13 @@ a:hover {
 }
 
 
-#header_logo {
+#header_no_width {
   /*background-image: url('/images/header_with_logo_repeat.png');*/
   /*background-position:  center center;*/
   background-color: $my_blue;
   background-repeat: repeat-x;
   height: 36px;
-  #logo {
+  #header_real_width {
     width: 900px;
     height: 36px;
     /*border: 1px solid red;*/
@@ -68,7 +68,7 @@ a:hover {
 
  
 
-#header_menu {
+#header_menu_no_width {
 
   /*background-image: url('/images/header_menu_repeat.png');*/
   /*background-position:  center center;*/
@@ -78,13 +78,17 @@ a:hover {
 /*  width: 2000px; */
   height: 115px;
 
-  #search_bar {
+  #header_menu_real_width {
     width: 900px;
     height: 40px;
     /*border: 1px solid blue;*/
     margin:auto;
     /*background-image: url('/images/header_menu_searchbar.png');*/
     background-repeat: none;
+
+    #logo {
+      margin: 10px;
+    }
   }
 }
 
@@ -126,27 +130,11 @@ a:hover {
   }
 
   #head_description_button_create {
-    display: inline-block;
-    position: relative;
-    bottom : 10px;
-    background-color: $my_orange;
-    border: 1px outset grey;
-    border-radius: 5px;
-    width: 150px;
-    height: 30px;
-    line-height: 30px;
-    margin-left: 60px;
-    font-size: 14px;
-    font-family: "Verdana",sans-serif;
-    color: white;
-    font-style: bold;
-    text-align: center;
-
+    float: right;
+    margin-top: 18px;
+    margin-right: 20px;
   }
 
-  #head_description_button_create:hover {
-    background-color: darken($my_orange, 10%)
-  }
 }
 
 #head_description_img {

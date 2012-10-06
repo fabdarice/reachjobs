@@ -11,7 +11,42 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120929093653) do
+ActiveRecord::Schema.define(:version => 20121005184028) do
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "head_description"
+    t.string   "second_description"
+    t.text     "about_me_description"
+    t.text     "search_description"
+    t.string   "phone"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  create_table "recommendations", :force => true do |t|
+    t.integer  "profile_id"
+    t.text     "content"
+    t.string   "author"
+    t.string   "relation"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "socialnetworks", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "linkedin_link"
+    t.string   "facebook_link"
+    t.string   "viadeo_link"
+    t.string   "twitter_link"
+    t.string   "reachjobs_link"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

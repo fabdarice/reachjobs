@@ -5,9 +5,13 @@
     <span class="head_description_create_your_online_txt">Your Online Resume And Portfolio</span>
     <div id="head_description_button_create">
         <% if user_signed_in? %>
-          <%= link_to "Create Your Profile", root_path %>
+          <% if current_user.profile %>
+            <%= link_to image_tag("/images/button_create_profile.png", :mouseover => "/images/button_create_profile_hover.png"), edit_user_profile_path(current_user) %>
+          <% else %>
+            <%= link_to image_tag("/images/button_create_profile.png", :mouseover => "/images/button_create_profile_hover.png"), new_user_profile_path(current_user) %>
+          <% end %>  
         <% else %>
-          <%= link_to "Create Your Profile", new_user_registration_path %>
+          <%= link_to image_tag("/images/button_create_profile.png", :mouseover => "/images/button_create_profile_hover.png"), new_user_registration_path %>
         <% end %>  
     </div>
 </div>

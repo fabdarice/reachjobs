@@ -64,24 +64,10 @@
 }
 
 
-.register_button {
-  background-color: $my_orange;
-  border: 1px outset grey;
-  border-radius: 5px;
-  width: 80px;
-  height: 30px;
-  line-height: 30px;
-  margin-left: 254px;
-  font-size: 12px;
-  font-family: "Verdana",sans-serif;
-  color: white;
-  text-align: center;
+#register_button {
+  margin-left: 250px;
 }
-
-.register_button:hover {
-  background-color: darken($my_orange, 10%);
-  color: white;
-}
+  
 
 
 .field_with_errors {

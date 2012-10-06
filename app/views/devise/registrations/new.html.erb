@@ -34,8 +34,11 @@
         <div id="form_field"><%= f.password_field :password_confirmation %><br/><span class="field_error_msg"><%= display_error(resource, 'password_confirmation') %></span></div>
       </div>
 
-      <div id="form_group">
-         <div id="form_field"> <%= f.submit "Register", :class => "register_button" %></div>
+      <div id="register_button">
+          
+          <%= image_submit_tag "/images/button_register.png",
+            :onmouseover => "this.src='/images/button_register_hover.png'",
+            :onmouseout => "this.src='/images/button_register.png'" %>     
       </div>
     <% end %>
   </div>

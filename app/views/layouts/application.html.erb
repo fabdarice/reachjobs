@@ -3,7 +3,7 @@
 <head>
   <title>Reachjobs</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery-1.8.2.min.js", "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 </head>
@@ -11,9 +11,8 @@
     <!-- Header  : Logo + Menu -->
     <div id="header">
 
-      <div id="header_logo">
-          <div id="logo">
-            <%= link_to image_tag("/images/reachjobs_logo.png"), root_path %>
+      <div id="header_no_width">
+          <div id="header_real_width">
             <div class="header_text">
               <% if user_signed_in? %>
                 Signed in as <%= current_user.email %>. Not you?
@@ -25,10 +24,13 @@
         </div>
       </div>
 
-      <div id="header_menu">
-          <div id="search_bar">
-          </div>
-          <div id="search_bar_text">
+      <div id="header_menu_no_width">
+        
+          <div id="header_menu_real_width">
+            <div id="logo">
+              <%= link_to image_tag("/images/reachjobs_logo.png"), root_path %>
+            </div>
+            
           </div>
       </div>
 

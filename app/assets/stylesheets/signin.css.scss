@@ -26,7 +26,6 @@
     #login_form {
       margin: auto;
       width: 350px;
-      height: 260px;
       border: 3px outset darken($body_background, 5%);
       border-radius: 5px;
       text-align: center;
@@ -123,4 +122,11 @@
       color: $my_second_blue;
       font-weight: bold;
   }
+}
+
+#flash_alert {
+  font-size: 12px;
+  font-family: "Verdana",sans-serif;
+  color: red;
+  line-height: 20px;
 }

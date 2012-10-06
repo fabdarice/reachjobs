@@ -1,0 +1,29 @@
+// Place all the styles related to the socialnetworks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#profile_aboutme_socialnetwork_links {
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: "Verdana";
+    font-size: 12px;
+
+    li {
+      padding-bottom: 10px;
+    }
+  }
+
+  img {
+    vertical-align: middle;  
+  }
+
+  input {
+    height: 18px;
+  width: 278px;
+  }
+  
+}
