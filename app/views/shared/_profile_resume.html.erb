@@ -1,0 +1,28 @@
+<span class="profile_title">Skills</span>
+<hr class="section_seperator" align="right" width="900px">
+<br>
+<div class="list_skills">
+    <%= link_to_add_fields(image_tag("/images/button_add_category.png"), p, :skillcategories, "resume", "after") %>
+  <br><br>
+  <%= p.fields_for :skillcategories do |f| %>
+    <%= render "shared/profile_resume_skillcategories", :f => f %>
+  <% end %>
+   
+</div>
+
+<br/>
+
+<span class="profile_title">Work Experience</span>
+<hr class="section_seperator" align="right" width="900px">
+
+<span class="profile_title">Personal Projects</span>
+<hr class="section_seperator" align="right" width="900px">
+
+<span class="profile_title">Education</span>
+<hr  class="section_seperator"align="right" width="900px">
+
+<span class="profile_title">Language Skills</span>
+<hr class="section_seperator" align="right" width="900px">
+
+<span class="profile_title">Interests</span>
+<hr class="section_seperator" align="right" width="900px">

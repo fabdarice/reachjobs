@@ -1,3 +1,39 @@
 // Place all the styles related to the recommendations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "shared_color";
+
+.one_recommendation_header {
+  font-size: 15px;
+  font-family:"klavika-web",sans-serif;
+  color: $my_blue;
+  background-color: $body_background;
+  border: 1px double darken($body_background, 10%);
+  height: 25px;
+  line-height: 25px;
+  width: 300px;
+  padding-left: 10px;
+
+  img {
+    vertical-align: middle;
+    float: right;
+    padding-right: 5px;
+    padding-top: 2px;
+  }
+}
+
+.one_recommendation_content {
+  font-size: 11px;
+  font-family: "Verdana";
+  border: 1px double darken($body_background, 10%);
+  border-top : none;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 300px;  /*background-color: lighten($my_orange, 47%);*/
+}
+
+.one_recommendation_to_add {
+  text-align: center;
+}
+

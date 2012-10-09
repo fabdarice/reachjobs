@@ -2,11 +2,16 @@ class ProfilesController < ApplicationController
   def new
     @profile = Profile.new
     @profile.socialnetwork = Socialnetwork.new
-    @profile.recommendations.build
+    2.times do 
+      @category = @profile.skillcategories.build 
+      @category.skills.build
+    end
+    
   end
 
   def create
     @profile = current_user.build_profile(params[:profile])
+
 
     if @profile.save
       flash[:notice] = "Sucess creating your Profile."

@@ -20,7 +20,7 @@
   width: 900px;
   background-color: lighten($my_orange, 47%);
   border-top: 1px solid $my_orange;
-  border-bottom: 1px solid $my_orange;
+  /*border-bottom: 1px solid $my_orange;*/
   height: 250px;
   position: relative;
 
@@ -94,7 +94,7 @@
 #profile_tab {
   width: 900px;
   height: 40px;
-  border-top: 1px solid $my_orange  ;
+  /*border-top: 1px solid $my_orange  ;*/
   background-color: lighten($my_orange, 47%);
 
   .one_tab_empty {
@@ -140,13 +140,7 @@
   }
 }
 
-hr.profile_hr{
-  height: 1px;
-  background-color: $my_orange;
-  font-size: 0px;
-}
-
-#profile_aboutme {
+#profile_content {
   width: 860px;
   margin: 20px;
   overflow: hidden;
@@ -155,31 +149,44 @@ hr.profile_hr{
     border: 1px dashed #C2C2C2;
   }
 
-  .profile_aboutme_title {
+  .profile_title {
     display: block;
     color: $my_blue;
     font-size: 22px;
     font-family: "klavika-web",sans-serif;
     font-weight: bold;
   } 
+}
 
-  hr {
-    height: 1px;
-    background-color: $my_blue;
-    font-size: 0px;
-  }
-
-  #profile_aboutme_description {
+#profile_aboutme_description {
     width: 520px;
     float: left;
-  }
+}
 
-  #profile_aboutme_rightside {
-    width: 310px;
-    float: left;
-    margin-left: 20px;
-    padding-bottom: 20px;
-  }
+#profile_aboutme_rightside {
+  width: 310px;
+  float: left;
+  margin-left: 20px;
+  padding-bottom: 20px;
+}
+
+hr.profile_hr{
+  height: 1px;
+  background-color: $my_orange;
+  font-size: 0px;
+}
+
+hr.section_seperator {
+    height: 2px;
+    background-color: $my_blue;
+    font-size: 0px;
+}
+
+hr.content_separator {
+  height: 1px;
+  width: 650px;
+  background-color: darken($body_background, 10%);
+  font-size: 0px;
 }
 
 ::-webkit-input-placeholder {
@@ -194,4 +201,43 @@ hr.profile_hr{
   color: grey;
   font-size: 10px;
   font-family: "Verdana";
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+
+.one_section_header {
+  font-size: 15px;
+  font-family:"klavika-web",sans-serif;
+  color: $my_blue;
+  background-color: $body_background;
+  border: 1px double darken($body_background, 10%);
+  height: 25px;
+  line-height: 25px;
+  width: 847px;
+  padding-left: 10px;
+
+  img {
+    vertical-align: middle;
+    float: right;
+    padding-right: 5px;
+    padding-top: 5px;
+  }
+}
+
+.one_section_content {
+  font-size: 11px;
+  font-family: "Verdana";
+  border: 1px double darken($body_background, 10%);
+  border-top : none;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 847px;  /*background-color: lighten($my_orange, 47%);*/
 }

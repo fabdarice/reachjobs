@@ -38,68 +38,40 @@
           <%= p.label :second_description, "Jobs Wishing:" %><br/><%= p.text_area :second_description, :size => "60x9", :placeholder => "Enter a small description of what kind of job you are looking for." %>
       </div>
     </div>
-
-
-    <br/>
     <div id="profile_tab">
       <span class="one_tab_empty">
       </span>
       <span class="one_tab_selected">
-        About me
+        <%= link_to_function "About me", "tab_to_display('profile_aboutme')" %>
       </span>
       <span class="one_tab">
-        Resume
+         <%= link_to_function "Resume", "tab_to_display('profile_resume')" %>
       </span>
       <span class="one_tab">
-        Portfolio
+        <%= link_to_function "Portfolio", "tab_to_display('profile_portfolio')" %>
       </span>
     </div>
 
     <hr class="profile_hr" align="right" width="578px" color="black">
 
-    <div id="profile_aboutme">
-      <div id="profile_aboutme_description">
-          <span class="profile_aboutme_title">Who am I</span>
-          <hr align="right" width="520px"><br>
-            <%= p.text_area :about_me_description, :size => "70x12", :class => "text_field_default", :placeholder => "Enter a description of yourself" %><br/><br/><br/>
-
-          <span class="profile_aboutme_title">What am I looking for</span>
-          <hr align="right" width="520px"><br>
-            <%= p.text_area :search_description, :size => "70x12", :placeholder => "Enter an accurate description of what you are looking for (job, location, position, ...)" %>
-          <br/>
+    <div id="profile_content">
+      <div class="hide">
+        <div id="profile_aboutme">
+          <%= render "shared/profile_aboutme", :p => p %>
+        </div>
       </div>
 
-       <div id="profile_aboutme_rightside">
-          <div id="profile_aboutme_socialnetwork_links">
-            <span class="profile_aboutme_title">Social Network</span>
-            <hr align="right" width="310px">
-            <br/>
-            <%= p.fields_for :socialnetwork do |s| %>
-              <ul>
-                <li><%= image_tag "/images/ico_twitter.png" %>  <%= s.text_field :twitter_link, :placeholder => "Enter your Twitter public account" %></li>
-                <li><%= image_tag "/images/ico_facebook.png" %>  <%= s.text_field :facebook_link, :placeholder => "Enter your Facebook public account" %></li>
-                <li><%= image_tag "/images/ico_linkedin.png" %>  <%= s.text_field :linkedin_link, :placeholder => "Enter your Linkedin public account"  %></li>
-                <li><%= image_tag "/images/ico_viadeo.png" %>  <%= s.text_field :viadeo_link, :placeholder => "Enter your Viadeo public account" %></li>   
-                <li><%= image_tag "/images/ico_reachjobs.png" %>  <%= s.text_field :reachjobs_link, :placeholder => "Enter your ReachJobs public account" %></li>
-              </ul>
-            <% end %>  
-          </div>
-
-          <br><br>
-          
-          <div id="profile_aboutme_recommendations">
-            <span class="profile_aboutme_title">What people think about me</span>
-            <hr align="right" width="310px">
-            <br/>
-            <%= p.fields_for :recommendations do |r| %>
-              <%= r.label :author %> : <%= r.text_field :author %><br>
-              <%= r.label :relation %> : <%= r.text_field :relation %><br>
-              <%= r.label :content, "Recommendation" %> : <%= r.text_area :content, :rows => 5 %>
-              
-            <% end %>
-          </div>
+      <div class="show">
+        <div id="profile_resume">
+          <%= render "shared/profile_resume", :p => p %>
+        </div>
       </div>
 
+      <div class="hide">
+        <div id="profile_portfolio">
+            PORTFOLIO
+        </div>
+      </div>
     </div>
 
 <% end %>

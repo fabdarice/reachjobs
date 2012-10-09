@@ -1,0 +1,8 @@
+<div class="fieldsremovable">
+  <div class="one_recommendation_header">Recommendation <%= link_to_remove_fields(image_tag("/images/ico_delete.png"), f) %></div>
+  <div class="one_recommendation_content">
+    <%= f.label :author %> : <%= f.text_field :author %><br>
+    <%= f.label :relation %> : <%= f.text_field :relation %><br><br>
+    <%= f.label :content, "Recommendation" %> : <%= f.text_area :content, :rows => 5, :cols => 35 %>
+  </div>  
+</div>

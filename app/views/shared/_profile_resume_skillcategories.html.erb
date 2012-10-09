@@ -1,0 +1,17 @@
+<div class="fieldsremovable">
+  <div class="one_section_header">
+        Skills Category
+        <%= link_to_remove_fields(image_tag("/images/ico_delete.png"), f) %>
+  </div>
+  <div class="one_section_content">
+    <u><%= f.label :category_name %></u> : <%= f.text_field :category_name, :size => "50px", :placeholder => "Enter a skill category name" %>
+    <div class="list_of_skills">
+      <%= f.fields_for :skills do |builder| %>
+        <%= render "shared/profile_resume_skills", :f => builder %>
+      <% end %>
+      <div class="one_skill_caterogy_to_add">
+        <%= link_to_add_fields(image_tag("/images/button_add_category_skill.png"), f, :skills, "resume", "before") %>
+      </div>  
+    </div>
+  </div>  
+</div>

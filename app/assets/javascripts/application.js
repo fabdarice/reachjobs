@@ -13,3 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".fieldsremovable").hide();
+}
+
+function add_fields(link, association, content, position) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+
+  if (position == "after")
+    $(link).parent().after(content.replace(regexp, new_id));
+  else
+    $(link).parent().before(content.replace(regexp, new_id));
+}
+
+function tab_to_display(tabname) {
+  $("div.show").removeClass("show").addClass("hide");
+  $("#" + tabname).closest(".hide").removeClass("hide").addClass("show");
+}

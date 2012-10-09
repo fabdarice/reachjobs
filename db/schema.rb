@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005184028) do
+ActiveRecord::Schema.define(:version => 20121008193309) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
@@ -35,6 +35,20 @@ ActiveRecord::Schema.define(:version => 20121005184028) do
     t.string   "relation"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "skillcategories", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "category_name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "skills", :force => true do |t|
+    t.integer  "skillcategory_id"
+    t.string   "skill_name"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "socialnetworks", :force => true do |t|
