@@ -4,7 +4,7 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   has_one :socialnetwork
   has_many :recommendations
-  has_many :skillcategories
+  has_many :skillcategories, :order => "position"
 
   has_attached_file :photo, :styles => {:small => "130x150#"}
 

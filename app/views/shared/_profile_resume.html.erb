@@ -1,11 +1,14 @@
 <span class="profile_title">Skills</span>
 <hr class="section_seperator" align="right" width="900px">
 <br>
-<div class="list_skills">
+<div class="list_skillcategories">
     <%= link_to_add_fields(image_tag("/images/button_add_category.png"), p, :skillcategories, "resume", "after") %>
   <br><br>
+  <% @category_position = 0 %>
   <%= p.fields_for :skillcategories do |f| %>
-    <%= render "shared/profile_resume_skillcategories", :f => f %>
+
+      <%= render "shared/profile_resume_skillcategories",  :f => f %>
+      <% @category_position = @category_position + 1 %>
   <% end %>
    
 </div>

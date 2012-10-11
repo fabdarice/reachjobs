@@ -1,5 +1,5 @@
 class Skillcategory < ActiveRecord::Base
-  attr_accessible :category_name
+  attr_accessible :category_name, :position, :visible, :skills_attributes
 
   belongs_to :profile
   has_many :skills, :dependent => :destroy

@@ -40,8 +40,10 @@ ActiveRecord::Schema.define(:version => 20121008193309) do
   create_table "skillcategories", :force => true do |t|
     t.integer  "profile_id"
     t.string   "category_name"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "position"
+    t.boolean  "visible",       :default => true
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "skills", :force => true do |t|

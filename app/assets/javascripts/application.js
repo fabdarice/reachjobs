@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-function remove_fields(link) {
+function remove_fields(link, classname) {
   $(link).prev("input[type=hidden]").val("1");
-  $(link).closest(".fieldsremovable").hide();
+  $(link).closest("." + classname).hide();
 }
 
 function add_fields(link, association, content, position) {
@@ -31,4 +31,23 @@ function add_fields(link, association, content, position) {
 function tab_to_display(tabname) {
   $("div.show").removeClass("show").addClass("hide");
   $("#" + tabname).closest(".hide").removeClass("hide").addClass("show");
+}
+
+function move_higher(link, classname) {
+  var $div_to_move = $(link).closest("." + classname);
+  //alert($div_to_move.prev("." + classname).html());
+
+  if (!$div_to_move.prevAll("." + classname).length){
+    return false;
+  }
+  else {
+    var $div_before = $div_to_move.prevAll("." + classname).eq(0);
+    $div_before.before($div_to_move);
+    //var $my_test2 = $(".skillcategory_fieldsremovable1");
+    //$my_test2.css("background", "red");
+    var $div_before_position = parseInt($div_before.children("input[type=hidden]").val()) + 1;
+    var $div_to_move_position = parseInt($div_to_move.children("input[type=hidden]").val()) - 1;
+    $div_to_move.children("input[type=hidden]").val($div_to_move_position);
+    $div_before.children("input[type=hidden]").val($div_before_position);
+  }
 }

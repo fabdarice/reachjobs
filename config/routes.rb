@@ -2,7 +2,8 @@ Reachjobs::Application.routes.draw do
   devise_for :users, :path_names => {:sign_up => "register"}
 
   resources :users, only: [:show] do
-    resource :profile
+    resource :profile do
+    end  
   end  
 
     root :to => "home#index"
