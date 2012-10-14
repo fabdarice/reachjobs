@@ -2,10 +2,6 @@ class ProfilesController < ApplicationController
   def new
     @profile = Profile.new
     @profile.socialnetwork = Socialnetwork.new
-    2.times do 
-      @category = @profile.skillcategories.build 
-      @category.skills.build
-    end
     
   end
 
@@ -14,10 +10,10 @@ class ProfilesController < ApplicationController
 
 
     if @profile.save
-      flash[:notice] = "Sucess creating your Profile."
+      flash[:success] = "Your profile has been successfully created."
       render "edit"    
     else
-      flash[:error] = "Error creating your profile."  
+      flash[:error] = "Error while creating your profile."  
       render "new"
     end
   end   
@@ -33,10 +29,10 @@ class ProfilesController < ApplicationController
 
   def update
     if current_user.profile.update_attributes(params[:profile])
-      flash[:notice] = "Sucess editing your Profile."
+      flash[:success] = "All the modifications have been saved."
       redirect_to edit_user_profile_path(current_user)
     else
-      flash[:error] = "Error editing your profile."  
+      flash[:error] = "Error while saving the modifications."  
       render "edit"
     end 
   end

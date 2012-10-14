@@ -1,6 +1,40 @@
 // Place all the styles related to the skills controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "shared_color";
+
 .one_skill_caterogy_to_add {
-  margin: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  clear: both;
+  img {
+    vertical-align: middle;
+  }
+}
+
+
+.one_skill {
+  border: 1px solid darken(#eef2f8, 10%);
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+  border-radius: 5px;
+  background-color: #eef2f8;
+  vertical-align: middle;
+  padding-right: 5px;
+  padding-left: 2px;
+  float: left;
+
+  img {
+    padding-top: 2px;
+  }
+}
+
+input.input_skill {
+  border: 0px;
+  
+  background-color: #eef2f8;
+  font-family:"Verdana",sans-serif;
+  color: $my_blue;
 }

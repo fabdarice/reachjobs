@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008193309) do
+ActiveRecord::Schema.define(:version => 20121012142154) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
@@ -46,11 +46,18 @@ ActiveRecord::Schema.define(:version => 20121008193309) do
     t.datetime "updated_at",                      :null => false
   end
 
+  create_table "skillcategories_skills", :id => false, :force => true do |t|
+    t.integer "skillcategory_id"
+    t.integer "skill_id"
+  end
+
+  add_index "skillcategories_skills", ["skill_id", "skillcategory_id"], :name => "index_skillcategories_skills_on_skill_id_and_skillcategory_id"
+  add_index "skillcategories_skills", ["skillcategory_id", "skill_id"], :name => "index_skillcategories_skills_on_skillcategory_id_and_skill_id"
+
   create_table "skills", :force => true do |t|
-    t.integer  "skillcategory_id"
     t.string   "skill_name"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "socialnetworks", :force => true do |t|

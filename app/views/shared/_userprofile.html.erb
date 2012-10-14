@@ -1,10 +1,19 @@
 <%= form_for @profile, :html => { :multipart => true }, :url => user_profile_path do |p|  %>
 
     <div id="profile_save_or_view">
-          <%= flash[:error] %>
-          <%= flash[:notice] %>
-          <%= link_to image_tag("/images/button_view_profile.png", :mouseover => "/images/button_view_profile_hover.png"), root_path %>
-          <button>Saves</button>
+          <% if flash[:error] %>
+              <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span>
+          <% end %>
+          <% if flash[:success] %>
+              <span class="profile_header_flash"><%= image_tag("/images/ico_success.png") %><%= flash[:success] %></span>
+          <% end %>
+            <span class="profile_header_save_view">
+              <%= link_to image_tag("/images/button_view_profile.png", :mouseover => "/images/button_view_profile_hover.png"), root_path %>
+             
+              <%= image_submit_tag "/images/button_save_changes.png", 
+                :onmouseover => "this.src='/images/button_save_changes_hover.png'", 
+                :onmouseout => "this.src='/images/button_save_changes.png'" %>
+            </span>
     </div>
 
     <div id="profile_header">
