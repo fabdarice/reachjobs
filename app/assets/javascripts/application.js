@@ -96,14 +96,17 @@ function add_skill_to_category(link, association, content) {
     var regexp = new RegExp("new_" + association, "g")
 
     $(link).parent().before(content.replace(regexp, new_id));
-    $(link).parent().siblings(":last").find('input').val(skillname);
-    $(link).parent().siblings(":last").find('input').attr('size', skillname.length - 1);  
+    $(link).parent().siblings(":last").find('input.input_skill').attr('value', skillname);
+    $(link).parent().siblings(":last").find('input.input_skill').attr('size', skillname.length);  
   }  
 }
 
 $(document).ready(function() {
+
+  $('.skill_autocomplete').autocomplete({serviceUrl:'service/autocomplete.ashx'});
+
   $('div.one_skill').find('input').each(function(){ 
-      $(this).attr('size', $(this).val().length - 1); 
+      $(this).attr('size', $(this).val().length); 
     });
 });
 

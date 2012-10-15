@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  respond_to :html, :xml, :json
+
   def new
     @profile = Profile.new
     @profile.socialnetwork = Socialnetwork.new
@@ -7,8 +9,8 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = current_user.build_profile(params[:profile])
-
-
+    @skills = Skill.all
+    @skills.map {|skill| skill.skill_name }.join(',')
     if @profile.save
       flash[:success] = "Your profile has been successfully created."
       render "edit"    
@@ -20,6 +22,9 @@ class ProfilesController < ApplicationController
 
   def edit
     @profile = current_user.profile
+    @skills = Skill.all
+    @skills.map {|skill| skill.skill_name }.join(',')
+    respond_with(@skills)
   end
 
   def show

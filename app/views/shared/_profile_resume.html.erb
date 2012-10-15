@@ -6,7 +6,7 @@
   <br><br>
   <% @category_position = 0 %>
   <%= p.fields_for :skillcategories do |f| %>
-      <%= render "shared/profile_resume_skillcategories",  :f => f %>
+      <%= render "shared/profile_resume_skillcategories",  :f => f, :position => @category_position %>
       <% @category_position = @category_position + 1 %>
   <% end %>
    
