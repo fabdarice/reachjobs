@@ -1,15 +1,25 @@
+<script>
+  $(document).ready(function() {
+    $('.skill_autocomplete').each(function(){
+        $(this).autocomplete({lookup:<%= raw @skills %>});
+      });
+
+    $('div.one_skill').find('input').each(function(){ 
+        $(this).attr('size', $(this).val().length); 
+      });
+  });
+</script>
+
 <span class="profile_title">Skills</span>
 <hr class="section_seperator" align="right" width="900px">
 <br>
 <div class="list_skillcategories">
-    <%= link_to_add_fields(image_tag("/images/button_add_category.png"), p, :skillcategories, "resume", "after") %>
-  <br><br>
   <% @category_position = 0 %>
   <%= p.fields_for :skillcategories do |f| %>
-      <%= render "shared/profile_resume_skillcategories",  :f => f, :position => @category_position %>
+      <%= render "shared/profile_resume_skillcategories",  :f => f %>
       <% @category_position = @category_position + 1 %>
   <% end %>
-   
+  <%= link_to_add_fields(image_tag("/images/button_add_category.png"), p, :skillcategories, "resume") %> 
 </div>
 
 <br/>

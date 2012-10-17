@@ -5,20 +5,14 @@ class Skillcategory < ActiveRecord::Base
   accepts_nested_attributes_for :skills, allow_destroy: true, reject_if: ->(a) { a[:skill_name].blank? }
   before_save :create_only_if_not_exist
     
-  
- 
-
-  
-
-    def create_only_if_not_exist
-       list_of_skills = []
-       self.skills.each do |s|
-           
-         list_of_skills << Skill.find_or_create_by_skill_name(s.skill_name)
-      end
-      self.skills = list_of_skills
+  protected
+  def create_only_if_not_exist
+     list_of_skills = []
+     self.skills.each do |s|
+         
+       list_of_skills << Skill.find_or_create_by_skill_name(s.skill_name)
     end
-  
-
+    self.skills = list_of_skills
+  end
 
 end
