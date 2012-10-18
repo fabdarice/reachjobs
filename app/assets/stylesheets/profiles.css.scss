@@ -164,12 +164,35 @@
   
 
   .profile_title {
-    display: block;
+    position: relative;
     color: $my_blue;
     font-size: 22px;
     font-family: "klavika-web",sans-serif;
     font-weight: bold;
+
+    a {
+      text-decoration: none;
+      float: right;
+      font-size: 14px;
+      padding-top: 7px;
+    }
+
+
+    a:visited {
+      color: #32B3E6;
+    }
+
+    a:hover {
+      color: $my_orange;
+    }
   } 
+
+  .add_section {
+    font-size: 14px;
+    font-family: "klavika-web",sans-serif;
+    float: right;
+    padding-top: 7px;
+  }
 }
 
 #profile_aboutme_description {
@@ -246,6 +269,8 @@ hr.content_separator {
 }
 
 .one_section_content {
+  position: relative;
+  overflow: hidden;
   font-size: 11px;
   font-family: "Verdana";
   border: 1px double darken($body_background, 10%);
@@ -254,6 +279,16 @@ hr.content_separator {
   padding-left: 10px;
   padding-top: 10px;
   width: 847px;  /*background-color: lighten($my_orange, 47%);*/
+
+  label {
+    color: $my_second_blue;
+    font-weight: bold;
+  }
+
+  .like_label {
+    color: $my_second_blue;
+    font-weight: bold;
+  }
 }
 
 .not_visible {
@@ -261,3 +296,4 @@ hr.content_separator {
   opacity: 0.2;
   filter:alpha(opacity=20);
 }
+

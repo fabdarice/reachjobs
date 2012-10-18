@@ -18,10 +18,6 @@ font-weight:300;
 font-family:"klavika-web",sans-serif;
 }
 
-
-
-
-
 body {
   margin: auto;
   background-color: $body_background;
@@ -31,15 +27,13 @@ a:link {
   text-decoration: none;
 }
 
-
 a:visited {
-  color: black;
+  color: #32B3E6;
 }
 
 a:hover {
   color: $my_orange;
 }
-
 
 #header_no_width {
   /*background-image: url('/images/header_with_logo_repeat.png');*/

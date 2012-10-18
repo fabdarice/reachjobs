@@ -20,10 +20,9 @@ function remove_fields(link, classname) {
 
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g")
-
-  $(link).before(content.replace(regexp, new_id));
-  $(link).parent().find('input[type=hidden][name*="position"]').last().attr('value', new_id);
+  var regexp = new RegExp("new_" + association, "g");
+  $('#list_' + association).append(content.replace(regexp, new_id));
+  $('#list_' + association).find('input[type=hidden][name*="position"]').last().attr('value', new_id);
 }
 
 function tab_to_display(tabname) {

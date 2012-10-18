@@ -25,19 +25,16 @@
       <% end %>  
     </div>
 
-    <br><br>
+    <br>
     
     <div id="profile_aboutme_recommendations">
-      <span class="profile_title">What people think about me</span>
+      <span class="profile_title">Recommendations <%= link_to_add_fields("+Add", p, :recommendations, "aboutme") %></span>
       <hr class="section_seperator" align="right" width="310px">
       <br/>
-      <div class="list_recommendations">
+      <div id="list_recommendations">
         <%= p.fields_for :recommendations do |r| %>
           <%= render "shared/profile_aboutme_recommendations", :f => r %>
         <% end %>
-        <div class="one_recommendation_to_add">
-          <%= link_to_add_fields(image_tag("/images/button_add_recommendation.png"), p, :recommendations, "aboutme") %>
-        </div>  
       </div>
     </div>
 </div>

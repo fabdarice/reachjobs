@@ -1,0 +1,50 @@
+<div class="workexperience_fieldsremovable">
+  <%= f.hidden_field :position, :value => @workexperience_position %>
+  <%= f.hidden_field :visible %>
+    
+  <div class="one_section_header">
+        Work
+        <%= link_to_remove_fields(image_tag("/images/ico_delete.png", :alt => "Delete", :title => "Delete"), f, "workexperience_fieldsremovable") %>
+        <%= link_to_function(image_tag("/images/ico_move_up.png", :alt => "Move Up", :title => "Move up"), "move_higher(this, 'workexperience_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_move_down.png", :alt => "Move Down", :title => "Move down"), "move_lower(this, 'workexperience_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_view.png", :alt => "Display/Hide", :title => "Display/Hide"), "set_visibility(this, 'workexperience_fieldsremovable')") %>
+  </div>
+
+  <div class="one_section_content <% if f.object.visible %>visible<% else %>not_visible<% end %>">
+      
+      
+        
+      <div class="one_section_content_part_left">
+        <%= f.fields_for :company do |company|%>
+            <%= company.label :nam, "Company" %> : <%= company.text_field :name, :placeholder => "Name of the company" %>
+        <% end %>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          <%= f.label :job_title, "Position" %> : <%= f.text_field :job_title, :placeholder => "Name of your occupied position" %><br>    
+        <%= f.label :mission_title, "Activities" %> : <%= f.text_field :mission_title, :size => "85px", :placeholder => "Company's activities/Job's activities" %><br>
+        <%= f.label :country %> : <%= f.text_field :country, :placeholder => "Country location" %> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= f.label :city %> : <%= f.text_field :city, :placeholder => "City location" %><br>
+        
+        <span class="like_label">Time period</span> : From <%= f.date_select :start_date, :discard_day => true, :order => [:month, :year] %> To <%= f.date_select :end_date, :discard_day => true, :order => [:month, :year], :include_blank => true %><br>
+        <%= f.label :mission_description, "Description" %> : <br><%= f.text_area :mission_description, :placeholder => "Describe the context, the activities, the responsiblities given and the achievements", :rows => "5", :cols => "71"  %>
+        
+          <div class="list_of_skills">
+            <%= f.fields_for :skills do |s| %>
+                <%= render "shared/profile_resume_skills",  :f => s %>
+            <% end %>
+          
+            <div class="one_skill_caterogy_to_add">
+                Add a related skill : <%= text_field_tag 'new_skill', nil, :class => "skill_autocomplete", :placeholder => "Enter skill name" %>
+                <%= link_to_add_skill_to_category(image_tag("/images/button_add.png"), f, :skills) %>
+            </div>  
+          </div>
+      </div>
+      <div class="one_section_content_part_right">
+        <% if f.object.avatar? %>
+              <%= image_tag f.avatar.url(:thumb) %>
+      <% else %>
+          <%= image_tag ("/images/ico_unknown_project.png") %>
+      <% end %><br>
+      <em>Change my company picture</em> :
+          <%= f.file_field :avatar %><br>  
+      </div>    
+  </div>  
+</div>
