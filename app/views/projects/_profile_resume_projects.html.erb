@@ -1,0 +1,43 @@
+<div class="project_fieldsremovable">
+  <%= f.hidden_field :position, :value => @project_position %>
+  <%= f.hidden_field :visible %>
+    
+  <div class="one_section_header">
+        Project - <%= f.text_field :name, :class => "one_section_readonly", :readonly => true %>
+        <%= link_to_remove_fields(image_tag("/images/ico_delete.png", :alt => "Delete", :title => "Delete"), f, "project_fieldsremovable") %>
+        <%= link_to_function(image_tag("/images/ico_move_up.png", :alt => "Move Up", :title => "Move up"), "move_higher(this, 'project_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_move_down.png", :alt => "Move Down", :title => "Move down"), "move_lower(this, 'project_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_view.png", :alt => "Display/Hide", :title => "Display/Hide"), "set_visibility(this, 'project_fieldsremovable')") %>
+  </div>
+
+  <div class="one_section_content <% if f.object.visible %>visible<% else %>not_visible<% end %>">
+      <div class="one_section_content_part_left">
+        <% if f.object.avatar? %>
+              <%= image_tag f.object.avatar.url(:small) %>
+      <% else %>
+          <%= image_tag ("/images/ico_unknown_project.png") %>
+      <% end %><br><br>
+      <em>Change my project picture</em> :
+          <%= f.file_field :avatar %><br>  
+      </div> 
+      
+        
+      <div class="one_section_content_part_right">
+        <%= f.label :name, "Project Name" %> : <%= f.text_field :name, :placeholder => "Name of the project" %><br>    
+        <%= f.label :headline, "Project Headline" %> : <%= f.text_field :headline, :size => "70px", :placeholder => "Enter the project headline" %><br>
+        <%= f.label :description, "Project Description" %> : <br><%= f.text_area :description, :placeholder => "Enter the description of the project", :rows => "5", :cols => "79"  %>
+        
+          <div class="list_of_skills">
+            <%= f.fields_for :skills do |s| %>
+                <%= render "skills/profile_resume_skills",  :f => s %>
+            <% end %>
+          
+            <div class="one_skill_caterogy_to_add">
+                Add a related skill : <%= text_field_tag 'new_skill', nil, :class => "skill_autocomplete", :placeholder => "Enter skill name" %>
+                <%= link_to_add_skill_to_category(image_tag("/images/button_add.png"), f, :skills) %>
+            </div>  
+          </div>
+      </div>
+         
+  </div>  
+</div>

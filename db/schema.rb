@@ -11,12 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121018185131) do
+ActiveRecord::Schema.define(:version => 20121020150509) do
 
-  create_table "companies", :force => true do |t|
+  create_table "hobbies", :force => true do |t|
+    t.integer  "profile_id"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "description"
+    t.boolean  "visible",     :default => true
+    t.integer  "position"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "languages", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "name"
+    t.string   "level"
+    t.string   "additional_information"
+    t.boolean  "visible",                :default => true
+    t.integer  "position"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "profiles", :force => true do |t|
@@ -34,6 +49,29 @@ ActiveRecord::Schema.define(:version => 20121018185131) do
     t.datetime "photo_updated_at"
   end
 
+  create_table "projects", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "name"
+    t.string   "headline"
+    t.string   "description"
+    t.boolean  "visible",             :default => true
+    t.integer  "position"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  create_table "projects_skills", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "skill_id"
+  end
+
+  add_index "projects_skills", ["project_id", "skill_id"], :name => "index_projects_skills_on_project_id_and_skill_id"
+  add_index "projects_skills", ["skill_id", "project_id"], :name => "index_projects_skills_on_skill_id_and_project_id"
+
   create_table "recommendations", :force => true do |t|
     t.integer  "profile_id"
     t.text     "content"
@@ -41,6 +79,21 @@ ActiveRecord::Schema.define(:version => 20121018185131) do
     t.string   "relation"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "schools", :force => true do |t|
+    t.integer  "profile_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "name"
+    t.string   "city"
+    t.string   "country"
+    t.string   "degree"
+    t.string   "field_study"
+    t.boolean  "visible",     :default => true
+    t.integer  "position"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "skillcategories", :force => true do |t|
@@ -73,8 +126,13 @@ ActiveRecord::Schema.define(:version => 20121018185131) do
     t.string   "viadeo_link"
     t.string   "twitter_link"
     t.string   "reachjobs_link"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "skype_link"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -101,7 +159,7 @@ ActiveRecord::Schema.define(:version => 20121018185131) do
     t.integer  "profile_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "company_id"
+    t.string   "company"
     t.string   "job_title"
     t.string   "city"
     t.string   "country"
@@ -116,5 +174,13 @@ ActiveRecord::Schema.define(:version => 20121018185131) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
+  create_table "workexperiences_skills", :id => false, :force => true do |t|
+    t.integer "workexperience_id"
+    t.integer "skill_id"
+  end
+
+  add_index "workexperiences_skills", ["skill_id", "workexperience_id"], :name => "index_workexperiences_skills_on_skill_id_and_workexperience_id"
+  add_index "workexperiences_skills", ["workexperience_id", "skill_id"], :name => "index_workexperiences_skills_on_workexperience_id_and_skill_id"
 
 end

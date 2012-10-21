@@ -35,56 +35,7 @@ a:hover {
   color: $my_orange;
 }
 
-#header_no_width {
-  /*background-image: url('/images/header_with_logo_repeat.png');*/
-  /*background-position:  center center;*/
-  background-color: $my_blue;
-  background-repeat: repeat-x;
-  height: 36px;
-  #header_real_width {
-    width: 900px;
-    height: 36px;
-    /*border: 1px solid red;*/
-    margin: auto;
-    
-    .header_text {
-    /*position: relative;
-    left: 600px;*/
-    float: right;
-    padding-right: 10px;
-    padding-top : 10px;
-    display: inline-block;
-    font-family: "Verdana";
-    font-size: 11px;
-    }
-  }
-}
 
- 
-
-#header_menu_no_width {
-
-  /*background-image: url('/images/header_menu_repeat.png');*/
-  /*background-position:  center center;*/
-  background-repeat: repeat-x;
-  background-color: $my_second_blue;
-  border-top: 0.07em solid #1E8F9E;
-/*  width: 2000px; */
-  height: 115px;
-
-  #header_menu_real_width {
-    width: 900px;
-    height: 40px;
-    /*border: 1px solid blue;*/
-    margin:auto;
-    /*background-image: url('/images/header_menu_searchbar.png');*/
-    background-repeat: none;
-
-    #logo {
-      margin: 10px;
-    }
-  }
-}
 
 #main_content {
   position: relative;
@@ -175,17 +126,4 @@ a:hover {
   
 
 
-hr {
-  border: 0.07em solid rgb(243, 243, 243);
-}
-
-
-#footer {
-  font-family: "klavika-web",sans-serif;
-  font-size: 10px;
-  color: grey;
-  text-align: right;
-  margin: auto;
-  padding-right: 25px;
-}
 

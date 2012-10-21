@@ -5,13 +5,16 @@
 @import "shared_color";
 
 #profile_save_or_view {
-  position: relative;
+  position: fixed;
+  bottom: 0;
   width: 900px;
-  height: 50px;
-  background-color : $body_background;
+  height: 40px;
+  background-color : lighten($my_orange, 40%);
+  /*border-top : 1px solid lighten($my_orange, 30%);*/
   vertical-align: middle;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  z-index:7;
+  /*border-top-left-radius: 5px;
+  border-top-right-radius: 5px;*/
 
 
   .profile_header_flash {
@@ -28,17 +31,16 @@
     display: inline;
     text-align: right;
     float: right;
-    margin-top: 10px;
     vertical-align: middle;
-  }
-
-  
+    margin-top: 5px;
+  } 
 }
+
 
 #profile_header {
   width: 900px;
-  background-color: lighten($my_orange, 47%);
-  border-top: 1px solid lighten($my_orange, 40%);;
+  background-color: lighten($my_orange, 40%);
+  border-top: 1px solid lighten($my_orange, 30%);;
   /*border-bottom: 1px solid $my_orange;*/
   height: 250px;
   position: relative;
@@ -111,7 +113,7 @@
   width: 900px;
   height: 40px;
   /*border-top: 1px solid $my_orange  ;*/
-  background-color: lighten($my_orange, 47%);
+  background-color: lighten($my_orange, 40%);
 
   .one_tab_empty {
     display: inline-block;
@@ -156,6 +158,19 @@
   }
 }
 
+#anchor_tab {  
+  
+  margin-bottom: 20px;
+  overflow: hidden;
+
+  .one_anchor {
+    height: 35px;
+    width: 142px;
+    float: left;
+    border-left: 1px solid darken($body_background, 30%);
+  }
+}
+
 #profile_content {
   width: 860px;
   margin: 20px;
@@ -166,7 +181,7 @@
   .profile_title {
     position: relative;
     color: $my_blue;
-    font-size: 22px;
+    font-size: 18px;
     font-family: "klavika-web",sans-serif;
     font-weight: bold;
 
@@ -260,6 +275,14 @@ hr.content_separator {
   width: 847px;
   padding-left: 10px;
 
+  .one_section_readonly {
+    border: none;
+    background-color: $body_background;
+    font-size: 15px;
+    font-family:"klavika-web",sans-serif;
+    color: $my_orange;
+  }
+
   img {
     vertical-align: middle;
     float: right;
@@ -282,12 +305,12 @@ hr.content_separator {
 
   label {
     color: $my_second_blue;
-    font-weight: bold;
+    
   }
 
   .like_label {
     color: $my_second_blue;
-    font-weight: bold;
+    
   }
 }
 

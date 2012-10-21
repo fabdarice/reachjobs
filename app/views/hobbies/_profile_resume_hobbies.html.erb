@@ -1,0 +1,18 @@
+<div class="hobby_fieldsremovable">
+  <%= f.hidden_field :position, :value => @hobby_position %>
+  <%= f.hidden_field :visible %>
+    
+  <div class="one_section_header">
+        Hobby - <%= f.text_field :name, :class => "one_section_readonly", :readonly => true %>
+        <%= link_to_remove_fields(image_tag("/images/ico_delete.png", :alt => "Delete", :title => "Delete"), f, "hobby_fieldsremovable") %>
+        <%= link_to_function(image_tag("/images/ico_move_up.png", :alt => "Move Up", :title => "Move up"), "move_higher(this, 'hobby_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_move_down.png", :alt => "Move Down", :title => "Move down"), "move_lower(this, 'hobby_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_view.png", :alt => "Display/Hide", :title => "Display/Hide"), "set_visibility(this, 'hobby_fieldsremovable')") %>
+  </div>
+
+  <div class="one_section_content <% if f.object.visible %>visible<% else %>not_visible<% end %>">
+      
+    <%= f.label :name, "Hobby Category" %> : <%= f.text_field :name, :placeholder => "e.g. Music, Association, Sports ..." %><br>
+    <%= f.label :description %> :<br> <%= f.text_area :description, :rows => "5", :cols => "100", :placeholder => "Describe the activites surrounding this hobby, if you are in any entity." %><br><br>         
+  </div>  
+</div>

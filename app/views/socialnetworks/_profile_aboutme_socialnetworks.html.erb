@@ -1,0 +1,18 @@
+<%= p.fields_for :socialnetwork do |s| %>
+        <strong>Resume</strong> :
+        <% if s.object.resume? %>
+              <%= link_to s.object.resume_file_name, s.object.resume.url(:original, false) %>
+        <% else %>
+              <em>No Resume found, upload one</em>
+        <% end %> 
+        <br>
+        <%= s.file_field :resume %><br><br>
+        <ul>
+          <li><%= image_tag "/images/ico_twitter.png" %>  <%= s.text_field :twitter_link, :placeholder => "Enter your Twitter public account" %></li>
+          <li><%= image_tag "/images/ico_facebook.png" %>  <%= s.text_field :facebook_link, :placeholder => "Enter your Facebook public account" %></li>
+          <li><%= image_tag "/images/ico_linkedin.png" %>  <%= s.text_field :linkedin_link, :placeholder => "Enter your Linkedin public account"  %></li>
+          <li><%= image_tag "/images/ico_viadeo.png" %>  <%= s.text_field :viadeo_link, :placeholder => "Enter your Viadeo public account" %></li>   
+          <li><%= image_tag "/images/ico_reachjobs.png" %>  <%= s.text_field :reachjobs_link, :placeholder => "Enter your ReachJobs public account" %></li>
+          <li><%= image_tag "/images/ico_skype.png" %>  <%= s.text_field :skype_link, :placeholder => "Enter your Skype account" %></li>
+        </ul>
+<% end %>  

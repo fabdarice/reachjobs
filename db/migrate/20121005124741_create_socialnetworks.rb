@@ -7,6 +7,7 @@ class CreateSocialnetworks < ActiveRecord::Migration
       t.string :viadeo_link
       t.string :twitter_link
       t.string :reachjobs_link
+      t.string :skype_link
       t.timestamps
     end
   end

@@ -3,7 +3,7 @@
 <head>
   <title>Reachjobs</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "jquery-1.8.2.min.js", "jquery.autocomplete.js", "application" %>
+  <%= javascript_include_tag "jquery-1.8.2.min.js", "jquery.autocomplete.js","jquery.scrollTo-1.4.3.1-min", "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 </head>
@@ -25,12 +25,41 @@
       </div>
 
       <div id="header_menu_no_width">
-        
           <div id="header_menu_real_width">
             <div id="logo">
               <%= link_to image_tag("/images/reachjobs_logo.png"), root_path %>
             </div>
-            
+            <div id="menu_bar">
+              <% if current_page?(root_path) %>
+                <div class="one_menu"><%= link_to image_tag("/images/menu_home_hover.png", :mouseover => "/images/menu_home_hover.png"), root_path %> </div>
+              <% else %>
+                <div class="one_menu"><%= link_to image_tag("/images/menu_home.png", :mouseover => "/images/menu_home_hover.png"), root_path %> </div>
+              <% end %>
+              
+              <% if user_signed_in? %>
+                <% if current_user.profile %>
+                    <% if current_page?(edit_user_profile_path(current_user)) %>
+                        <div class="one_menu"><%= link_to image_tag("/images/menu_my_profile_hover.png", :mouseover => "/images/menu_my_profile_hover.png"), edit_user_profile_path(current_user) %> </div>
+                    <% else %>
+                        <div class="one_menu"><%= link_to image_tag("/images/menu_my_profile.png", :mouseover => "/images/menu_my_profile_hover.png"), edit_user_profile_path(current_user) %> </div>
+                    <% end %>    
+                <% else %>
+                    <% if current_page?(edit_user_profile_path(current_user)) %>
+                        <div class="one_menu"><%= link_to image_tag("/images/menu_my_profile_hover.png", :mouseover => "/images/menu_my_profile_hover.png"), new_user_profile_path(current_user) %> </div>
+                    <% else %>
+                        <div class="one_menu"><%= link_to image_tag("/images/menu_my_profile.png", :mouseover => "/images/menu_my_profile_hover.png"), new_user_profile_path(current_user) %> </div>
+                    <% end %>    
+                <% end %>    
+              <% else %>
+                  <% if current_page?(new_user_session_path) %>
+                    <div class="one_menu"><%= link_to image_tag("/images/menu_sign_in_hover.png", :mouseover => "/images/menu_sign_in_hover.png"), new_user_session_path %> </div>
+                  <% else %>
+                    <div class="one_menu"><%= link_to image_tag("/images/menu_sign_in.png", :mouseover => "/images/menu_sign_in_hover.png"), new_user_session_path %> </div>
+                  <% end %>    
+              <% end %>  
+              <div class="one_menu"><%= link_to image_tag("/images/menu_about.png", :mouseover => "/images/menu_about_hover.png"), root_path %> </div>
+              <div class="one_menu"><%= link_to image_tag("/images/menu_contact.png", :mouseover => "/images/menu_contact_hover.png"), root_path %> </div>    
+            </div>
           </div>
       </div>
 

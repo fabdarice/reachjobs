@@ -1,0 +1,22 @@
+<div class="school_fieldsremovable">
+  <%= f.hidden_field :position, :value => @school_position %>
+  <%= f.hidden_field :visible %>
+    
+  <div class="one_section_header">
+        School - <%= f.text_field :name, :class => "one_section_readonly", :readonly => true %>
+        <%= link_to_remove_fields(image_tag("/images/ico_delete.png", :alt => "Delete", :title => "Delete"), f, "school_fieldsremovable") %>
+        <%= link_to_function(image_tag("/images/ico_move_up.png", :alt => "Move Up", :title => "Move up"), "move_higher(this, 'school_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_move_down.png", :alt => "Move Down", :title => "Move down"), "move_lower(this, 'school_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_view.png", :alt => "Display/Hide", :title => "Display/Hide"), "set_visibility(this, 'school_fieldsremovable')") %>
+  </div>
+
+  <div class="one_section_content <% if f.object.visible %>visible<% else %>not_visible<% end %>">
+      
+    <%= f.label :name, "School Name" %> : <%= f.text_field :name %><br>
+    <%= f.label :field_study, "Field of study" %> : <%= f.text_field :field_study, :size => "60px" %><br>
+    <%= f.label :degree, "Degree obtained" %> : <%= f.text_field :degree %><br>
+    <%= f.label :country %> : <%= f.text_field :country %>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.label :city %> : <%= f.text_field :city %><br>
+    <span class="like_label">Time period</span> : From <%= f.date_select :start_date, :start_year => Time.now.year - 40, :end_year => Time.now.year ,:order => [:year] %> To <%= f.date_select :end_date, :start_year => Time.now.year - 40, :end_year => Time.now.year, :order => [:year], :include_blank => true %><br><br>         
+  </div>  
+</div>

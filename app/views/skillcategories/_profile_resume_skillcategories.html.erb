@@ -1,0 +1,28 @@
+<div class="skillcategory_fieldsremovable">
+  <%= f.hidden_field :position, :value => @category_position %>
+  <%= f.hidden_field :visible %>
+    
+  <div class="one_section_header">
+        Skills Category - <%= f.text_field :category_name, :class => "one_section_readonly", :readonly => true %>
+        <%= link_to_remove_fields(image_tag("/images/ico_delete.png", :alt => "Delete", :title => "Delete Skill Category"), f, "skillcategory_fieldsremovable") %>
+        <%= link_to_function(image_tag("/images/ico_move_up.png", :alt => "Move Up", :title => "Move up"), "move_higher(this, 'skillcategory_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_move_down.png", :alt => "Move Down", :title => "Move down"), "move_lower(this, 'skillcategory_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_view.png", :alt => "Display/Hide", :title => "Display/Hide"), "set_visibility(this, 'skillcategory_fieldsremovable')") %>
+  </div>
+
+      <div class="one_section_content <% if f.object.visible %>visible<% else %>not_visible<% end %>">
+          <%= f.label :category_name, "Skill Category" %> : <%= f.text_field :category_name, :size => "50px", :placeholder => "Enter a skill category name" %>
+          <br/>
+          <br/>
+          <div class="list_of_skills">
+            <%= f.fields_for :skills do |s| %>
+                <%= render "skills/profile_resume_skills",  :f => s %>
+            <% end %>
+          
+            <div class="one_skill_caterogy_to_add">
+                Add a new skill : <%= text_field_tag 'new_skill', nil, :class => "skill_autocomplete", :placeholder => "Enter skill name" %>
+                <%= link_to_add_skill_to_category(image_tag("/images/button_add.png"), f, :skills) %>
+            </div>  
+          </div>
+      </div>  
+</div>

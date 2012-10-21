@@ -1,0 +1,20 @@
+<div class="language_fieldsremovable">
+  <%= f.hidden_field :position, :value => @school_position %>
+  <%= f.hidden_field :visible %>
+    
+  <div class="one_section_header">
+        Language - <%= f.text_field :name, :class => "one_section_readonly", :readonly => true %>
+        <%= link_to_remove_fields(image_tag("/images/ico_delete.png", :alt => "Delete", :title => "Delete"), f, "language_fieldsremovable") %>
+        <%= link_to_function(image_tag("/images/ico_move_up.png", :alt => "Move Up", :title => "Move up"), "move_higher(this, 'language_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_move_down.png", :alt => "Move Down", :title => "Move down"), "move_lower(this, 'language_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_view.png", :alt => "Display/Hide", :title => "Display/Hide"), "set_visibility(this, 'language_fieldsremovable')") %>
+  </div>
+
+  <div class="one_section_content <% if f.object.visible %>visible<% else %>not_visible<% end %>">
+      
+    <%= f.label :name, "Language" %> : <%= f.text_field :name %><br>
+   
+    <%= f.label :level %> : <%= f.text_field :level %><br>
+    <%= f.label :additional_information, "Additional Information" %> : <%= f.text_field :additional_information, :size => "80px", :placeholder => "e.g. certificates obtained" %><br><br>         
+  </div>  
+</div>

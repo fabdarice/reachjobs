@@ -7,7 +7,11 @@ function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g");
   $('#list_' + association).append(content.replace(regexp, new_id));
-  $('#list_' + association).find('input[type=hidden][name*="position"]').last().attr('value', new_id);
+  $('#list_' + association).children(":last").find('input[type=hidden][name*="position"]').attr('value', new_id);
+  $.scrollTo($('#list_' + association).children(":last"), 800);
+  $('#list_' + association).children(":last").find('.one_section_content').find('input[type=text]').first().focus();
+  $('#list_' + association).children(":last").find('.skill_autocomplete').autocomplete({lookup:list_of_skills});
+
 }
 
 function tab_to_display(tabname) {
@@ -69,10 +73,16 @@ function add_skill_to_category(link, association, content) {
   }
   else {
     var new_id = new Date().getTime();
-    var regexp = new RegExp("new_" + association, "g")
+    var regexp = new RegExp("new_" + association, "g");
 
     $(link).parent().before(content.replace(regexp, new_id));
     $(link).parent().siblings(":last").find('input.input_skill').attr('value', skillname);
     $(link).parent().siblings(":last").find('input.input_skill').attr('size', skillname.length);  
   }  
+}
+
+
+function go_to_anchor(link_number) {
+  $.scrollTo($('#profile_resume').find('.profile_title').eq(link_number), 800);
+
 }

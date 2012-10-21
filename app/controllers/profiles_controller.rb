@@ -4,7 +4,6 @@ class ProfilesController < ApplicationController
   def new
     @profile = Profile.new
     @profile.socialnetwork = Socialnetwork.new
-    @profile = current_user.profile
     @skills = Skill.pluck(:skill_name)
     @skills.map {|skill| skill}.join(',')
   end

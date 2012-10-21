@@ -4,7 +4,7 @@ class CreateWorkexperiences < ActiveRecord::Migration
       t.references :profile
       t.date :start_date
       t.date :end_date
-      t.references :company
+      t.string :company
       t.string :job_title
       t.string :city
       t.string :country
