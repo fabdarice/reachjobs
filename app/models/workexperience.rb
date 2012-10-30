@@ -9,6 +9,8 @@ class Workexperience < ActiveRecord::Base
   accepts_nested_attributes_for :skills, allow_destroy: true, reject_if: ->(a) { a[:skill_name].blank? }
 
   has_attached_file :avatar, :styles => {:small => "150x130#"}
+  validates_attachment_content_type :avatar, :content_type => ['image/png', 'image/jpg', 'image/jpeg'], :message => "File type is not allowed (only .jpg or .png)."
+  validates_attachment :avatar, :size => {:in => 0..4.megabytes, :message => "File must be less than 4MB."}
   before_save :create_only_if_not_exist
     
   protected

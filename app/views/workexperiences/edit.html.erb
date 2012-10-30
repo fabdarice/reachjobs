@@ -22,10 +22,7 @@
     <%= f.label :company %> :<br> <%= f.text_field :company, :size => "70px", :placeholder => "Company name" %><br>
     <span class="field_error_msg"><%= display_error(@workexperience, 'company') %></span><br>
     
-    <span class="like_label">Upload the company picture (.png or .jpg - 150x130) :</span> <br>
-    <%= f.file_field :avatar %><br><br>
-
-    <%= f.label :job_title, "Position occupied" %> :<br> <%= f.text_field :job_title, :size => "70px", :placeholder => "e.g. Web Developer, Project Manager, Director, ..." %><br> 
+     <%= f.label :job_title, "Position occupied" %> :<br> <%= f.text_field :job_title, :size => "70px", :placeholder => "e.g. Web Developer, Project Manager, Director, ..." %><br> 
     <span class="field_error_msg"><%= display_error(@workexperience, 'job_title') %></span><br>
 
     <%= f.label :city %> : <br><%= f.text_field :city, :placeholder => "City location" %><br>
@@ -39,7 +36,7 @@
      From <%= f.date_select :start_date, :start_year => Time.now.year - 40, :end_year => Time.now.year ,:discard_day => true, :order => [:month, :year] %> To <%= f.date_select :end_date, :start_year => Time.now.year - 40, :end_year => Time.now.year, :discard_day => true, :order => [:month, :year], :include_blank => true %><br>
     <span class="field_error_msg"><%= display_error(@workexperience, 'start_date') %></span><br>
 
-    <%= f.label :mission_description, "Description" %> : <br><%= f.text_area :mission_description, :placeholder => "Describe the context, the activities, the responsabilities given and the achievements", :rows => "15", :cols => "51"  %>
+    <%= f.label :mission_description, "Description" %> : <br><%= f.text_area :mission_description, :placeholder => "Describe the context, the activities, the responsabilities given and the achievements", :rows => "10", :cols => "51"  %>
     <span class="field_error_msg"><%= display_error(@workexperience, 'mission_description') %></span><br>
 
 
@@ -56,6 +53,13 @@
           <%= link_to_add_skill_to_category(image_tag("/images/button_add.png"), f, :skills) %>
       </div>  
     </div>  
+
+     <span class="like_label">Upload the company picture (png, jpg - Max 4MB - 150x130) :</span> <br>
+    <%= f.file_field :avatar %><br>
+    <span class="field_error_msg"><%= display_error(@workexperience, 'avatar_content_type') %></span><br>
+    <span class="field_error_msg"><%= display_error(@workexperience, 'avatar_file_size') %></span><br>
+
+  
 
     <div class="edit_submit_field">
           <%= link_to image_tag("/images/button_cancel.png", 

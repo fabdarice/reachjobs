@@ -56,19 +56,11 @@ $(document).ready(function() {
               <% end %>
               
               <% if user_signed_in? %>
-                <% if current_user.profile %>
-                    <% if current_page?(edit_user_profile_path(current_user)) %>
-                        <div class="one_menu"><%= link_to image_tag("/images/menu_my_profile_hover.png", :mouseover => "/images/menu_my_profile_hover.png"), edit_user_profile_path(current_user) %> </div>
-                    <% else %>
-                        <div class="one_menu"><%= link_to image_tag("/images/menu_my_profile.png", :mouseover => "/images/menu_my_profile_hover.png"), edit_user_profile_path(current_user) %> </div>
-                    <% end %>    
-                <% else %>
-                    <% if current_page?(edit_user_profile_path(current_user)) %>
-                        <div class="one_menu"><%= link_to image_tag("/images/menu_my_profile_hover.png", :mouseover => "/images/menu_my_profile_hover.png"), new_user_profile_path(current_user) %> </div>
-                    <% else %>
-                        <div class="one_menu"><%= link_to image_tag("/images/menu_my_profile.png", :mouseover => "/images/menu_my_profile_hover.png"), new_user_profile_path(current_user) %> </div>
-                    <% end %>    
-                <% end %>    
+                  <% if current_page?(show_edit_user_profile_path(current_user)) %>
+                      <div class="one_menu"><%= link_to image_tag("/images/menu_my_profile_hover.png", :mouseover => "/images/menu_my_profile_hover.png"), show_edit_user_profile_path(current_user) %> </div>
+                  <% else %>
+                      <div class="one_menu"><%= link_to image_tag("/images/menu_my_profile.png", :mouseover => "/images/menu_my_profile_hover.png"), show_edit_user_profile_path(current_user) %> </div>
+                  <% end %>       
               <% else %>
                   <% if current_page?(new_user_session_path) %>
                     <div class="one_menu"><%= link_to image_tag("/images/menu_sign_in_hover.png", :mouseover => "/images/menu_sign_in_hover.png"), new_user_session_path %> </div>

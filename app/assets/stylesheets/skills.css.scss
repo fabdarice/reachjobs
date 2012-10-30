@@ -6,11 +6,12 @@
 
 .list_of_skills_container {
   width: 370px;
-  height: 150px;
+  min-height: 20px;
   border: 1px ridge darken(#C4C4C4, 5%);
   background-color: white;
   margin-top: 5px;
   padding: 3px;
+  overflow: auto;
 }
 
 

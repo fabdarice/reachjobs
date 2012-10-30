@@ -16,15 +16,12 @@
 
   <%= form_for @project, :url => user_profile_projects_path do |f| %>
     <%= f.label :name, "Project Name" %> :<br> <%= f.text_field :name, :size => "70px", :placeholder => "Project name" %><br>
-    <span class="field_error_msg"><%= display_error(@project, 'name') %></span><br>
-    
-    <span class="like_label">Upload project picture (.png or .jpg - 150x130) :</span> <br>
-    <%= f.file_field :avatar %><br><br>
+    <span class="field_error_msg"><%= display_error(@project, 'name') %></span><br>  
 
     <%= f.label :headline, "Project Headline" %> :<br> <%= f.text_field :headline, :size => "70px", :placeholder => "e.g. 'Free Online Resume and Portfolio creator', ''" %><br> 
     <span class="field_error_msg"><%= display_error(@project, 'headline') %></span><br>
 
-    <%= f.label :description, "Description" %> : <br><%= f.text_area :description, :placeholder => "Project description", :rows => "15", :cols => "51"  %><br>
+    <%= f.label :description, "Description" %> : <br><%= f.text_area :description, :placeholder => "Project description", :rows => "10", :cols => "51"  %><br>
     <span class="field_error_msg"><%= display_error(@project, 'description') %></span><br>
 
 
@@ -41,6 +38,12 @@
           <%= link_to_add_skill_to_category(image_tag("/images/button_add.png"), f, :skills) %>
       </div>  
     </div>  
+
+    <span class="like_label">Upload project picture (png, jpg - Max 4MB - 150x130) :</span> <br>
+    <%= f.file_field :avatar %><br>
+    <span class="field_error_msg"><%= display_error(@project, 'avatar_content_type') %></span><br>
+    <span class="field_error_msg"><%= display_error(@project, 'avatar_file_size') %></span><br>
+  
 
     <div class="edit_submit_field">
           <%= link_to image_tag("/images/button_cancel.png", 

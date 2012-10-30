@@ -3,4 +3,5 @@ class Socialnetwork < ActiveRecord::Base
 
   belongs_to :profile
   has_attached_file :resume, :styles => {:small => {:geometry => "122x150#", :format => :png} }
+
 end

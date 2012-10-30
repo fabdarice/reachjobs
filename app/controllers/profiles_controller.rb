@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
   respond_to :html, :xml, :json
+  before_filter :authenticate_user!, :except => [:show]
+
 
   def show_edit
     if current_user.profile 
@@ -9,7 +11,6 @@ class ProfilesController < ApplicationController
       @profile.save
     end
   end
-
 
   def edit
     @profile = current_user.profile
@@ -26,7 +27,7 @@ class ProfilesController < ApplicationController
       redirect_to show_edit_user_profile_path(current_user)
     else
       flash[:error] = "Error while saving the modifications."  
-      render "edit"
+      render 'edit'
     end 
   end
 

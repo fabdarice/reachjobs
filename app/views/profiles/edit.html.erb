@@ -16,9 +16,9 @@
           <%= p.text_area :about_me_description, :size => "50x12", :class => "text_field_default", :placeholder => "Enter a description of yourself" %><br><br>
       <span class="like_label">What am I looking for</span><br>
         <%= p.text_area :search_description, :size => "50x12", :placeholder => "Enter an accurate description of what you are looking for (job, location, position, ...)" %><br/><br>
-      <span class="like_label">Upload your profile picture (.png or .jpg - 150x150) :</span> <br>
+      <span class="like_label">Upload your profile picture (png, jpg - Max 4MB - 150x150) :</span> <br>
       <%= p.file_field :photo %><br><br>
-
+      <span class="field_error_msg"><%= display_error(@profile, 'photo') %></span><br>
       <div class="edit_submit_field">
           <%= link_to image_tag("/images/button_cancel.png", 
                   :mouseover => "/images/button_cancel_hover.png"), show_edit_user_profile_path(current_user) %>         

@@ -16,13 +16,4 @@ class Profile < ActiveRecord::Base
 
   has_attached_file :photo, :styles => {:small => "130x130#"}
 
-#  accepts_nested_attributes_for :recommendations, :allow_destroy => true, :reject_if => lambda { |a| a[:content].blank? || a[:author].blank? }
- # accepts_nested_attributes_for :socialnetwork, :allow_destroy => true
-  #accepts_nested_attributes_for :skillcategories, :allow_destroy => true, :reject_if => lambda { |a| a[:category_name].blank? }
-  #accepts_nested_attributes_for :workexperiences, :allow_destroy => true, :reject_if => lambda { |a| a[:company].blank? } 
-  #accepts_nested_attributes_for :projects, :allow_destroy => true, :reject_if => lambda { |a| a[:name].blank? }
-#  accepts_nested_attributes_for :schools, :allow_destroy => true, :reject_if => lambda { |a| a[:name].blank? }
-#  accepts_nested_attributes_for :languages, :allow_destroy => true, :reject_if => lambda { |a| a[:name].blank? }
-#  accepts_nested_attributes_for :hobbies, :allow_destroy => true, :reject_if => lambda { |a| a[:name].blank? }
-#  accepts_nested_attributes_for :galleries, :allow_destroy => true, :reject_if => lambda { |a| a[:name].blank? }
 end
