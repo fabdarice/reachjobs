@@ -1,0 +1,38 @@
+<div class="edit_form">
+<span class="profile_title">Education</span>
+  <hr class="edit_section_seperator" align="left" width="840px">
+  <br/>
+  <% if flash[:error] %>
+    <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span><br><br>
+  <% end %>
+
+  <%= form_for @school, :url => user_profile_school_path do |f| %>
+    <%= f.label :name %> :<br> <%= f.text_field :name, :size => "70px", :placeholder => "School name" %><br>
+    <span class="field_error_msg"><%= display_error(@school, 'name') %></span><br>
+
+    <%= f.label :field_study, "Field of Study" %> :<br> <%= f.text_field :field_study, :size => "70px", :placeholder => "e.g. Computer Science, Economic, Law, ..." %><br> 
+    <span class="field_error_msg"><%= display_error(@school, 'field_study') %></span><br>
+
+    <%= f.label :degree, "Degree obtained" %> :<br> <%= f.text_field :degree, :size => "70px", :placeholder => "e.g. Master's Degree, Bachlor's Degree, ...." %><br> 
+
+    <%= f.label :city %> : <br><%= f.text_field :city, :placeholder => "City location" %><br>
+    <span class="field_error_msg"><%= display_error(@school, 'city') %></span><br>
+
+    <%= f.label :country %> :<br> <%= f.text_field :country, :placeholder => "Country location" %> <br>
+    <span class="field_error_msg"><%= display_error(@school, 'country') %></span><br>
+
+    
+    <span class="like_label">Time period</span> :<br>
+     From <%= f.date_select :start_date, :start_year => Time.now.year - 40, :end_year => Time.now.year ,:discard_day => true, :order => [:month, :year] %> To <%= f.date_select :end_date, :start_year => Time.now.year - 40, :end_year => Time.now.year, :discard_day => true, :order => [:month, :year], :include_blank => true %><br>
+    <span class="field_error_msg"><%= display_error(@school, 'start_date') %></span><br>
+    <br>
+
+    <div class="edit_submit_field">
+          <%= link_to image_tag("/images/button_cancel.png", 
+                  :mouseover => "/images/button_cancel_hover.png"), show_edit_user_profile_path(current_user) %>         
+          <%= image_submit_tag "/images/button_save_changes.png", 
+                  :onmouseover => "this.src='/images/button_save_changes_hover.png'", 
+                  :onmouseout => "this.src='/images/button_save_changes.png'" %>         
+    </div>
+  <% end %>
+</div>    

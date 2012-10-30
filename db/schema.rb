@@ -11,7 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121020150509) do
+ActiveRecord::Schema.define(:version => 20121022203910) do
+
+  create_table "galleries", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "name"
+    t.string   "headline"
+    t.string   "description"
+    t.boolean  "visible",             :default => true
+    t.integer  "position"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  create_table "galleries_skills", :id => false, :force => true do |t|
+    t.integer "gallery_id"
+    t.integer "skill_id"
+  end
+
+  add_index "galleries_skills", ["gallery_id", "skill_id"], :name => "index_galleries_skills_on_gallery_id_and_skill_id"
+  add_index "galleries_skills", ["skill_id", "gallery_id"], :name => "index_galleries_skills_on_skill_id_and_gallery_id"
 
   create_table "hobbies", :force => true do |t|
     t.integer  "profile_id"
@@ -32,6 +55,16 @@ ActiveRecord::Schema.define(:version => 20121020150509) do
     t.integer  "position"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.integer  "gallery_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "profiles", :force => true do |t|

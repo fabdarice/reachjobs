@@ -1,0 +1,57 @@
+<script>
+  var list_of_skills = <%= raw @skills %>
+  $(document).ready(function() {
+    $('.skill_autocomplete').each(function(){
+        $(this).autocomplete({lookup:list_of_skills});
+      });
+
+    $('div.one_skill').find('input').each(function(){ 
+        $(this).attr('size', $(this).val().length); 
+      });
+  });
+</script>
+<div class="edit_form">
+<span class="profile_title">Personal Projects</span>
+  <hr class="edit_section_seperator" align="left" width="840px">
+  <br/>
+  <% if flash[:error] %>
+    <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span><br><br>
+  <% end %>
+
+  <%= form_for @project, :url => user_profile_project_path do |f| %>
+    <%= f.label :name, "Project Name" %> :<br> <%= f.text_field :name, :size => "70px", :placeholder => "Project name" %><br>
+    <span class="field_error_msg"><%= display_error(@project, 'name') %></span><br>
+    
+    <span class="like_label">Upload project picture (.png or .jpg - 150x130) :</span> <br>
+    <%= f.file_field :avatar %><br><br>
+
+    <%= f.label :headline, "Project Headline" %> :<br> <%= f.text_field :headline, :size => "70px", :placeholder => "e.g. 'Free Online Resume and Portfolio creator', ''" %><br> 
+    <span class="field_error_msg"><%= display_error(@project, 'headline') %></span><br>
+
+    <%= f.label :description, "Description" %> : <br><%= f.text_area :description, :placeholder => "Project description", :rows => "15", :cols => "51"  %><br>
+    <span class="field_error_msg"><%= display_error(@project, 'description') %></span><br>
+
+
+    <span class="like_label">Related skills :</span>
+
+    <div class="list_of_skills">
+      <div class="list_of_skills_container">
+        <%= f.fields_for :skills do |s| %>
+            <%= render "skills/profile_resume_skills",  :f => s %>
+        <% end %>
+      </div>
+      <div class="one_skill_caterogy_to_add">
+          <span class="like_label">Add a new skill :</span> <%= text_field_tag 'new_skill', nil, :class => "skill_autocomplete", :placeholder => "Enter skill name" %>
+          <%= link_to_add_skill_to_category(image_tag("/images/button_add.png"), f, :skills) %>
+      </div>  
+    </div>  
+
+    <div class="edit_submit_field">
+          <%= link_to image_tag("/images/button_cancel.png", 
+                  :mouseover => "/images/button_cancel_hover.png"), show_edit_user_profile_path(current_user) %>         
+          <%= image_submit_tag "/images/button_save_changes.png", 
+                  :onmouseover => "this.src='/images/button_save_changes_hover.png'", 
+                  :onmouseout => "this.src='/images/button_save_changes.png'" %>         
+    </div>
+  <% end %>
+</div>    

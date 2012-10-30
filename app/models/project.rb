@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
   attr_accessible :name, :headline, :description, :visible, :position, :avatar
   attr_accessible :skills_attributes
+
+  validates :name, :headline, :description, :presence => { :message => "Field cannot be empty."}
   
   belongs_to :profile
   has_and_belongs_to_many :skills

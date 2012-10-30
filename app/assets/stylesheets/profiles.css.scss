@@ -4,60 +4,22 @@
 
 @import "shared_color";
 
-#profile_save_or_view {
-  position: fixed;
-  bottom: 0;
-  width: 900px;
-  height: 40px;
-  background-color : lighten($my_orange, 40%);
-  /*border-top : 1px solid lighten($my_orange, 30%);*/
-  vertical-align: middle;
-  z-index:7;
-  /*border-top-left-radius: 5px;
-  border-top-right-radius: 5px;*/
-
-
-  .profile_header_flash {
-    display: inline;
-    text-align: left;
-    padding-left: 30px;
-    line-height: 50px;
-    font-size: 14px;
-    font-family: "Verdana";
-    color: black;
-  }
-
-.profile_header_save_view {
-    display: inline;
-    text-align: right;
-    float: right;
-    vertical-align: middle;
-    margin-top: 5px;
-  } 
-}
-
-
 #profile_header {
   width: 900px;
-  background-color: lighten($my_orange, 40%);
   border-top: 1px solid lighten($my_orange, 30%);;
   /*border-bottom: 1px solid $my_orange;*/
   height: 250px;
   position: relative;
-
-  
-
 }
 
 #profile_header_idcard {
-  top: 25px;
-  left: 15px;
+  top: 10px;
+  left: 60px;
 
   position: absolute;
   width: 400px;
   background-color: $background;
-  border: 1px outset lighten($my_orange, 40%);
-  border-radius: 5px;
+  border: 1px outset;
   height : 200px;
 
   #profile_header_idcard_photo {
@@ -65,9 +27,6 @@
     margin-bottom: 23px;
     margin-left : 10px;
     margin-right: 10px;
-    border: 3px ridge white;
-    width: 130px;
-    height: 150px;
     float: left;
   }
 
@@ -82,7 +41,7 @@
       padding: 0;
       margin: 0;
       font-family: "Verdana";
-      font-size: 12px;
+      font-size: 11px;
     }
     img {
       vertical-align: middle;
@@ -95,25 +54,19 @@
       font-weight: bold;
     }
     
+    .profile_headline {
+      font-family: "Verdana";
+      font-size: 13px;
+      color: $my_second_blue;
+    }
   }
 }
 
-
-#profile_header_description {
-  width: 440px;
-  height: 200px;
-  float: right;
-  margin : 25px;
-  font-size: 13px;
-  font-family: "Verdana";
-  color: $my_blue;
-}
 
 #profile_tab {
   width: 900px;
   height: 40px;
   /*border-top: 1px solid $my_orange  ;*/
-  background-color: lighten($my_orange, 40%);
 
   .one_tab_empty {
     display: inline-block;
@@ -185,21 +138,6 @@
     font-family: "klavika-web",sans-serif;
     font-weight: bold;
 
-    a {
-      text-decoration: none;
-      float: right;
-      font-size: 14px;
-      padding-top: 7px;
-    }
-
-
-    a:visited {
-      color: #32B3E6;
-    }
-
-    a:hover {
-      color: $my_orange;
-    }
   } 
 
   .add_section {
@@ -213,6 +151,7 @@
 #profile_aboutme_description {
     width: 520px;
     float: left;
+    text-align: justify;
 }
 
 #profile_aboutme_rightside {
@@ -236,7 +175,7 @@ hr.section_seperator {
 
 hr.content_separator {
   height: 1px;
-  width: 650px;
+  width: 661px;
   background-color: darken($body_background, 10%);
   font-size: 0px;
 }
@@ -264,6 +203,7 @@ hr.content_separator {
 }
 
 
+/*
 .one_section_header {
   font-size: 15px;
   font-family:"klavika-web",sans-serif;
@@ -289,8 +229,9 @@ hr.content_separator {
     padding-right: 5px;
     padding-top: 5px;
   }
-}
+}*/
 
+/*
 .one_section_content {
   position: relative;
   overflow: hidden;
@@ -301,18 +242,10 @@ hr.content_separator {
   margin-bottom: 10px;
   padding-left: 10px;
   padding-top: 10px;
-  width: 847px;  /*background-color: lighten($my_orange, 47%);*/
+  width: 847px;  background-color: lighten($my_orange, 47%);
 
-  label {
-    color: $my_second_blue;
-    
-  }
+} */
 
-  .like_label {
-    color: $my_second_blue;
-    
-  }
-}
 
 .not_visible {
   -moz-opacity:0.2;
@@ -320,3 +253,93 @@ hr.content_separator {
   filter:alpha(opacity=20);
 }
 
+
+.edit_form {
+  margin: 30px;
+  font-size: 12px;
+  font-family: "Verdana";
+
+  label, .like_label {
+    color: $my_second_blue;
+  }
+ 
+  .profile_title {
+    color: $my_blue;
+    font-size: 18px;
+    font-family: "klavika-web",sans-serif;
+    font-weight: bold;
+  }
+
+  .edit_submit_field {
+      text-align: left;
+  }
+
+
+  hr.edit_section_seperator {
+    height: 1px;
+    background-color: $my_blue;
+    font-size: 0px;
+  }
+}
+
+
+.add_edit_link {
+  text-decoration: none;
+  float: right;
+  font-size: 14px;
+  padding-top: 3px;
+  color: $my_orange;
+}
+
+.add_edit_link_smaller, .remote-delete {
+  font-size: 11px;
+  text-decoration: underline;  
+  color: $my_orange;
+  margin-left: 10px;
+}
+
+.add_edit_link:visited, .add_edit_link_smaller:visited, .remote-delete:visited {
+  color: $my_orange;
+  text-decoration: underline;  
+}
+
+.add_edit_link:hover, .add_edit_link_smaller:hover, .remote-delete:hover {
+  color: #32B3E6;
+}
+
+.profile_header_flash {
+  font-size: 11px;
+  color: red;
+}
+
+.highlight {
+  color: #32B3E6;
+}
+
+.title {
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.headline {
+  font-size: 14px;
+  color: $my_blue;
+  font-family: "klavika-web",sans-serif;
+}
+
+.date {
+  color: darken($body_background, 30%);
+}
+
+.left_side {
+  width: 200px;
+  clear: both;
+  float: left;
+  text-transform: uppercase;
+  color: $my_second_blue;
+}
+
+.right_side {
+  float: left;
+  width: 658px;
+}

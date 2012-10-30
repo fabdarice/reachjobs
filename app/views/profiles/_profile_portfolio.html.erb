@@ -1,0 +1,12 @@
+<div id="profile_portfolio">
+    <span class="profile_title">Gallery List <%= link_to_add_fields("+Add Gallery", p, :galleries, "portfolio") %></span>
+    <hr class="section_seperator" align="right" width="900px"><br>
+    <div id="list_galleries">
+        <% @gallery_position = 0 %>
+        <%= p.fields_for :galleries do |f| %>
+            <%= render "galleries/profile_portfolio_galleries",  :f => f %>
+            <% @gallery_position = @gallery_position + 1 %>
+        <% end %>
+    </div>
+    <br/><br>
+</div>

@@ -1,6 +1,10 @@
 class Skillcategory < ActiveRecord::Base
   attr_accessible :category_name, :position, :visible, :skills_attributes
+
+  validates :category_name, :presence => { :message => "Field cannot be empty." }
+
   belongs_to :profile
+
   has_and_belongs_to_many :skills, :uniq => true
   accepts_nested_attributes_for :skills, allow_destroy: true, reject_if: ->(a) { a[:skill_name].blank? }
   before_save :create_only_if_not_exist

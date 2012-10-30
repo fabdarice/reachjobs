@@ -1,8 +1,20 @@
-<div class="recommendation_fieldsremovable">
-  <div class="one_recommendation_header">Recommendation <%= link_to_remove_fields(image_tag("/images/ico_delete.png"), f, "recommendation_fieldsremovable") %></div>
-  <div class="one_recommendation_content">
-    <%= f.label :author %> : <%= f.text_field :author %><br>
-    <%= f.label :relation %> : <%= f.text_field :relation %><br><br>
-    <%= f.label :content, "Recommendation" %> : <%= f.text_area :content, :rows => 5, :cols => 35 %>
-  </div>  
+<div style="clear:both"></div>
+<br><br>
+<span class="profile_title">
+    Recommendations <%= link_to "+ Add", new_user_profile_recommendation_path(current_user), :class => "add_edit_link" %>
+</span>
+<hr class="section_seperator" align="right" width="310px">
+<br/>
+<div id="list_recommendations">
+  <% @profile.recommendations.each do |f| %>
+    <div class="recommendation_fieldsremovable">
+        <span class="author highlight"><%= f.author %></span>  
+          <%= link_to "Edit", edit_user_profile_recommendation_path(current_user, f.id), :class => "add_edit_link_smaller" %>
+          <%= link_to "Delete", user_profile_recommendation_path(current_user, f.id), :class => "remote-delete" %>
+          <br>
+        <span class="relation"> <%= f.relation %></span><br>
+        <span class="content"><%= simple_format(f.content) %></span>
+        <br><hr>
+    </div>
+  <% end %>
 </div>

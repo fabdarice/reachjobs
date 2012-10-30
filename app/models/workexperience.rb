@@ -1,6 +1,8 @@
 class Workexperience < ActiveRecord::Base
   attr_accessible :start_date, :end_date, :visible, :position, :job_title, :city, :country, :mission_title, :mission_description,  :avatar, :company
   attr_accessible :skills_attributes
+
+  validates :start_date, :job_title, :city, :country, :company, :presence => { :message => "Field cannot be empty." }
   
   belongs_to :profile
   has_and_belongs_to_many :skills, :uniq => true, :join_table => "workexperiences_skills"

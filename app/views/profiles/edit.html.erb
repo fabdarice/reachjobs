@@ -1,1 +1,30 @@
-<%= render :partial => "profiles/userprofile", :locals => { :profile => @profile } %>
+<div class="edit_form">
+  <span class="profile_title">Profile Personal Data</span>
+  <hr class="edit_section_seperator" align="left" width="840px">
+  <br/>
+  <% if flash[:error] %>
+    <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span><br><br>
+  <% end %>
+  <%= form_for @profile, :url => user_profile_path do |p| %>
+      <%= p.label :head_description, "Profesional headline : " %><br>
+      <%= p.text_field :head_description, :placeholder => "examples: Web Developer, Web Designer, Photographer, ....", :size => "70px" %><br><br>     
+
+      <%= p.label :phone, "Phone number : " %><br>
+      <%= p.text_field :phone, :placeholder => "Enter your phone number" %><br><br>     
+
+      <span class="like_label">Who am I :</span><br>
+          <%= p.text_area :about_me_description, :size => "50x12", :class => "text_field_default", :placeholder => "Enter a description of yourself" %><br><br>
+      <span class="like_label">What am I looking for</span><br>
+        <%= p.text_area :search_description, :size => "50x12", :placeholder => "Enter an accurate description of what you are looking for (job, location, position, ...)" %><br/><br>
+      <span class="like_label">Upload your profile picture (.png or .jpg - 150x150) :</span> <br>
+      <%= p.file_field :photo %><br><br>
+
+      <div class="edit_submit_field">
+          <%= link_to image_tag("/images/button_cancel.png", 
+                  :mouseover => "/images/button_cancel_hover.png"), show_edit_user_profile_path(current_user) %>         
+          <%= image_submit_tag "/images/button_save_changes.png", 
+                  :onmouseover => "this.src='/images/button_save_changes_hover.png'", 
+                  :onmouseout => "this.src='/images/button_save_changes.png'" %>         
+      </div>
+  <% end %>
+</div>

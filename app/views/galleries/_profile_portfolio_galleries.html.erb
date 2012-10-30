@@ -1,0 +1,54 @@
+<div class="gallery_fieldsremovable">
+  <%= f.hidden_field :position, :value => @gallery_position %>
+  <%= f.hidden_field :visible %>
+    
+  <div class="one_section_header">
+        Gallery - <%= f.text_field :name, :class => "one_section_readonly", :readonly => true %>
+        <%= link_to_remove_fields(image_tag("/images/ico_delete.png", :alt => "Delete", :title => "Delete"), f, "gallery_fieldsremovable") %>
+        <%= link_to_function(image_tag("/images/ico_move_up.png", :alt => "Move Up", :title => "Move up"), "move_higher(this, 'gallery_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_move_down.png", :alt => "Move Down", :title => "Move down"), "move_lower(this, 'gallery_fieldsremovable')") %>
+        <%= link_to_function(image_tag("/images/ico_view.png", :alt => "Display/Hide", :title => "Display/Hide"), "set_visibility(this, 'gallery_fieldsremovable')") %>
+  </div>
+
+  <div class="one_section_content <% if f.object.visible %>visible<% else %>not_visible<% end %>">
+      <div class="one_section_content_part_left">
+        <% if f.object.avatar? %>
+              <%= image_tag f.object.avatar.url(:small) %>
+      <% else %>
+          <%= image_tag ("/images/ico_unknown_project.png") %>
+      <% end %><br><br>
+      <em>Set Gallery Main Picture</em> :
+          <%= f.file_field :avatar %><br>  
+      </div> 
+      
+        
+      <div class="one_section_content_part_right">
+        <%= f.label :name, "Gallery Name" %> : <%= f.text_field :name, :placeholder => "Name of the gallery" %><br>    
+        <%= f.label :headline, "Gallery Headline" %> : <%= f.text_field :headline, :size => "70px", :placeholder => "Enter the gallery headline" %><br>
+        <%= f.label :description, "Gallery Description" %> : <br><%= f.text_area :description, :placeholder => "Enter the description of the gallery", :rows => "5", :cols => "79"  %>
+        
+          <div class="list_of_skills">
+            <%= f.fields_for :skills do |s| %>
+                <%= render "skills/profile_resume_skills",  :f => s %>
+            <% end %>
+          
+            <div class="one_skill_caterogy_to_add">
+                Add a related skill : <%= text_field_tag 'new_skill', nil, :class => "skill_autocomplete", :placeholder => "Enter skill name" %>
+                <%= link_to_add_skill_to_category(image_tag("/images/button_add.png"), f, :skills) %>
+            </div>  
+        
+          </div>
+          <div class="list_of_pictures">
+            <%= f.fields_for :pictures do |s| %>
+                <%= render "pictures/profile_portfolio_pictures",  :f => s %>
+            <% end %>  
+            <div class="add_picture_to_gallery">
+                Add a new picture : <%= file_field_tag 'new_picture', :onchange => "handleFiles(this.files)" %>
+                <%= link_to_add_skill_to_category(image_tag("/images/button_add.png"), f, :skills) %>
+            </div>
+            
+          </div>
+      </div>
+         
+  </div>  
+</div>

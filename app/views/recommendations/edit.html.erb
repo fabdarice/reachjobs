@@ -1,0 +1,25 @@
+<div class="edit_form">
+<span class="profile_title">Recommendation</span>
+  <hr class="edit_section_seperator" align="left" width="840px">
+  <br/>
+  <% if flash[:error] %>
+    <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span><br><br>
+  <% end %>
+  <%= form_for @recommendation, :url => user_profile_recommendation_path do |f| %>
+    <%= f.label :author %> :<br> <%= f.text_field :author, :size => "56px" %><br>
+    <span class="field_error_msg"><%= display_error(@recommendation, 'author') %></span><br>
+
+    <%= f.label :relation %> :<br> <%= f.text_field :relation, :size => "56px" %><br><br>
+    <%= f.label :content, "Recommendation" %> :<br> <%= f.text_area :content, :rows => 8, :cols => 40 %><br>
+    <span class="field_error_msg"><%= display_error(@recommendation, 'content') %></span><br><br>
+
+    <div class="edit_submit_field">
+          <%= link_to image_tag("/images/button_cancel.png", 
+                  :mouseover => "/images/button_cancel_hover.png"), show_edit_user_profile_path(current_user) %>         
+          <%= image_submit_tag "/images/button_save_changes.png", 
+                  :onmouseover => "this.src='/images/button_save_changes_hover.png'", 
+                  :onmouseout => "this.src='/images/button_save_changes.png'" %>         
+    </div>
+  <% end %>
+
+</div>    

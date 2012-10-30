@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "shared_color";
-
+/*
 .one_recommendation_header {
   font-size: 15px;
   font-family:"klavika-web",sans-serif;
@@ -30,10 +30,33 @@
   margin-bottom: 10px;
   padding-left: 10px;
   padding-top: 10px;
-  width: 300px;  /*background-color: lighten($my_orange, 47%);*/
+  width: 300px;  /*background-color: lighten($my_orange, 47%);
 }
-
 .one_recommendation_to_add {
   text-align: center;
 }
 
+*/
+.recommendation_fieldsremovable {
+  margin-bottom: 20px;
+
+  hr {
+    height: 1px;
+    font-size: 0px;
+    background-color: darken($body_background, 10%);
+    width: 280px;
+  }
+}
+
+.author {
+  font-size: 12px;
+}
+
+.relation {
+  color: #808080;
+}
+
+.content {
+  font-style: italic;
+  text-justify: newspaper;
+}

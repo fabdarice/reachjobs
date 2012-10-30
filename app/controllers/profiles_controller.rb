@@ -1,28 +1,18 @@
 class ProfilesController < ApplicationController
   respond_to :html, :xml, :json
 
-  def new
-    @profile = Profile.new
-    @profile.socialnetwork = Socialnetwork.new
-    @skills = Skill.pluck(:skill_name)
-    @skills.map {|skill| skill}.join(',')
+  def show_edit
+    if current_user.profile 
+      @profile = current_user.profile
+    else
+      @profile = current_user.build_profile
+      @profile.save
+    end
   end
 
-  def create
-    @profile = current_user.build_profile(params[:profile])
-    if @profile.save
-      flash[:success] = "Your profile has been successfully created."
-      render "edit"    
-    else
-      flash[:error] = "Error while creating your profile."  
-      render "new"
-    end
-  end   
 
   def edit
     @profile = current_user.profile
-    @skills = Skill.pluck(:skill_name)
-    @skills.map {|skill| skill}.join(',')
   end
 
   def show
@@ -33,7 +23,7 @@ class ProfilesController < ApplicationController
   def update
     if current_user.profile.update_attributes(params[:profile])
       flash[:success] = "All the modifications have been saved."
-      redirect_to edit_user_profile_path(current_user)
+      redirect_to show_edit_user_profile_path(current_user)
     else
       flash[:error] = "Error while saving the modifications."  
       render "edit"

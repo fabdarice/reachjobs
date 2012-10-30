@@ -1,22 +1,31 @@
-<div class="school_fieldsremovable">
-  <%= f.hidden_field :position, :value => @school_position %>
-  <%= f.hidden_field :visible %>
-    
-  <div class="one_section_header">
-        School - <%= f.text_field :name, :class => "one_section_readonly", :readonly => true %>
-        <%= link_to_remove_fields(image_tag("/images/ico_delete.png", :alt => "Delete", :title => "Delete"), f, "school_fieldsremovable") %>
-        <%= link_to_function(image_tag("/images/ico_move_up.png", :alt => "Move Up", :title => "Move up"), "move_higher(this, 'school_fieldsremovable')") %>
-        <%= link_to_function(image_tag("/images/ico_move_down.png", :alt => "Move Down", :title => "Move down"), "move_lower(this, 'school_fieldsremovable')") %>
-        <%= link_to_function(image_tag("/images/ico_view.png", :alt => "Display/Hide", :title => "Display/Hide"), "set_visibility(this, 'school_fieldsremovable')") %>
-  </div>
+<span class="profile_title">Eucation <%= link_to "+ Add", new_user_profile_school_path(current_user), :class => "add_edit_link" %></span>
+<hr class="section_seperator" align="right" width="900px"><br>
+<div id="list_schools">
+  <% @profile.schools.each do |f| %>
+      <div class="school_fieldsremovable">
+        <div class="left_side">
+            <%= f.start_date.strftime("%B %Y") %> &rarr; 
+            <% if f.end_date %>
+              <%= f.end_date.strftime("%B %Y") %>
+            <% else %>
+              Present
+            <% end %>
+        </div>
+        <div class="right_side">
+          <span class="highlight title"%><%= f.name %></span>
+          <%= link_to "Edit", edit_user_profile_school_path(current_user, f.id), :class => "add_edit_link_smaller" %>
+          <%= link_to "Delete", user_profile_school_path(current_user, f.id), :class => "remote-delete" %><br>
 
-  <div class="one_section_content <% if f.object.visible %>visible<% else %>not_visible<% end %>">
+          <span class="headline"><%= f.field_study %></span><br>
+          <span class="date"><%= f.city %>, <%= f.country %></span><br><br>
+          <%= f.degree %><br><br>
+         </div>  
+        <hr class="content_separator" align="right">      
+        
+        <br><br>
+      </div>
       
-    <%= f.label :name, "School Name" %> : <%= f.text_field :name %><br>
-    <%= f.label :field_study, "Field of study" %> : <%= f.text_field :field_study, :size => "60px" %><br>
-    <%= f.label :degree, "Degree obtained" %> : <%= f.text_field :degree %><br>
-    <%= f.label :country %> : <%= f.text_field :country %>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <%= f.label :city %> : <%= f.text_field :city %><br>
-    <span class="like_label">Time period</span> : From <%= f.date_select :start_date, :start_year => Time.now.year - 40, :end_year => Time.now.year ,:order => [:year] %> To <%= f.date_select :end_date, :start_year => Time.now.year - 40, :end_year => Time.now.year, :order => [:year], :include_blank => true %><br><br>         
-  </div>  
+    <% end %>
 </div>
+<br/><br>
+  

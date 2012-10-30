@@ -3,8 +3,42 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "shared_color";
 
-#profile_aboutme_socialnetwork_links {
+#profile_aboutme_socialnetwork_photo {
+  float: left;
+}
 
+#profile_aboutme_socialnetwork_links {
+  float: left;
+  padding-left: 20px;
+  font-family: "Verdana";
+  font-size: 12px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: inline;
+    text-align: left;
+  }
+
+  hr {
+    width: 165px;
+    height: 1px;
+    font-size: 0px;
+    background-color: darken($body_background, 10%);
+  }
+
+  .socialnetwork_title {
+    color: $my_second_blue;
+  }
+}
+
+
+
+#profile_aboutme_socialnetwork_edit {
   font-family: "Verdana";
   font-size: 12px;
   color: $my_blue;
@@ -30,14 +64,5 @@
     width: 275px;
   }
 
-  .resume_left_part {
-    float: left;
-    width: 150px;
-  }
-
-  .resume_right_part {
-    display: inline;
-    width: 150px;
-  }
   
 }

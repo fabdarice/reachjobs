@@ -68,6 +68,7 @@ function set_visibility(link, classname) {
 
 function add_skill_to_category(link, association, content) {
   var skillname = $(link).parent().children('input[name="new_skill"]').val();
+  $(link).parent().children('input[name="new_skill"]').attr('value', '');
   if (skillname == "") {
     return false; 
   }
@@ -75,9 +76,9 @@ function add_skill_to_category(link, association, content) {
     var new_id = new Date().getTime();
     var regexp = new RegExp("new_" + association, "g");
 
-    $(link).parent().before(content.replace(regexp, new_id));
-    $(link).parent().siblings(":last").find('input.input_skill').attr('value', skillname);
-    $(link).parent().siblings(":last").find('input.input_skill').attr('size', skillname.length);  
+    $(link).parent().siblings('.list_of_skills_container').append(content.replace(regexp, new_id));
+    $(link).parent().siblings('.list_of_skills_container').children(":last").find('input.input_skill').attr('value', skillname);
+    $(link).parent().siblings('.list_of_skills_container').children(":last").find('input.input_skill').attr('size', skillname.length);  
   }  
 }
 

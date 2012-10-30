@@ -7,6 +7,25 @@
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 </head>
+<script>
+
+$(document).ready(function() {
+  $('a.remote-delete').click(function() {
+    
+    if (confirm("Are you sure you want to delete this Post?"))
+        $(this).closest('div[class$=fieldsremovable]').hide(300);
+        $.ajax({       
+          url: this.href,
+          type: 'delete',        
+          dataType: 'script',
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+          success: function() {
+          }
+        });
+    return false;  
+  });
+});
+</script>
 <body>
     <!-- Header  : Logo + Menu -->
     <div id="header">

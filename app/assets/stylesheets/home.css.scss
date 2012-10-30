@@ -21,20 +21,10 @@ font-family:"klavika-web",sans-serif;
 body {
   margin: auto;
   background-color: $body_background;
+  font-size: 11px;
+  font-family: "Verdana";
+  color: black;
 }
-
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  color: #32B3E6;
-}
-
-a:hover {
-  color: $my_orange;
-}
-
 
 
 #main_content {

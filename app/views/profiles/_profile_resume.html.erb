@@ -1,16 +1,3 @@
-<script>
-  var list_of_skills = <%= raw @skills %>
-  $(document).ready(function() {
-    $('.skill_autocomplete').each(function(){
-        $(this).autocomplete({lookup:list_of_skills});
-      });
-
-    $('div.one_skill').find('input').each(function(){ 
-        $(this).attr('size', $(this).val().length); 
-      });
-  });
-</script>
-
 <div id="anchor_tab">
   <div class="one_anchor"><%= link_to_function image_tag('/images/anchor_skill.png', :mouseover => '/images/anchor_skill_hover.png' ), "go_to_anchor('0')" %></div>
   <div class="one_anchor"><%= link_to_function image_tag('/images/anchor_work_experience.png', :mouseover => '/images/anchor_work_experience_hover.png' ), "go_to_anchor('1')" %></div>
@@ -21,73 +8,21 @@
 </div><br>
 
 <!-- Skills Section -->
-<span class="profile_title">Skills <%= link_to_add_fields("+Add Skill Category", p, :skillcategories, "resume") %></span>
-<hr class="section_seperator" align="right" width="900px"><br>
-<div id="list_skillcategories">
-  <% @category_position = 0 %>
-  <%= p.fields_for :skillcategories do |f| %>
-      <%= render "skillcategories/profile_resume_skillcategories",  :f => f %>
-      <% @category_position = @category_position + 1 %>
-  <% end %>
+<div id="profile_resume_skillcategories">
+  <%= render "skillcategories/profile_resume_skillcategories"%>
 </div>
-<br/><br>
-
-<!-- Work Experience Section -->
-<span class="profile_title">Work Experience <%= link_to_add_fields("+Add Work Experience", p, :workexperiences, "resume") %></span>
-<hr class="section_seperator" align="right" width="900px"><br>
-<div id="list_workexperiences">
-  <% @workexperience_position = 0 %>
-  <%= p.fields_for :workexperiences do |f| %>
-      <%= render "workexperiences/profile_resume_workexperiences",  :f => f %>
-      <% @workexperience_position = @workexperience_position + 1 %>
-  <% end %>
+<div id="profile_resume_workexperiences">
+  <%= render "workexperiences/profile_resume_workexperiences"%>
 </div>
-<br/><br>
-
-<!-- Personal Projects Section -->
-<span class="profile_title">Personal Projects <%= link_to_add_fields("+Add Project", p, :projects, "resume") %></span>
-<hr class="section_seperator" align="right" width="900px"><br>
-<div id="list_projects">
-  <% @project_position = 0 %>
-  <%= p.fields_for :projects do |f| %>
-      <%= render "projects/profile_resume_projects",  :f => f %>
-      <% @project_position = @project_position + 1 %>
-  <% end %>
+<div id="profile_resume_projects">
+  <%= render "projects/profile_resume_projects"%>
 </div>
-<br/><br>
-
-<!-- Education Section -->
-<span class="profile_title">Education <%= link_to_add_fields("+Add School", p, :schools, "resume") %></span>
-<hr  class="section_seperator"align="right" width="900px"><br>
-<div id="list_schools">
-  <% @school_position = 0 %>
-  <%= p.fields_for :schools do |f| %>
-      <%= render "schools/profile_resume_schools",  :f => f %>
-      <% @school_position = @school_position + 1 %>
-  <% end %>
+<div id="profile_resume_schools">
+  <%= render "schools/profile_resume_schools"%>
 </div>
-<br/><br>
-
-<!-- Language Section -->
-<span class="profile_title">Languages <%= link_to_add_fields("+Add Language", p, :languages, "resume") %></span>
-<hr class="section_seperator" align="right" width="900px"><br>
-<div id="list_languages">
-  <% @language_position = 0 %>
-  <%= p.fields_for :languages do |f| %>
-      <%= render "languages/profile_resume_languages",  :f => f %>
-      <% @language_position = @language_position + 1 %>
-  <% end %>
+<div id="profile_resume_languages">
+  <%= render "languages/profile_resume_languages"%>
 </div>
-<br/><br>
-
-<!-- Hobbies Section -->
-<span class="profile_title">Hobbies <%= link_to_add_fields("+Add Hobby", p, :hobbies, "resume") %></span>
-<hr class="section_seperator" align="right" width="900px"><br>
-<div id="list_hobbies">
-  <% @hobby_position = 0 %>
-  <%= p.fields_for :hobbies do |f| %>
-      <%= render "hobbies/profile_resume_hobbies",  :f => f %>
-      <% @hobby_position = @hobby_position + 1 %>
-  <% end %>
+<div id="profile_resume_hobbies">
+  <%= render "hobbies/profile_resume_hobbies"%>
 </div>
-<br/><br>

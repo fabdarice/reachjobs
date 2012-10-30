@@ -1,32 +1,21 @@
 <div id="profile_aboutme_description">
-    <span class="profile_title">Who am I</span>
+    <span class="profile_title">Who am I <%= link_to "+ Edit", edit_user_profile_path(current_user), :class => "add_edit_link" %></span>
     <hr class="section_seperator" align="right" width="520px"><br>
-      <%= p.text_area :about_me_description, :size => "70x12", :class => "text_field_default", :placeholder => "Enter a description of yourself" %><br/><br/><br/>
+      <%= simple_format(@profile.about_me_description) %><br/><br/><br/>
 
-    <span class="profile_title">What am I looking for</span>
+    <span class="profile_title">What am I looking for <%= link_to "+ Edit", edit_user_profile_path(current_user), :class => "add_edit_link" %></span>
     <hr class="section_seperator" align="right" width="520px"><br>
-      <%= p.text_area :search_description, :size => "70x12", :placeholder => "Enter an accurate description of what you are looking for (job, location, position, ...)" %>
+      <%= simple_format(@profile.search_description) %>
     <br/>
 </div>
 
  <div id="profile_aboutme_rightside">
-    <div id="profile_aboutme_socialnetwork_links">
-      <span class="profile_title">Contact Me</span>
-      <hr class="section_seperator" align="right" width="310px">
-      <br/>
-      <%= render "socialnetworks/profile_aboutme_socialnetworks", :p => p %>
+    <div id="profile_aboutme_socialnetwork">
+      <%= render "socialnetworks/profile_aboutme_socialnetworks"%>
     </div>
-
     <br>
-    
     <div id="profile_aboutme_recommendations">
-      <span class="profile_title">Recommendations <%= link_to_add_fields("+Add", p, :recommendations, "aboutme") %></span>
-      <hr class="section_seperator" align="right" width="310px">
-      <br/>
-      <div id="list_recommendations">
-        <%= p.fields_for :recommendations do |r| %>
-          <%= render "recommendations/profile_aboutme_recommendations", :f => r %>
-        <% end %>
-      </div>
+      <%= render "recommendations/profile_aboutme_recommendations" %>
     </div>
+    
 </div>

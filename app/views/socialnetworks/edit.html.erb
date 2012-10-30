@@ -1,0 +1,32 @@
+<div class="edit_form">
+  <span class="profile_title">Contact Me</span>
+  <hr class="edit_section_seperator" align="left" width="840px">
+  <br/>
+  <% if flash[:error] %>
+    <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span><br><br>
+  <% end %>
+  <%= form_for @socialnetwork, :url => user_profile_socialnetwork_path do |s| %>
+    <span class="like_label">Upload your Resume (.pdf) :</span> <br>
+    <%= s.file_field :resume %><br><br>
+    <span class="like_label">Social Network Links : </span><br>
+      <div id="profile_aboutme_socialnetwork_edit">
+        <ul>
+            <li><%= image_tag "/images/ico_twitter.png" %>  <%= s.text_field :twitter_link, :placeholder => "Enter your Twitter public account" %></li>
+            <li><%= image_tag "/images/ico_facebook.png" %>  <%= s.text_field :facebook_link, :placeholder => "Enter your Facebook public account" %></li>
+            <li><%= image_tag "/images/ico_linkedin.png" %>  <%= s.text_field :linkedin_link, :placeholder => "Enter your Linkedin public account"  %></li>
+            <li><%= image_tag "/images/ico_viadeo.png" %>  <%= s.text_field :viadeo_link, :placeholder => "Enter your Viadeo public account" %></li>   
+            <li><%= image_tag "/images/ico_reachjobs.png" %>  <%= s.text_field :reachjobs_link, :placeholder => "Enter your ReachJobs public account" %></li>
+            <li><%= image_tag "/images/ico_skype.png" %>  <%= s.text_field :skype_link, :placeholder => "Enter your Skype account" %></li>
+        </ul>
+      </div>
+    <br>
+    <div class="edit_submit_field">
+          <%= link_to image_tag("/images/button_cancel.png", 
+                  :mouseover => "/images/button_cancel_hover.png"), show_edit_user_profile_path(current_user) %>   
+          <%= image_submit_tag "/images/button_save_changes.png", 
+                  :onmouseover => "this.src='/images/button_save_changes_hover.png'", 
+                  :onmouseout => "this.src='/images/button_save_changes.png'" %>  
+    </div>                     
+  <% end %>
+
+</div>  

@@ -3,10 +3,37 @@ Reachjobs::Application.routes.draw do
 
   resources :users, only: [:show] do
     resource :profile do
+      member do
+        get 'show_edit'
+      end
+      resource :socialnetwork do
+      end
+
+      resources :recommendations do
+      end
+
+      resources :skillcategories do
+      end
+
+      resources :workexperiences do
+      end
+
+      resources :projects do
+      end
+
+      resources :schools do
+      end
+
+      resources :languages do
+      end
+
+      resources :hobbies do
+      end
     end  
   end  
 
-    root :to => "home#index"
+
+  root :to => "home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

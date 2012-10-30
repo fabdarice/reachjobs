@@ -1,0 +1,68 @@
+<script>
+  var list_of_skills = <%= raw @skills %>
+  $(document).ready(function() {
+    $('.skill_autocomplete').each(function(){
+        $(this).autocomplete({lookup:list_of_skills});
+      });
+
+    $('div.one_skill').find('input').each(function(){ 
+        $(this).attr('size', $(this).val().length); 
+      });
+  });
+</script>
+<div class="edit_form">
+<span class="profile_title">Work Experience</span>
+  <hr class="edit_section_seperator" align="left" width="840px">
+  <br/>
+  <% if flash[:error] %>
+    <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span><br><br>
+  <% end %>
+
+  <%= form_for @workexperience, :url => user_profile_workexperience_path do |f| %>
+    <%= f.label :company %> :<br> <%= f.text_field :company, :size => "70px", :placeholder => "Company name" %><br>
+    <span class="field_error_msg"><%= display_error(@workexperience, 'company') %></span><br>
+    
+    <span class="like_label">Upload the company picture (.png or .jpg - 150x130) :</span> <br>
+    <%= f.file_field :avatar %><br><br>
+
+    <%= f.label :job_title, "Position occupied" %> :<br> <%= f.text_field :job_title, :size => "70px", :placeholder => "e.g. Web Developer, Project Manager, Director, ..." %><br> 
+    <span class="field_error_msg"><%= display_error(@workexperience, 'job_title') %></span><br>
+
+    <%= f.label :city %> : <br><%= f.text_field :city, :placeholder => "City location" %><br>
+    <span class="field_error_msg"><%= display_error(@workexperience, 'city') %></span><br>
+
+    <%= f.label :country %> :<br> <%= f.text_field :country, :placeholder => "Country location" %> <br>
+    <span class="field_error_msg"><%= display_error(@workexperience, 'country') %></span><br>
+
+    
+    <span class="like_label">Time period</span> :<br>
+     From <%= f.date_select :start_date, :start_year => Time.now.year - 40, :end_year => Time.now.year ,:discard_day => true, :order => [:month, :year] %> To <%= f.date_select :end_date, :start_year => Time.now.year - 40, :end_year => Time.now.year, :discard_day => true, :order => [:month, :year], :include_blank => true %><br>
+    <span class="field_error_msg"><%= display_error(@workexperience, 'start_date') %></span><br>
+
+    <%= f.label :mission_description, "Description" %> : <br><%= f.text_area :mission_description, :placeholder => "Describe the context, the activities, the responsabilities given and the achievements", :rows => "15", :cols => "51"  %>
+    <span class="field_error_msg"><%= display_error(@workexperience, 'mission_description') %></span><br>
+
+
+    <span class="like_label">Related skills :</span>
+
+    <div class="list_of_skills">
+      <div class="list_of_skills_container">
+        <%= f.fields_for :skills do |s| %>
+            <%= render "skills/profile_resume_skills",  :f => s %>
+        <% end %>
+      </div>
+      <div class="one_skill_caterogy_to_add">
+          <span class="like_label">Add a new skill :</span> <%= text_field_tag 'new_skill', nil, :class => "skill_autocomplete", :placeholder => "Enter skill name" %>
+          <%= link_to_add_skill_to_category(image_tag("/images/button_add.png"), f, :skills) %>
+      </div>  
+    </div>  
+
+    <div class="edit_submit_field">
+          <%= link_to image_tag("/images/button_cancel.png", 
+                  :mouseover => "/images/button_cancel_hover.png"), show_edit_user_profile_path(current_user) %>         
+          <%= image_submit_tag "/images/button_save_changes.png", 
+                  :onmouseover => "this.src='/images/button_save_changes_hover.png'", 
+                  :onmouseout => "this.src='/images/button_save_changes.png'" %>         
+    </div>
+  <% end %>
+</div>    

@@ -1,18 +1,45 @@
-<%= p.fields_for :socialnetwork do |s| %>
-        <strong>Resume</strong> :
-        <% if s.object.resume? %>
-              <%= link_to s.object.resume_file_name, s.object.resume.url(:original, false) %>
-        <% else %>
-              <em>No Resume found, upload one</em>
-        <% end %> 
-        <br>
-        <%= s.file_field :resume %><br><br>
-        <ul>
-          <li><%= image_tag "/images/ico_twitter.png" %>  <%= s.text_field :twitter_link, :placeholder => "Enter your Twitter public account" %></li>
-          <li><%= image_tag "/images/ico_facebook.png" %>  <%= s.text_field :facebook_link, :placeholder => "Enter your Facebook public account" %></li>
-          <li><%= image_tag "/images/ico_linkedin.png" %>  <%= s.text_field :linkedin_link, :placeholder => "Enter your Linkedin public account"  %></li>
-          <li><%= image_tag "/images/ico_viadeo.png" %>  <%= s.text_field :viadeo_link, :placeholder => "Enter your Viadeo public account" %></li>   
-          <li><%= image_tag "/images/ico_reachjobs.png" %>  <%= s.text_field :reachjobs_link, :placeholder => "Enter your ReachJobs public account" %></li>
-          <li><%= image_tag "/images/ico_skype.png" %>  <%= s.text_field :skype_link, :placeholder => "Enter your Skype account" %></li>
-        </ul>
-<% end %>  
+<span class="profile_title">Contact Me <%= link_to "+ Edit", edit_user_profile_socialnetwork_path(current_user), :class => "add_edit_link" %></span>
+<hr class="section_seperator" align="right" width="310px">
+<br/>
+
+<% if @profile.socialnetwork %>
+  <div id="profile_aboutme_socialnetwork_photo">
+    <% if @profile.socialnetwork.resume? %>
+      <%= link_to image_tag(@profile.socialnetwork.resume.url(:small)), @profile.socialnetwork.resume.url(:original, false) %>
+    <% else %>
+      <%= image_tag "/images/ico_unknown_resume.png" %>
+    <% end %>
+  </div>
+  <div id="profile_aboutme_socialnetwork_links">  
+    <br>
+    <span class="socialnetwork_title">Resume PDF Version</span><br>
+    <% if @profile.socialnetwork.resume? %>
+      <%= link_to "Download", @profile.socialnetwork.resume.url(:original, false) %>
+    <% else %>
+      <em>Not yet uploaded</em>
+    <% end %>  
+    <br><br><hr><br>
+    <span class="socialnetwork_title">Social Networks</span><br>
+    <ul>
+      <% if @profile.socialnetwork.twitter_link.blank? == false %>
+          <li><%= link_to image_tag("/images/ico_twitter.png"), @profile.socialnetwork.twitter_link %></li>
+      <% end %>  
+      <% if @profile.socialnetwork.facebook_link.blank? == false %>
+          <li><%= link_to image_tag("/images/ico_facebook.png"), @profile.socialnetwork.facebook_link %></li>
+      <% end %>
+      <% if @profile.socialnetwork.linkedin_link.blank? == false %>
+          <li><%= link_to image_tag("/images/ico_linkedin.png"), @profile.socialnetwork.linkedin_link  %></li>
+      <% end %>  
+      <% if @profile.socialnetwork.viadeo_link.blank? == false %>
+          <li><%= link_to image_tag("/images/ico_viadeo.png"), @profile.socialnetwork.viadeo_link %></li>   
+      <% end %>    
+      <% if @profile.socialnetwork.reachjobs_link.blank? == false %>
+          <li><%= link_to image_tag("/images/ico_reachjobs.png"), @profile.socialnetwork.reachjobs_link %></li>
+      <% end %>
+      <% if @profile.socialnetwork.skype_link.blank? == false %>    
+          <li><%= link_to image_tag("/images/ico_skype.png"), @profile.socialnetwork.skype_link %></li>
+      <% end %>    
+    </ul>
+    <br><hr>
+  </div>  
+<% end %>

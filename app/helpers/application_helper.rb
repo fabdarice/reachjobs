@@ -26,4 +26,5 @@ module ApplicationHelper
     end
     link_to_function(name, "add_skill_to_category(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
+
 end
