@@ -1,3 +1,77 @@
 // Place all the styles related to the galleries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "shared_color";
+
+.gallery_name {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.gallery_content {
+  width: 266px;
+  height: 200px;
+  padding: 3px;
+  margin-bottom: 20px;
+  float: left;
+  display: block;
+}
+
+.addmargin {
+  margin-right: 20px;
+}
+
+.gallery_content:hover {
+  background-color: lighten($my_orange, 45%);
+}
+
+.skills_used {
+  font-size: 10px;
+  font-style: italic;
+  color: darken($body_background, 30%);
+}
+
+.gallery_images {
+  width: auto;
+
+
+  .gallery_images_left {
+    width: 280px;
+    padding-top: 30px;
+    float: left;
+    text-align: left;
+    padding-left: 20px;
+    hr {   
+      font-size: 0px;
+      width: 250px;
+      border-bottom: 1px dashed darken($body_background, 20%);
+    }
+  }
+
+  .gallery_images_right {
+    margin-top: 20px;
+    width: 590px; 
+    float: right;
+    overflow: hidden;
+    background-repeat:no-repeat,no-repeat;
+  }
+}
+
+
+
+.gallery_title {
+  color: $my_blue;
+  font-size: 18px;
+  font-family: "klavika-web",sans-serif;
+  font-weight: bold;
+  margin: 20px;
+  margin-bottom: 0px;
+
+  hr {
+    height: 1px;
+    background-color: $my_blue;
+    font-size: 0px;
+    width: 860px;
+  }
+}

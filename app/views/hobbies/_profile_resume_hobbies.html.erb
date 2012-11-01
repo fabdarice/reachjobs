@@ -1,4 +1,4 @@
-<span class="profile_title">Hobbies <%= link_to "+ Add", new_user_profile_hobby_path(current_user), :class => "add_edit_link" %></span>
+<span class="profile_title">Hobbies <%= link_to "+ Add New Hobby", new_user_profile_hobby_path(current_user), :class => "add_edit_link" %></span>
 <hr class="section_seperator" align="right" width="900px"><br>
 <div id="list_hobbies">
   <% @profile.hobbies.each do |f| %>

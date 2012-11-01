@@ -1,8 +1,11 @@
 class Profile < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :head_description, :second_description, :about_me_description, :search_description, :photo, :phone
+  attr_accessible :head_description, :second_description, :about_me_description, :search_description, :photo, :phone, :link
   #attr_accessible :socialnetwork_attributes, :recommendations_attributes, :skillcategories_attributes, :workexperiences_attributes, :projects_attributes, :schools_attributes, :languages_attributes, :hobbies_attributes, :galleries_attributes
   belongs_to :user
+
+  validates :link, uniqueness: true
+  validates :link, :length => {:minimum => 4, :too_short => "4 characters minimum."}
 
   has_one :socialnetwork
   has_many :recommendations

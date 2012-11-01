@@ -1,4 +1,4 @@
-<span class="profile_title">Work Experience <%= link_to "+ Add", new_user_profile_workexperience_path(current_user), :class => "add_edit_link" %></span>
+<span class="profile_title">Work Experience <%= link_to "+ Add New Experience", new_user_profile_workexperience_path(current_user), :class => "add_edit_link" %></span>
 <hr class="section_seperator" align="right" width="900px"><br>
 <div id="list_workexperiences">
   <% @profile.workexperiences.each do |f| %>

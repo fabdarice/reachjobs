@@ -115,5 +115,11 @@ body {
 }
   
 
-
+.hr_footer {
+  height: 1px;
+  width: 900px;
+  background-color: darken($body_background, 30%);
+  font-size: 0px;
+  margin-bottom: 10px;
+}
 

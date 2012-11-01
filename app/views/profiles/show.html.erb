@@ -1,0 +1,51 @@
+<div id="profile_header">
+  <div id="profile_header_idcard">
+        <div id="profile_header_idcard_photo">
+          <% if @profile.photo? %>
+            <%= image_tag @profile.photo.url(:small) %>
+          <% else %>
+            <%= image_tag ("/images/ico_unknown_user.png") %>
+          <% end %>  
+        </div>
+        <div id="profile_header_idcard_description">
+          <span class="profile_fullname"><%= current_user.firstname %> <%= current_user.lastname %></span>
+            <ul>
+              <li><span class="profile_headline"><%= @profile.head_description %></span></li>
+              <li><%= @profile.second_description %></li> <br>
+              <li><%= image_tag ("/images/ico_email.png") %> <%= current_user.email %></li>
+              <% if @profile.phone %>
+                <li><%= image_tag ("/images/ico_phone.png") %> <%= @profile.phone %></li>
+              <% end %>    
+            </ul>
+        </div> 
+  </div>
+</div>
+
+<div id="profile_tab">
+  <span class="one_tab_empty">
+  </span>
+  <span class="one_tab_selected">
+    <%= link_to_function "About me", "tab_to_display('profile_aboutme')" %>
+  </span>
+  <span class="one_tab">
+     <%= link_to_function "Resume", "tab_to_display('profile_resume')" %>
+  </span>
+  <span class="one_tab">
+    <%= link_to_function "Portfolio", "tab_to_display('profile_portfolio')" %>
+  </span>
+</div>
+<hr class="profile_hr" align="right" width="578px">
+
+<div id="profile_content">
+  
+  <div class="hide">
+    <div id="profile_aboutme"><%= render "profiles/profile_aboutme", :p => p %></div>
+  </div>
+  <div class="hide">
+    <div id="profile_resume"><%= render "profiles/profile_resume", :p => p %></div>
+  </div>
+  <div class="show">
+    <div id="profile_resume"><%= render "profiles/profile_portfolio", :p => p %></div>
+  </div>
+</div>
+

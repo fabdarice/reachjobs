@@ -8,6 +8,11 @@ class ProfilesController < ApplicationController
       @profile = current_user.profile
     else
       @profile = current_user.build_profile
+      link = current_user.firstname + current_user.lastname
+      if Profile.exists?(:link => link)
+        link = link + current_user.id
+      end
+      @profile.link = link
       @profile.save
     end
   end
@@ -17,8 +22,10 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @profile = @user.profile
+    @profile = Profile.where("link = ? ", params[:link]).first
+    if !@profile
+      flash[:error] = "No profile were found."  
+    end
   end
 
   def update

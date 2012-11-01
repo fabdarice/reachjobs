@@ -1,0 +1,47 @@
+<div class="gallery_title">
+    <%= @gallery.name %> Gallery <br>
+    <hr align="left">
+</div>
+
+<div class="gallery_images">
+  <div class="gallery_images_left">
+      <span class="highlight gallery_name"%><%= @gallery.name %></span><br>
+      <span class="headline"><%= @gallery.headline %></span><br><br>
+      <hr align="left"><br>
+      <%= simple_format(@gallery.description) %><br>
+      <% @gallery.skills.each do |s| %>
+        <span class="one_skill"><%= s.skill_name %></span>
+      <% end %>
+      <br><br>
+      <hr align="left"><br>
+      
+      <%= link_to image_tag("/images/button_back_portfolio.png", 
+        :mouseover => "/images/button_back_portfolio_hover.png"), show_edit_user_profile_path(current_user) %>
+      
+      <%= form_for @picture, :url => user_profile_gallery_pictures_path(current_user, @gallery.id), :html => { :id => "gallery_form_id" } do |picture| %>
+            Upload new file : <%= picture.file_field :avatar, :class => "picture_file_input" %>
+      <% end %>
+       
+
+  <br><br>
+  </div>
+
+  <div class="gallery_images_right">
+    <div id="slideShowContainer">
+        <div id="slideShow">
+          <ul>
+            <% @gallery.pictures.each do |p| %>
+                <li><%= image_tag p.avatar.url(:medium) %></li>
+            <% end %>    
+          </ul>
+        
+        </div>   
+        <a id="previousLink" href="#">&raquo;</a>
+        <a id="nextLink" href="#">&laquo;</a>
+        
+    </div>
+    <br><br>
+  </div>          
+
+</div>
+

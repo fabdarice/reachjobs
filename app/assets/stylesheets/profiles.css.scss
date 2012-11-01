@@ -280,6 +280,19 @@ hr.content_separator {
     background-color: $my_blue;
     font-size: 0px;
   }
+
+  .edit_form_left {
+    width: 400px;
+    float: left;
+    border: 1px solid red;
+  }
+
+  .edit_form_right{
+    width: 400px;
+    float: left;
+    border: 1px solid green;
+    margin-left: 30px;
+  }
 }
 
 

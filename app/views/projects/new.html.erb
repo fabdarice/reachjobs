@@ -18,7 +18,7 @@
     <%= f.label :name, "Project Name" %> :<br> <%= f.text_field :name, :size => "70px", :placeholder => "Project name" %><br>
     <span class="field_error_msg"><%= display_error(@project, 'name') %></span><br>  
 
-    <%= f.label :headline, "Project Headline" %> :<br> <%= f.text_field :headline, :size => "70px", :placeholder => "e.g. 'Free Online Resume and Portfolio creator', ''" %><br> 
+    <%= f.label :headline, "Project Headline" %> :<br> <%= f.text_field :headline, :size => "70px", :placeholder => "e.g. 'Free Online Resume and Portfolio creator'" %><br> 
     <span class="field_error_msg"><%= display_error(@project, 'headline') %></span><br>
 
     <%= f.label :description, "Description" %> : <br><%= f.text_area :description, :placeholder => "Project description", :rows => "10", :cols => "51"  %><br>

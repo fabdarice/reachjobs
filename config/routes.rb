@@ -2,7 +2,7 @@ Reachjobs::Application.routes.draw do
   devise_for :users, :path_names => {:sign_up => "register"}
 
   resources :users, only: [:show] do
-    resource :profile do
+    resource :profile, :path_names => {:show_edit => ""} do
       member do
         get 'show_edit'
       end
@@ -29,8 +29,19 @@ Reachjobs::Application.routes.draw do
 
       resources :hobbies do
       end
+
+      resources :galleries do
+        member do
+          get 'images'
+        end
+
+        resources :pictures do
+        end
+      end
     end  
   end  
+
+  match '/:link' => 'profiles#show'
 
 
   root :to => "home#index"
