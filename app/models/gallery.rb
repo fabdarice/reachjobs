@@ -6,7 +6,7 @@ class Gallery < ActiveRecord::Base
 
   belongs_to :profile
   has_and_belongs_to_many :skills, :uniq => true
-  has_many :pictures
+  has_many :pictures, :dependent => :destroy
 
   accepts_nested_attributes_for :skills, allow_destroy: true, reject_if: ->(a) { a[:skill_name].blank? }
   

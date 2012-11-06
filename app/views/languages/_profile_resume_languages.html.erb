@@ -1,4 +1,8 @@
-<span class="profile_title">Languages <%= link_to "+ Add New Language", new_user_profile_language_path(current_user), :class => "add_edit_link" %></span>
+<span class="profile_title">Languages 
+  <% if edit_profile %>
+    <%= link_to "+ Add New Language", new_user_profile_language_path(current_user), :class => "add_edit_link" %>
+  <% end %>  
+</span>
 <hr class="section_seperator" align="right" width="900px"><br>
 <div id="list_languages">
   <% @profile.languages.each do |f| %>
@@ -8,8 +12,10 @@
         </div>
         <div class="right_side">
           <span class="highlight title"%><%= f.name %></span>
-          <%= link_to "Edit", edit_user_profile_language_path(current_user, f.id), :class => "add_edit_link_smaller" %>
-          <%= link_to "Delete", user_profile_language_path(current_user, f.id), :class => "remote-delete" %>
+          <% if edit_profile %>
+            <%= link_to "Edit", edit_user_profile_language_path(current_user, f.id), :class => "add_edit_link_smaller" %>
+            <%= link_to "Delete", user_profile_language_path(current_user, f.id), :class => "remote-delete" %>
+          <% end %>  
           <br>
           <%=  simple_format(f.additional_information) %>
         </div>  

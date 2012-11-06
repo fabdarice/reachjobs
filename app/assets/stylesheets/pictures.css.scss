@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "shared_color";
+
+
 #slideShowContainer{
   width:510px;
   height:510px;
@@ -75,5 +78,33 @@ a#nextLink{
 .one_picture {
   position: relative;
   width: 100px;
-  height: 100px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid $my_orange;
+  text-align: center;
+}
+
+
+div.fileinputs {
+  position: relative;
+  width: 30px;
+  overflow: hidden;
+  float: left;
+}
+
+div.fakefile {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+input.edit_picture_file_input {
+  position: relative;
+  text-align: right;
+  -moz-opacity:0;
+  
+  opacity: 0;
+  z-index: 2;
 }

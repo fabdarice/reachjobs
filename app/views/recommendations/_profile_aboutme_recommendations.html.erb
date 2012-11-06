@@ -1,7 +1,10 @@
 <div style="clear:both"></div>
 <br><br>
 <span class="profile_title">
-    Recommendations <%= link_to "+ Add", new_user_profile_recommendation_path(current_user), :class => "add_edit_link" %>
+    Recommendations 
+    <% if edit_profile %>
+      <%= link_to "+ Add", new_user_profile_recommendation_path(current_user), :class => "add_edit_link" %>
+    <% end %>  
 </span>
 <hr class="section_seperator" align="right" width="310px">
 <br/>
@@ -9,8 +12,10 @@
   <% @profile.recommendations.each do |f| %>
     <div class="recommendation_fieldsremovable">
         <span class="author highlight"><%= f.author %></span>  
-          <%= link_to "Edit", edit_user_profile_recommendation_path(current_user, f.id), :class => "add_edit_link_smaller" %>
-          <%= link_to "Delete", user_profile_recommendation_path(current_user, f.id), :class => "remote-delete" %>
+          <% if edit_profile %>
+            <%= link_to "Edit", edit_user_profile_recommendation_path(current_user, f.id), :class => "add_edit_link_smaller" %>
+            <%= link_to "Delete", user_profile_recommendation_path(current_user, f.id), :class => "remote-delete" %>
+          <% end %>  
           <br>
         <span class="relation"> <%= f.relation %></span><br>
         <span class="content"><%= simple_format(f.content) %></span>

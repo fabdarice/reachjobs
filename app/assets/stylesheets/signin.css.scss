@@ -17,7 +17,7 @@
     float: right;
 
     h2 {
-      font-family:"klavika-web",sans-serif;
+      font-family:"Verdana";
       font-size: 16px;
       color: $my_second_blue;
       font-weight: bold;
@@ -40,11 +40,10 @@
         line-height: 20px;
       }
 
-      #login_form_group {
-        width: 340px;
-        height: 30px;
+      .login_form_group {
+        margin-bottom: 20px;
 
-        #login_form_label {
+        .login_form_label {
           width: 130px;
           text-align: right;
           height: 30px;
@@ -55,8 +54,8 @@
           float: left;
         }
 
-        #login_form_field {
-          width: 2OOpx;
+        .login_form_field {
+          width: 200px;
           text-align: left;
           padding-left: 10px;
           height: 30px;

@@ -15,6 +15,7 @@ function add_fields(link, association, content) {
 }
 
 function tab_to_display(tabname) {
+  $.cookie('tabname', tabname);
   $("div.show").removeClass("show").addClass("hide");
   $("#" + tabname).closest(".hide").removeClass("hide").addClass("show");
 }

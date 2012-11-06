@@ -1,4 +1,8 @@
-<span class="profile_title">Eucation <%= link_to "+ Add New School", new_user_profile_school_path(current_user), :class => "add_edit_link" %></span>
+<span class="profile_title">Eucation 
+  <% if edit_profile %>
+    <%= link_to "+ Add New School", new_user_profile_school_path(current_user), :class => "add_edit_link" %>
+  <% end %>
+</span>
 <hr class="section_seperator" align="right" width="900px"><br>
 <div id="list_schools">
   <% @profile.schools.each do |f| %>
@@ -13,8 +17,11 @@
         </div>
         <div class="right_side">
           <span class="highlight title"%><%= f.name %></span>
-          <%= link_to "Edit", edit_user_profile_school_path(current_user, f.id), :class => "add_edit_link_smaller" %>
-          <%= link_to "Delete", user_profile_school_path(current_user, f.id), :class => "remote-delete" %><br>
+          <% if edit_profile %>
+            <%= link_to "Edit", edit_user_profile_school_path(current_user, f.id), :class => "add_edit_link_smaller" %>
+            <%= link_to "Delete", user_profile_school_path(current_user, f.id), :class => "remote-delete" %>
+          <% end %>  
+          <br>
 
           <span class="headline"><%= f.field_study %></span><br>
           <span class="date"><%= f.city %>, <%= f.country %></span><br><br>

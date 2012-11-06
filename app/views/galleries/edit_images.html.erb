@@ -1,0 +1,58 @@
+<div class="gallery_images">
+  <div class="gallery_images_left">
+      <span class="highlight gallery_name"%><%= @gallery.name %></span><br>
+      <span class="headline"><%= @gallery.headline %></span><br><br>
+      <hr align="left"><br>
+      <%= simple_format(@gallery.description) %><br>
+      <% @gallery.skills.each do |s| %>
+        <span class="one_skill"><%= s.skill_name %></span>
+      <% end %>
+      <br><br>
+      <hr align="left"><br>
+      
+      <%= link_to image_tag("/images/button_back_gallery.png", 
+        :mouseover => "/images/button_back_gallery_hover.png"), images_user_profile_gallery_path(current_user, @gallery.id) %>
+  <br><br>
+</div>  
+  
+<div class="gallery_images_right">
+  <div class="gallery_add_images_form">  
+    <div class="gallery_title">
+      Gallery Images
+    </div>
+    <br>
+    <% if flash[:error] %>
+      <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span><br><br>
+    <% end %>
+
+    <%= form_for @picture, :url => user_profile_gallery_pictures_path(current_user, @gallery.id) , :html => { :id => "new_picture_form_id" } do |new_p| %>
+      <span class="like_label">Add a new picture (png, jpeg, jpg - Max 4MB):</span><br> <%= new_p.file_field :avatar %>
+      <button class="new_picture_file_input">Upload</button>
+    <% end %>
+      
+    <br><br>
+
+      <% @gallery.pictures.each do |picture| %>
+        <%= form_for picture, :url => user_profile_gallery_picture_path(current_user, @gallery.id, picture.id) do |p| %>
+          <div class="one_picture picture_fieldsremovable">
+            
+            <% if p.object.avatar? %>
+              <%= image_tag p.object.avatar.url(:small) %>
+            <% else %>
+              <%= image_tag("/images/ico_error.png") %>
+            <% end %>
+            
+            <div class="fileinputs">
+             <%= p.file_field :avatar, :class => "edit_picture_file_input" %>
+              <div class="fakefile">
+                <a href="#" class="add_edit_link_smaller">Edit</a>
+              </div>
+            </div>
+            <%= link_to "Delete", user_profile_gallery_picture_path(current_user, @gallery.id, p.object.id), :class => "remote-delete" %>
+          </div>
+
+        <% end %>
+      <% end %>
+  </div>
+</div>
+

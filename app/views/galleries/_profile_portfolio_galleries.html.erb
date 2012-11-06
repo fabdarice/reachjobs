@@ -1,4 +1,8 @@
-<span class="profile_title">Portfolio <%= link_to "+ Add New Gallery", new_user_profile_gallery_path(current_user), :class => "add_edit_link" %></span>
+<span class="profile_title">Portfolio 
+  <% if edit_profile %>
+    <%= link_to "+ Add New Gallery", new_user_profile_gallery_path(current_user), :class => "add_edit_link" %>
+  <% end %>  
+</span>
 <hr class="section_seperator" align="right" width="900px"><br>
 <div id="list_galleries">
   <% tmp = 0 %>
@@ -7,13 +11,17 @@
       <div class="gallery_fieldsremovable">       
         <div class="gallery_content <% if tmp.modulo(3) != 0 %>addmargin<% end %>">
             <% if f.avatar? %>
-              <%= link_to image_tag(f.avatar.url(:small)), images_user_profile_gallery_path(current_user, f.id) %>
+              <%= link_to image_tag(f.avatar.url(:small)), images_user_profile_gallery_path(@profile.user, f.id) %>
             <% else %>
-              <%= link_to image_tag("/images/ico_unknown_project.png"), images_user_profile_gallery_path(current_user, f.id) %>
+              <%= link_to image_tag("/images/ico_unknown_gallery.png"), images_user_profile_gallery_path(@profile.user, f.id) %>
             <% end %>
             <br><br>
-            <span class="highlight title"%><%= f.name %></span><%= link_to "Edit", edit_user_profile_gallery_path(current_user, f.id), :class => "add_edit_link_smaller" %>
-            <%= link_to "Delete", user_profile_gallery_path(current_user, f.id), :class => "remote-delete" %><br>
+            <span class="highlight title"%><%= f.name %></span>
+            <% if edit_profile %>
+              <%= link_to "Edit", edit_user_profile_gallery_path(current_user, f.id), :class => "add_edit_link_smaller" %>
+              <%= link_to "Delete", user_profile_gallery_path(current_user, f.id), :class => "remote-delete" %>
+            <% end %>  
+            <br>
 
             <span class="headline"><%= f.headline %></span><br>
             <span class="skills_used">

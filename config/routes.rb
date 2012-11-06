@@ -33,6 +33,7 @@ Reachjobs::Application.routes.draw do
       resources :galleries do
         member do
           get 'images'
+          get 'edit_images'
         end
 
         resources :pictures do

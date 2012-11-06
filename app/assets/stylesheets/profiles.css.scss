@@ -6,9 +6,7 @@
 
 #profile_header {
   width: 900px;
-  border-top: 1px solid lighten($my_orange, 30%);;
-  /*border-bottom: 1px solid $my_orange;*/
-  height: 250px;
+  height: 230px;
   position: relative;
 }
 
@@ -20,11 +18,10 @@
   width: 400px;
   background-color: $background;
   border: 1px outset;
-  height : 200px;
 
   #profile_header_idcard_photo {
-    margin-top: 23px;
-    margin-bottom: 23px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-left : 10px;
     margin-right: 10px;
     float: left;
@@ -48,16 +45,51 @@
     }
 
     .profile_fullname {
-      font-family: "klavika-web",sans-serif;
-      font-size: 24px;
+      font-family: "Verdana";
+      font-size: 18px;
       color: $my_blue;
-      font-weight: bold;
+      
     }
     
     .profile_headline {
       font-family: "Verdana";
-      font-size: 13px;
+      font-size: 14px;
       color: $my_second_blue;
+    }
+  }
+
+  #profile_hader_idcard_view_profile {
+    width: 120px;
+    border-top: 1px dashed darken($body_background, 30%);
+    border-right: 1px dashed darken($body_background, 30%);
+    background-color: darken($body_background, 10%);
+    height: 35px;
+    padding-top: 2px;
+    clear: both;
+    float: left;
+  }
+
+  #profile_hader_idcard_public_link {
+    width: 274px;
+    height: 37px;
+    float: left;
+    line-height: 35px;
+    border-top: 1px dashed darken($body_background, 30%);
+    background-color: darken($body_background, 10%);
+    padding-left: 5px;
+
+    a {
+      text-decoration: none;
+      color: #32B3E6;
+    }
+
+    a:visited {
+      text-decoration: none;
+      color: #32B3E6;
+    }
+
+    a:hover {
+      color: $my_orange;  
     }
   }
 }
@@ -73,7 +105,7 @@
     float: left;
     width: 20px;
     height: 40px;
-    border-bottom: 1px solid $my_orange;
+    border-bottom: 1px solid darken($body_background, 30%);
   }
   
 
@@ -84,7 +116,7 @@
     height: 40px;
     text-align: center;
     line-height: 40px;
-    border-bottom: 1px solid $my_orange;
+    border-bottom: 1px solid darken($body_background, 30%);
     font-size : 13px;
     font-family: "Verdana";
     color: $my_blue;
@@ -102,8 +134,8 @@
     text-align: center;
     line-height: 40px;
     background-color: $background;
-    border-left: 1px solid $my_orange;
-    border-right: 1px solid $my_orange;
+    border-left: 1px solid darken($body_background, 30%);
+    border-right: 1px solid darken($body_background, 30%);
     border-bottom: none;
     font-size : 13px;
     font-family: "Verdana";
@@ -134,15 +166,15 @@
   .profile_title {
     position: relative;
     color: $my_blue;
-    font-size: 18px;
-    font-family: "klavika-web",sans-serif;
-    font-weight: bold;
+    font-size: 16px;
+    font-family: "Verdana";
+    
 
   } 
 
   .add_section {
     font-size: 14px;
-    font-family: "klavika-web",sans-serif;
+    font-family: "Verdana";
     float: right;
     padding-top: 7px;
   }
@@ -163,7 +195,7 @@
 
 hr.profile_hr{
   height: 1px;
-  background-color: $my_orange;
+  background-color: darken($body_background, 30%);
   font-size: 0px;
 }
 
@@ -206,7 +238,7 @@ hr.content_separator {
 /*
 .one_section_header {
   font-size: 15px;
-  font-family:"klavika-web",sans-serif;
+  font-family:"Verdana";
   color: $my_blue;
   background-color: $body_background;
   border: 1px double darken($body_background, 10%);
@@ -219,7 +251,7 @@ hr.content_separator {
     border: none;
     background-color: $body_background;
     font-size: 15px;
-    font-family:"klavika-web",sans-serif;
+    font-family:"Verdana";
     color: $my_orange;
   }
 
@@ -253,20 +285,21 @@ hr.content_separator {
   filter:alpha(opacity=20);
 }
 
+label, .like_label {
+    color: $my_second_blue;
+}
 
 .edit_form {
   margin: 30px;
   font-size: 12px;
   font-family: "Verdana";
 
-  label, .like_label {
-    color: $my_second_blue;
-  }
+  
  
   .profile_title {
     color: $my_blue;
     font-size: 18px;
-    font-family: "klavika-web",sans-serif;
+    font-family: "Verdana";
     font-weight: bold;
   }
 
@@ -335,9 +368,9 @@ hr.content_separator {
 }
 
 .headline {
-  font-size: 14px;
+  font-size: 12px;
   color: $my_blue;
-  font-family: "klavika-web",sans-serif;
+  font-family: "Verdana";
 }
 
 .date {

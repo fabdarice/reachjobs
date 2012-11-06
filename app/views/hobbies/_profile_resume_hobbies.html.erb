@@ -1,4 +1,8 @@
-<span class="profile_title">Hobbies <%= link_to "+ Add New Hobby", new_user_profile_hobby_path(current_user), :class => "add_edit_link" %></span>
+<span class="profile_title">Hobbies 
+  <% if edit_profile %>
+    <%= link_to "+ Add New Hobby", new_user_profile_hobby_path(current_user), :class => "add_edit_link" %>
+  <% end %>  
+</span>
 <hr class="section_seperator" align="right" width="900px"><br>
 <div id="list_hobbies">
   <% @profile.hobbies.each do |f| %>
@@ -7,10 +11,14 @@
             <%= f.name %>
         </div>
         <div class="right_side">
-          <%= link_to "Edit", edit_user_profile_hobby_path(current_user, f.id), :class => "add_edit_link_smaller" %>
-          <%= link_to "Delete", user_profile_hobby_path(current_user, f.id), :class => "remote-delete"  %>
-          <%= simple_format(f.description) %>
-          
+          <span class="inline_paragraph">
+              <%= simple_format(f.description) %>
+              <% if edit_profile %>
+                <%= link_to "Edit", edit_user_profile_hobby_path(current_user, f.id), :class => "add_edit_link_smaller" %>
+                <%= link_to "Delete", user_profile_hobby_path(current_user, f.id), :class => "remote-delete"  %>
+              <% end %>  
+          </span>
+          <br>
           <br>     
         </div>  
         <hr class="content_separator" align="right">      

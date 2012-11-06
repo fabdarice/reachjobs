@@ -8,7 +8,6 @@
   line-height: 50px;
   text-align: center;
   font-size: 18px;
-  font-family: "klavika-web",sans-serif;
   color: white;
   border-radius: 5px;
 }
@@ -21,30 +20,28 @@
   border-radius: 5px;
   padding: 10px;
   position: relative;
+  overflow: hidden;
 
   #register_form_notsigned {
     width: 360px;
     border-right: 1px dashed #414142;
-    position: relative;
+    float: left;
 
-    #form_group {
-      width: 360px;
-      height: 50px;
+    .form_group {
+      margin-bottom: 20px;
 
-
-      #form_label {
-        width: 160px;
+      .form_label {
+        width: 130px;
         float: left;
         text-align: right;
         height: 30px;
-        font-family: "Verdana";
         font-size: 12px;
         color: #414142;
         font-weight: bold;
       }
 
-      #form_field {
-        width: 2OOpx;
+      .form_field {
+        width: 170px;
         text-align: left;
         padding-left: 20px;
         display: inline-block;
@@ -55,12 +52,14 @@
   
   #register_form_signed { 
     width: 200px;
-    position: absolute;
-    right: 20px;
-    bottom: 40px;
+    float: left;
+  
+    img {
+      padding-left: 25px;
+      padding-top: 10px;
+    }    
+
   }  
-
-
 }
 
 
@@ -75,7 +74,6 @@
 }
 
 .field_error_msg {
-  font-family: "Verdana";
   font-size: 11px;
   color: #F70202;
 }

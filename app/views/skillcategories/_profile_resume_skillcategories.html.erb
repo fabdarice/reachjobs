@@ -1,4 +1,8 @@
-<span class="profile_title">Skills <%= link_to "+ Add New Skill", new_user_profile_skillcategory_path(current_user), :class => "add_edit_link" %></span>
+<span class="profile_title">Skills 
+  <% if edit_profile %>
+    <%= link_to "+ Add New Skill", new_user_profile_skillcategory_path(current_user), :class => "add_edit_link" %>
+  <% end %>  
+</span>
 <hr class="section_seperator" align="right" width="900px"><br>
 <div id="list_skillcategories">
     <% @profile.skillcategories.each do |f| %>
@@ -23,8 +27,10 @@
                 <% end %>  
               <% end %>  
             <% end %>
-            <%= link_to "Edit", edit_user_profile_skillcategory_path(current_user, f.id), :class => "add_edit_link_smaller" %>
-            <%= link_to "Delete", user_profile_skillcategory_path(current_user, f.id), :class => "remote-delete" %>
+            <% if edit_profile %>
+              <%= link_to "Edit", edit_user_profile_skillcategory_path(current_user, f.id), :class => "add_edit_link_smaller" %>
+              <%= link_to "Delete", user_profile_skillcategory_path(current_user, f.id), :class => "remote-delete" %>
+            <% end %>  
         </div>  
         <br><br>
         <hr class="content_separator" align="right" width="700px">

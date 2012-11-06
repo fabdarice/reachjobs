@@ -1,3 +1,14 @@
+<script>
+$(document).ready(function() {
+  if ($.cookie('tabname') == null) {
+    tab_to_display('profile_aboutme');
+  } else {
+    tab_to_display($.cookie('tabname'));
+  }  
+});
+</script>
+
+
 <div id="profile_header">
   <div id="profile_header_idcard">
         <div id="profile_header_idcard_photo">
@@ -13,14 +24,20 @@
               <li><span class="profile_headline"><%= @profile.head_description %></span></li>
               <li><%= @profile.second_description %></li> <br>
               <li><%= image_tag ("/images/ico_email.png") %> <%= current_user.email %></li>
-              <% if @profile.phone %>
+              <% if !@profile.phone.blank? %>
                 <li><%= image_tag ("/images/ico_phone.png") %> <%= @profile.phone %></li>
               <% end %>    
             </ul>
         </div> 
+        <div id="profile_hader_idcard_view_profile">
+          <%= link_to image_tag("/images/button_view_profile.png", :mouseover => "/images/button_view_profile_hover.png"), root_url + @profile.link %>
+        </div>
+        <div id="profile_hader_idcard_public_link">
+          <%= link_to root_url + @profile.link, root_url + @profile.link %>
+        </div>
   </div>
 </div>
-
+<br>
 <div id="profile_tab">
   <span class="one_tab_empty">
   </span>
@@ -37,15 +54,14 @@
 <hr class="profile_hr" align="right" width="578px">
 
 <div id="profile_content">
-  
-  <div class="hide">
-    <div id="profile_aboutme"><%= render "profiles/profile_aboutme", :p => p %></div>
-  </div>
-  <div class="hide">
-    <div id="profile_resume"><%= render "profiles/profile_resume", :p => p %></div>
-  </div>
   <div class="show">
-    <div id="profile_resume"><%= render "profiles/profile_portfolio", :p => p %></div>
+    <div id="profile_aboutme"><%= render "profiles/profile_aboutme", :edit_profile => true %></div>
+  </div>
+  <div class="hide">
+    <div id="profile_resume"><%= render "profiles/profile_resume", :edit_profile => true %></div>
+  </div>
+  <div class="hide">
+    <div id="profile_resume"><%= render "profiles/profile_portfolio", :edit_profile => true %></div>
   </div>
 </div>
 

@@ -26,13 +26,13 @@
 
       <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
           <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
-            <div id="login_form_group">
-              <div id="login_form_label"><%= f.label :email %>:</div>
-              <div id="login_field"><%= f.email_field :email %><br/><span class="field_error_msg"><%= display_error(resource, 'email') %></span></div>
+            <div class="login_form_group">
+              <div class="login_form_label"><%= f.label :email %>:</div>
+              <div class="login_field"><%= f.email_field :email %><br/><span class="field_error_msg"><%= display_error(resource, 'email') %></span></div>
             </div>
-            <div id="login_form_group">
-              <div id="login_form_label"><%= f.label :password %>:</div>
-              <div id="login_field"><%= f.password_field :password %><span class="field_error_msg"><%= display_error(resource, 'email') %></span></div>
+            <div class="login_form_group">
+              <div class="login_form_label"><%= f.label :password %>:</div>
+              <div class="login_field"><%= f.password_field :password %><span class="field_error_msg"><%= display_error(resource, 'email') %></span></div>
             </div>
 
             <div id="login_form_button">

@@ -1,8 +1,3 @@
-<div class="gallery_title">
-    <%= @gallery.name %> Gallery <br>
-    <hr align="left">
-</div>
-
 <div class="gallery_images">
   <div class="gallery_images_left">
       <span class="highlight gallery_name"%><%= @gallery.name %></span><br>
@@ -15,17 +10,20 @@
       <br><br>
       <hr align="left"><br>
       
-      <%= link_to image_tag("/images/button_back_portfolio.png", 
-        :mouseover => "/images/button_back_portfolio_hover.png"), show_edit_user_profile_path(current_user) %>
-      
-      <%= form_for @picture, :url => user_profile_gallery_pictures_path(current_user, @gallery.id), :html => { :id => "gallery_form_id" } do |picture| %>
-            Upload new file : <%= picture.file_field :avatar, :class => "picture_file_input" %>
-      <% end %>
-       
 
+      
+      <% if user_signed_in? and current_user == @gallery.profile.user and current_page?(images_user_profile_gallery_path(@gallery.profile.user, f.id)) %>  
+        <%= link_to image_tag("/images/button_back_portfolio.png", 
+        :mouseover => "/images/button_back_portfolio_hover.png"), show_edit_user_profile_path(@gallery.profile.user) %>
+        <%= link_to image_tag("/images/button_edit_gallery_images.png", 
+        :mouseover => "/images/button_edit_gallery_images_hover.png"), edit_images_user_profile_gallery_path(current_user, @gallery.id) %>  
+      <% else %>
+        <%= link_to image_tag("/images/button_back_portfolio.png", 
+        :mouseover => "/images/button_back_portfolio_hover.png"), root_url + @gallery.profile.link %>
+      <% end %>  
+       
   <br><br>
   </div>
-
   <div class="gallery_images_right">
     <div id="slideShowContainer">
         <div id="slideShow">
