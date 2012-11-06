@@ -10,10 +10,7 @@
       <br><br>
       <hr align="left"><br>  
         <%= link_to image_tag("/images/button_back_portfolio.png", 
-        :mouseover => "/images/button_back_portfolio_hover.png"), show_edit_user_profile_path(@gallery.profile.user) %>
-        <%= link_to image_tag("/images/button_edit_gallery_images.png", 
-        :mouseover => "/images/button_edit_gallery_images_hover.png"), edit_images_user_profile_gallery_path(current_user, @gallery.id) %>  
-       
+        :mouseover => "/images/button_back_portfolio_hover.png"), root_url + @gallery.profile.link %>
   <br><br>
   </div>
   <div class="gallery_images_right">

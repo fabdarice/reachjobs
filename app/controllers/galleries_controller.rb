@@ -46,7 +46,10 @@ class GalleriesController < ApplicationController
 
   def images 
     @gallery = Gallery.find(params[:id])
-    @picture = Picture.new
+  end
+
+  def show_images 
+    @gallery = Gallery.find(params[:id])
   end
 
   def edit_images
