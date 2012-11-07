@@ -41,17 +41,19 @@ $(document).ready(function() {
 <div id="profile_tab">
   <span class="one_tab_empty">
   </span>
-  <span class="one_tab_selected">
-    <%= link_to_function "About me", "tab_to_display('profile_aboutme')" %>
+  <span class="profile_aboutme one_tab">
+    <%= link_to_function image_tag("/images/tab_aboutme.png"), "tab_to_display('profile_aboutme')" %>
   </span>
-  <span class="one_tab">
-     <%= link_to_function "Resume", "tab_to_display('profile_resume')" %>
+  <span class="profile_resume one_tab">
+     <%= link_to_function image_tag("/images/tab_resume.png"), "tab_to_display('profile_resume')" %>
   </span>
-  <span class="one_tab">
-    <%= link_to_function "Portfolio", "tab_to_display('profile_portfolio')" %>
+  <span class="profile_portfolio one_tab">
+    <%= link_to_function image_tag("/images/tab_portfolio.png"), "tab_to_display('profile_portfolio')" %>
+  </span>
+  <span class="one_tab_empty_end">
   </span>
 </div>
-<hr class="profile_hr" align="right" width="578px">
+
 
 <div id="profile_content">
   <div class="show">
@@ -61,7 +63,7 @@ $(document).ready(function() {
     <div id="profile_resume"><%= render "profiles/profile_resume", :edit_profile => true %></div>
   </div>
   <div class="hide">
-    <div id="profile_resume"><%= render "profiles/profile_portfolio", :edit_profile => true %></div>
+    <div id="profile_portfolio"><%= render "profiles/profile_portfolio", :edit_profile => true %></div>
   </div>
 </div>
 

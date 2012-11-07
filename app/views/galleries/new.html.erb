@@ -16,7 +16,7 @@
     <% end %>
 
     <%= form_for @gallery, :url => user_profile_galleries_path do |f| %>
-      <%= f.label :name, "Gallery Name" %> :<br> <%= f.text_field :name, :size => "70px", :placeholder => "This can be a website name, a group of photos, ..." %><br>
+      <%= f.label :name, "Gallery Name" %> :<br> <%= f.text_field :name, :size => "60px", :placeholder => "This can be a website name, a group of photos, ..." %><br>
       <span class="field_error_msg"><%= display_error(@gallery, 'name') %></span><br>
     
       <span class="like_label">Upload the gallery main picture (png, jpg - Max 4MB - xxXxx) :</span> <br>
@@ -25,7 +25,7 @@
       <span class="field_error_msg"><%= display_error(@gallery, 'avatar_file_size') %></span><br>
 
 
-      <%= f.label :headline, "Headline" %> :<br> <%= f.text_field :headline, :size => "70px", :placeholder => "Gallery headline." %><br> 
+      <%= f.label :headline, "Headline" %> :<br> <%= f.text_field :headline, :size => "60px", :placeholder => "Gallery headline." %><br> 
       <span class="field_error_msg"><%= display_error(@gallery, 'headline') %></span><br>
 
        <%= f.label :description, "Description" %> : <br><%= f.text_area :description, :placeholder => "Enter a description of the gallery.", :rows => "10", :cols => "51"  %>

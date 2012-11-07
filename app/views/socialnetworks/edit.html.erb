@@ -7,7 +7,9 @@
   <% end %>
   <%= form_for @socialnetwork, :url => user_profile_socialnetwork_path do |s| %>
     <span class="like_label">Upload your Resume (pdf/png/jpg) :</span> <br>
-    <%= s.file_field :resume %><br><br>
+    <%= s.file_field :resume %><br>
+    <span class="field_error_msg"><%= display_error(@socialnetwork, 'resume_content_type') %></span><br>
+    <span class="field_error_msg"><%= display_error(@socialnetwork, 'resume_file_size') %></span><br>
 
     <span class="like_label">Social Network Links : </span><br>
       <div id="profile_aboutme_socialnetwork_edit">

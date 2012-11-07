@@ -16,8 +16,10 @@ function add_fields(link, association, content) {
 
 function tab_to_display(tabname) {
   $.cookie('tabname', tabname);
+  $('span.one_tab_selected').removeClass("one_tab_selected").addClass("one_tab");
   $("div.show").removeClass("show").addClass("hide");
   $("#" + tabname).closest(".hide").removeClass("hide").addClass("show");
+  $("span." + tabname).removeClass("one_tab").addClass("one_tab_selected");
 }
 
 function move_higher(link, classname) {

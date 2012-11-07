@@ -15,11 +15,11 @@
   <% end %>
 
   <%= form_for @workexperience, :url => user_profile_workexperiences_path do |f| %>
-    <%= f.label :company %> :<br> <%= f.text_field :company, :size => "70px", :placeholder => "Company name" %><br>
+    <%= f.label :company %> :<br> <%= f.text_field :company, :size => "60px", :placeholder => "Company name" %><br>
     <span class="field_error_msg"><%= display_error(@workexperience, 'company') %></span><br>
   
 
-    <%= f.label :job_title, "Position occupied" %> :<br> <%= f.text_field :job_title, :size => "70px", :placeholder => "e.g. Web Developer, Project Manager, Director, ..." %><br> 
+    <%= f.label :job_title, "Position occupied" %> :<br> <%= f.text_field :job_title, :size => "60px", :placeholder => "e.g. Web Developer, Project Manager, Director, ..." %><br> 
     <span class="field_error_msg"><%= display_error(@workexperience, 'job_title') %></span><br>
 
     <%= f.label :city %> : <br><%= f.text_field :city, :placeholder => "City location" %><br>

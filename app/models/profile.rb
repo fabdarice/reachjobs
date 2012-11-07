@@ -9,13 +9,13 @@ class Profile < ActiveRecord::Base
 
   has_one :socialnetwork
   has_many :recommendations
-  has_many :skillcategories, :order => "position"
-  has_many :workexperiences, :order => "position"
-  has_many :projects, :order => "position"
-  has_many :schools, :order => "position"
-  has_many :languages, :order => "position"
-  has_many :hobbies, :order => "position"
-  has_many :galleries, :order => "position"
+  has_many :skillcategories
+  has_many :workexperiences
+  has_many :projects
+  has_many :schools
+  has_many :languages
+  has_many :hobbies
+  has_many :galleries
 
   has_attached_file :photo, :styles => {:small => "130x130#"}
   validates_attachment_content_type :photo, :content_type => ['image/png', 'image/jpg', 'image/jpeg'], :message => "File type is not allowed (only .jpg or .png)."

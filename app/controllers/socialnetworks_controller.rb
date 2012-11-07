@@ -13,6 +13,7 @@ class SocialnetworksController < ApplicationController
     if current_user.profile.socialnetwork.update_attributes(params[:socialnetwork])
       redirect_to show_edit_user_profile_path(current_user)
     else
+      @socialnetwork = @current_user.profile.socialnetwork
       flash[:error] = "Error while saving the modifications."  
       render "edit"
     end 

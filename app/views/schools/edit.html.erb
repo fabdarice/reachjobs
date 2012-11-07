@@ -7,13 +7,13 @@
   <% end %>
 
   <%= form_for @school, :url => user_profile_school_path do |f| %>
-    <%= f.label :name %> :<br> <%= f.text_field :name, :size => "70px", :placeholder => "School name" %><br>
+    <%= f.label :name %> :<br> <%= f.text_field :name, :size => "60px", :placeholder => "School name" %><br>
     <span class="field_error_msg"><%= display_error(@school, 'name') %></span><br>
 
-    <%= f.label :field_study, "Field of Study" %> :<br> <%= f.text_field :field_study, :size => "70px", :placeholder => "e.g. Computer Science, Economic, Law, ..." %><br> 
+    <%= f.label :field_study, "Field of Study" %> :<br> <%= f.text_field :field_study, :size => "60px", :placeholder => "e.g. Computer Science, Economic, Law, ..." %><br> 
     <span class="field_error_msg"><%= display_error(@school, 'field_study') %></span><br>
 
-    <%= f.label :degree, "Degree obtained" %> :<br> <%= f.text_field :degree, :size => "70px", :placeholder => "e.g. Master's Degree, Bachlor's Degree, ...." %><br> 
+    <%= f.label :degree, "Degree obtained" %> :<br> <%= f.text_field :degree, :size => "60px", :placeholder => "e.g. Master's Degree, Bachlor's Degree, ...." %><br><br> 
 
     <%= f.label :city %> : <br><%= f.text_field :city, :placeholder => "City location" %><br>
     <span class="field_error_msg"><%= display_error(@school, 'city') %></span><br>

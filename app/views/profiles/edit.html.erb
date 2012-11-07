@@ -7,7 +7,7 @@
   <% end %>
   <%= form_for @profile, :url => user_profile_path do |p| %>
       <%= p.label :head_description, "Profesional headline : " %><br>
-      <%= p.text_field :head_description, :placeholder => "examples: Web Developer, Web Designer, Photographer, ....", :size => "70px" %><br><br>     
+      <%= p.text_field :head_description, :placeholder => "examples: Web Developer, Web Designer, Photographer, ....", :size => "60px" %><br><br>     
 
       <%= p.label :phone, "Phone number :" %><br>
       <%= p.text_field :phone, :placeholder => "Enter your phone number" %><br><br>     
@@ -31,7 +31,7 @@
       <div class="edit_submit_field">
           <%= link_to image_tag("/images/button_cancel.png", 
                   :mouseover => "/images/button_cancel_hover.png"), show_edit_user_profile_path(current_user) %>         
-          <%= image_submit_tag "/images/button_save_changes 2.png", 
+          <%= image_submit_tag "/images/button_save_changes.png", 
                   :onmouseover => "this.src='/images/button_save_changes_hover.png'", 
                   :onmouseout => "this.src='/images/button_save_changes.png'" %>         
       </div>

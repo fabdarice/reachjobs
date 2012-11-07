@@ -2,6 +2,8 @@ class Workexperience < ActiveRecord::Base
   attr_accessible :start_date, :end_date, :visible, :position, :job_title, :city, :country, :mission_title, :mission_description,  :avatar, :company
   attr_accessible :skills_attributes
 
+  default_scope order('start_date DESC')
+
   validates :start_date, :job_title, :city, :country, :company, :presence => { :message => "Field cannot be empty." }
   
   belongs_to :profile
@@ -12,6 +14,8 @@ class Workexperience < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => ['image/png', 'image/jpg', 'image/jpeg'], :message => "File type is not allowed (only .jpg or .png)."
   validates_attachment :avatar, :size => {:in => 0..4.megabytes, :message => "File must be less than 4MB."}
   before_save :create_only_if_not_exist
+
+
     
   protected
   def create_only_if_not_exist

@@ -97,51 +97,61 @@
 
 #profile_tab {
   width: 900px;
-  height: 40px;
+  height: 30px;
   /*border-top: 1px solid $my_orange  ;*/
 
   .one_tab_empty {
     display: inline-block;
     float: left;
     width: 20px;
-    height: 40px;
-    border-bottom: 1px solid darken($body_background, 30%);
+    height: 31px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
   }
   
+  .one_tab_empty_end {
+    display: inline-block;
+    float: left;
+    width: 572px;
+    height: 31px;
+    border-bottom: 1px solid black;
+  }
 
   .one_tab {
     display: inline-block;
     float: left;
     width: 100px;
-    height: 40px;
+    height: 30px;
     text-align: center;
-    line-height: 40px;
-    border-bottom: 1px solid darken($body_background, 30%);
+    border: 1px solid black;
+    border-left: none;
+    background-color: darken($body_background, 20%);
     font-size : 13px;
     font-family: "Verdana";
     color: $my_blue;
   }
 
   .one_tab:hover {
-    background-color: lighten($my_orange, 30%);
+    background-color: darken($body_background, 10%);
   }
 
   .one_tab_selected {
     display: inline-block;
     float: left;
     width: 100px;
-    height: 40px;
+    height: 30px;
     text-align: center;
     line-height: 40px;
     background-color: $background;
-    border-left: 1px solid darken($body_background, 30%);
-    border-right: 1px solid darken($body_background, 30%);
+    border: 1px solid black;
+    border-left: none;
     border-bottom: none;
     font-size : 13px;
     font-family: "Verdana";
     color: $my_blue;
   }
 }
+
 
 #anchor_tab {  
   
@@ -193,11 +203,7 @@
   padding-bottom: 20px;
 }
 
-hr.profile_hr{
-  height: 1px;
-  background-color: darken($body_background, 30%);
-  font-size: 0px;
-}
+
 
 hr.section_seperator {
     height: 2px;

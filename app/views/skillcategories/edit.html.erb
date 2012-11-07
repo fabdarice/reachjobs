@@ -18,7 +18,7 @@
     <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span><br><br>
   <% end %>
   <%= form_for @skillcategory, :url => user_profile_skillcategory_path do |f| %>
-    <%= f.label :category_name %> :<br> <%= f.text_field :category_name, :size => "70px" %><br>
+    <%= f.label :category_name %> :<br> <%= f.text_field :category_name, :size => "60px" %><br>
     <span class="field_error_msg"><%= display_error(@skillcategory, 'category_name') %></span><br>
     <span class="like_label">List of skills :</span>
 

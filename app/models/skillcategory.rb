@@ -1,6 +1,8 @@
 class Skillcategory < ActiveRecord::Base
   attr_accessible :category_name, :position, :visible, :skills_attributes
 
+  default_scope order('created_at ASC')
+
   validates :category_name, :presence => { :message => "Field cannot be empty." }
 
   belongs_to :profile

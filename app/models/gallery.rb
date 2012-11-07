@@ -2,6 +2,8 @@ class Gallery < ActiveRecord::Base
   attr_accessible :name, :headline, :description, :visible, :position, :avatar
   attr_accessible :skills_attributes
 
+  default_scope order('created_at ASC')
+
   validates :name, :headline, :avatar, :presence => { :message => "Field cannot be empty."}
 
   belongs_to :profile
