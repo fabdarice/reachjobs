@@ -10,6 +10,12 @@
     width: 450px;
     height: 450px;
     float: left;
+    font-size: 13px;
+    color: $my_orange;
+
+    h4 {
+      color: $my_blue;
+    }
   }
 
   #sign_in_two_form {
@@ -46,9 +52,10 @@
         .login_form_label {
           width: 130px;
           text-align: right;
-          height: 30px;
+          height: 25px;
+          padding-top: 5px;
           font-family: "Verdana";
-          font-size: 12px;
+          font-size: 11px;
           color: #414142;
           font-weight: bold;
           float: left;

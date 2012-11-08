@@ -1,6 +1,8 @@
 Reachjobs::Application.routes.draw do
   devise_for :users, :path_names => {:sign_up => "register"}
 
+  resource :contacts, only: [:new, :create]
+
   resources :users, only: [:show] do
     resource :profile, :path_names => {:show_edit => ""} do
       member do
