@@ -1,5 +1,5 @@
 <div id="profile_aboutme_description">
-    <span class="profile_title">Who am I 
+    <span class="profile_title">Who I am
       <% if edit_profile %>
         <%= link_to "+ Edit", edit_user_profile_path(current_user), :class => "add_edit_link" %>
       <% end %>  
@@ -7,7 +7,7 @@
     <hr class="section_seperator" align="right" width="520px"><br>
       <%= simple_format(@profile.about_me_description) %><br/><br/><br/>
 
-    <span class="profile_title">What am I looking for 
+    <span class="profile_title">What I am looking for
       <% if edit_profile %>
         <%= link_to "+ Edit", edit_user_profile_path(current_user), :class => "add_edit_link" %>
       <% end %>  

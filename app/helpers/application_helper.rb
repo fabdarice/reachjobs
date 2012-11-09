@@ -27,4 +27,8 @@ module ApplicationHelper
     link_to_function(name, "add_skill_to_category(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
 
+  def url_with_protocol(url)
+    /^http/.match(url) ? url : "http://#{url}"
+  end
+
 end

@@ -15,9 +15,9 @@
 
               <% if index == 0 %>
                 <% if index + 1 == f.skills.length %>
-                  <span class="highlight"><%= s.skill_name%></span>
+                  <%= s.skill_name%>
                 <% else %>
-                  <span class="highlight"><%= s.skill_name%></span>,
+                  <%= s.skill_name%>,
                 <% end %>    
               <% else %>
                 <% if index + 1 == f.skills.length %>

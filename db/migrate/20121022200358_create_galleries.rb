@@ -4,7 +4,7 @@ class CreateGalleries < ActiveRecord::Migration
       t.references :profile
       t.string :name
       t.string :headline
-      t.string :description
+      t.text :description
       t.boolean :visible, :default => "true"
       t.integer :position
       t.timestamps

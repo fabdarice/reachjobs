@@ -34,6 +34,21 @@
   .socialnetwork_title {
     color: $my_second_blue;
   }
+
+  a {
+    text-decoration: none;
+    color: $my_orange;  
+  }
+
+  
+  a:visited {
+    text-decoration: none;
+    color: $my_orange; 
+  }
+
+  a:hover {
+    color: #32B3E6;
+  }
 }
 
 

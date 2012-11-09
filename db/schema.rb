@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20121107233156) do
     t.integer  "profile_id"
     t.string   "name"
     t.string   "headline"
-    t.string   "description"
+    t.text     "description"
     t.boolean  "visible",             :default => true
     t.integer  "position"
     t.datetime "created_at",                            :null => false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20121107233156) do
   create_table "hobbies", :force => true do |t|
     t.integer  "profile_id"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.boolean  "visible",     :default => true
     t.integer  "position"
     t.datetime "created_at",                    :null => false
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(:version => 20121107233156) do
     t.integer  "profile_id"
     t.string   "name"
     t.string   "headline"
-    t.string   "description"
+    t.text     "description"
     t.boolean  "visible",             :default => true
     t.integer  "position"
     t.datetime "created_at",                            :null => false
@@ -206,7 +206,7 @@ ActiveRecord::Schema.define(:version => 20121107233156) do
     t.string   "city"
     t.string   "country"
     t.string   "mission_title"
-    t.string   "mission_description"
+    t.text     "mission_description"
     t.boolean  "visible",             :default => true
     t.integer  "position"
     t.datetime "created_at",                            :null => false

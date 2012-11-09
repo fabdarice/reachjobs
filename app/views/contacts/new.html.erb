@@ -4,22 +4,30 @@
 <span class="profile_title">Contact Us</span>
   <hr class="edit_section_seperator" align="left" width="840px">
   <br/>
-  <div class="edit_form_left">
-    Contact Us for any question related
-  </div>
-  <div class="edit_form_right">
-      <% if flash[:error] %>
-      <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span><br><br>
-    <% end %>
-    <% if flash[:success] %>
-      <%= image_tag("/images/ico_success.png") %><%= flash[:success] %><br><br>
-    <% end %>
-    <%= form_for @contact do |f| %>
+  Your feedback is very important to us. <br>
+  Contact us for any questions, problems or upgrade needs.
+  <br><br>
+  <% if flash[:error] %>
+  <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span><br><br>
+  <% end %>
+  <% if flash[:success] %>
+    <%= image_tag("/images/ico_success.png") %><%= flash[:success] %><br><br>
+  <% end %>
+  <%= form_for @contact do |f| %>
       <%= f.label :name %> :<br>
-      <%= f.text_field :name, :size => "60px" %><br>
+      <% if user_signed_in? %>
+        <%= f.text_field :name, :size => "60px", :value => current_user.firstname + " " + current_user.lastname %><br>
+      <% else %>
+        <%= f.text_field :name, :size => "60px" %><br>
+      <% end %>  
       <span class="field_error_msg"><%= display_error(@contact, 'name') %></span><br>  
       <%= f.label :email %> :<br>
-      <%= f.text_field :email, :size => "60px" %><br><br>
+      <% if user_signed_in? %>
+        <%= f.text_field :email, :size => "60px", :value => current_user.email %><br><br>
+      <% else %>
+        <%= f.text_field :email, :size => "60px" %><br><br>
+      <% end %>  
+      
       <%= f.label :content, "Message" %> :<br>
       <%= f.text_area :content,  :rows => "10", :cols => "45" %><br>
       <span class="field_error_msg"><%= display_error(@contact, 'content') %></span><br>  
@@ -29,7 +37,6 @@
                       :onmouseover => "this.src='/images/button_send_message_hover.png'", 
                       :onmouseout => "this.src='/images/button_send_message.png'" %>         
       </div>
-    <% end %>
-  </div>
+<% end %>
 
 </div>

@@ -3,7 +3,7 @@ class CreateHobbies < ActiveRecord::Migration
     create_table :hobbies do |t|
       t.references :profile
       t.string :name
-      t.string :description
+      t.text :description
       t.boolean :visible, :default => "true"
       t.integer :position
       t.timestamps
