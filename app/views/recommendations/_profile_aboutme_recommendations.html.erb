@@ -17,9 +17,9 @@
             <%= link_to "Delete", user_profile_recommendation_path(current_user, f.id), :class => "remote-delete" %>
           <% end %>  
           <br>
-        <span class="relation"> <%= f.relation %></span><br>
-        <span class="content"><%= simple_format(f.content) %></span>
-        <br><hr>
+        <span class="relation"> <%= f.relation %></span><br><br>
+        <span class="content"><q><%= simple_format(f.content) %></q></span>
+        <br><br><hr>
     </div>
   <% end %>
 </div>

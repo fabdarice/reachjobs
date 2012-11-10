@@ -9,7 +9,6 @@
   width:510px;
   height:510px;
   position:relative;
-  border:1px solid transparent;
   margin-left:40px;
 }
 
@@ -18,7 +17,7 @@
   height:490px;
   width:490px;
   background-color:#fff;
-  margin:10px 0 0 10px;
+  margin:10px 10px 10px 10px;
   z-index:100;
   
   -moz-box-shadow:0 0 10px #111;
@@ -28,10 +27,10 @@
 
 #slideShow ul{
   position:absolute;
-  top:15px;
-  right:15px;
-  bottom:15px;
-  left:15px;
+  top:10px;
+  right:10px;
+  bottom:10px;
+  left:10px;
   list-style:none;
   overflow:hidden;
 }
@@ -58,7 +57,7 @@
 }
 
 #previousLink{
-  left:-35px;
+  left:-38px;
 }
 
 #previousLink:hover{
@@ -66,7 +65,7 @@
 }
 
 a#nextLink{
-  right:-35px;
+  right:-38px;
   background-position:top right;
 }
 
