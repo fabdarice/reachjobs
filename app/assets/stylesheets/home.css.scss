@@ -146,12 +146,12 @@ a img {
 
 .view_example {
 
-  margin-left: 50px;
+  margin-left: 0px;
 
   a {
     text-decoration: none;
     color:#68b4ef;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
   }
 
@@ -175,28 +175,32 @@ a img {
 .reachjobs_step_title {
   font-size: 16px;
   color: $my_orange;
+  display: inline;
 }
 
 .reachjobs_step {
   width: 600px;
-  margin-bottom: 20px;
-  margin: auto;
+  
   clear: both;
+  margin: auto;
 }
 
 .reachjobs_step_left {
   float: left;
-  width: 230px;
+  width: 300px;
+  margin-bottom: 20px;
+
+  img {
+      -moz-box-shadow:0 0 10px #111;
+      -webkit-box-shadow:0 0 10px #111;
+      box-shadow:0 0 10px #111;
+  }
 }
 
 .reachjobs_step_right {
   float: right;
-  margin-left: 20px;
-  width: 350px;
-
-  img {
-      -moz-box-shadow:0 0 10px #111;
-  -webkit-box-shadow:0 0 10px #111;
-  box-shadow:0 0 10px #111;
-  }
+  margin-left: 30;
+  width: 250px;
+  font-size: 13px;
+  
 }
