@@ -4,9 +4,9 @@
   <% end %>  
 </span>
 <hr class="section_seperator" align="right" width="900px"><br>
-<div id="list_languages">
+<div class="list_content">
   <% @profile.languages.each do |f| %>
-      <div class="language_fieldsremovable">
+      <div class="fieldsremovable">
         <div class="left_side">
             <%= f.level %>
         </div>
@@ -19,7 +19,7 @@
           <br>
           <%=  simple_format(f.additional_information) %>
         </div>  
-        <hr class="content_separator" align="right">      
+        <hr class="content_separator" align="right" width="700px">      
         
         <br><br>
       </div>

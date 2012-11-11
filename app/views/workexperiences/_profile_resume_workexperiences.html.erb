@@ -4,9 +4,9 @@
   <% end %>  
 </span>
 <hr class="section_seperator" align="right" width="900px"><br>
-<div id="list_workexperiences">
+<div class="list_content">
   <% @profile.workexperiences.each do |f| %>
-      <div class="workexperience_fieldsremovable">
+      <div class="fieldsremovable">
         <div class="left_side">
             <% if f.avatar? %>
               <%= image_tag f.avatar.url(:small) %>
@@ -38,10 +38,10 @@
             <% f.skills.each do |s| %>
               <div class="one_skill"><%= s.skill_name %></div>
             <% end %>  
-            <br><br>         
+                  
         </div>  
-        
-        <hr class="content_separator" align="right">
+        <br><br>
+        <hr class="content_separator" align="right" width="700px">
         <br><br>
       </div>
       

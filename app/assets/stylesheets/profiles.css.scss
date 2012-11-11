@@ -214,9 +214,10 @@ hr.section_seperator {
 }
 
 hr.content_separator {
+  clear: both;
   height: 1px;
   width: 661px;
-  background-color: darken($body_background, 10%);
+  background-color: darken($body_background, 10%);;
   font-size: 0px;
 }
 
@@ -242,50 +243,13 @@ hr.content_separator {
   display: none;
 }
 
-
-/*
-.one_section_header {
-  font-size: 15px;
-  font-family:"Verdana";
-  color: $my_blue;
-  background-color: $body_background;
-  border: 1px double darken($body_background, 10%);
-  height: 25px;
-  line-height: 25px;
-  width: 847px;
-  padding-left: 10px;
-
-  .one_section_readonly {
-    border: none;
-    background-color: $body_background;
-    font-size: 15px;
-    font-family:"Verdana";
-    color: $my_orange;
-  }
-
-  img {
-    vertical-align: middle;
-    float: right;
-    padding-right: 5px;
-    padding-top: 5px;
-  }
-}*/
-
-/*
-.one_section_content {
-  position: relative;
+.list_content {
   overflow: hidden;
-  font-size: 11px;
-  font-family: "Verdana";
-  border: 1px double darken($body_background, 10%);
-  border-top : none;
-  margin-bottom: 10px;
-  padding-left: 10px;
-  padding-top: 10px;
-  width: 847px;  background-color: lighten($my_orange, 47%);
+}
 
-} */
-
+.fieldsremovable {
+  overflow: hidden;
+}
 
 .not_visible {
   -moz-opacity:0.2;
@@ -391,6 +355,6 @@ label, .like_label {
 }
 
 .right_side {
-  float: left;
+  float: right;
   width: 658px;
 }

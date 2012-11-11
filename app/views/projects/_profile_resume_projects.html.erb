@@ -4,9 +4,9 @@
   <% end %>  
 </span>
 <hr class="section_seperator" align="right" width="900px"><br>
-<div id="list_projects">
+<div class="list_content">
   <% @profile.projects.each do |f| %>
-      <div class="project_fieldsremovable">
+      <div class="fieldsremovable">
         <div class="left_side">
             <% if f.avatar? %>
               <%= image_tag f.avatar.url(:small) %>
@@ -14,8 +14,7 @@
               <%= image_tag ("/images/ico_unknown_project.png") %>
             <% end %>
         </div>
-        <div class="right_side">
-          
+        <div class="right_side">  
           <span class="highlight title"%><%= f.name %></span>
           <% if edit_profile %>
             <%= link_to "Edit", edit_user_profile_project_path(current_user, f.id), :class => "add_edit_link_smaller" %>
@@ -30,7 +29,7 @@
               <div class="one_skill"><%= s.skill_name %></div>
             <% end %>  
         </div>  
-        <hr class="content_separator" align="right">      
+        <hr class="content_separator" align="right" width="700px">      
         
         <br><br>
       </div>
