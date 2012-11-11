@@ -3,6 +3,8 @@ Reachjobs::Application.routes.draw do
 
   resource :contacts, only: [:new, :create]
 
+  resource :aboutus, only: [:show]
+
   resources :users, only: [:show] do
     resource :profile, :path_names => {:show_edit => ""} do
       member do

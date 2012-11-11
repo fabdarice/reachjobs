@@ -45,12 +45,9 @@ a img {
   width: 900px;
   margin: auto;
   
-
-
   #content {
     background-color: $background;
     width: 900px;
-    border: 1px solid #E0E0E0;
     border-radius: 5px;
     position: absolute;
     top: -40px;
@@ -58,8 +55,10 @@ a img {
 }
 
 #footer {
+  background-color: darken($body_background, 20%);
   clear: both;
-  width: 900px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 
@@ -204,3 +203,11 @@ a img {
   font-size: 13px;
   
 }
+
+.figure_caption {
+  font-style: italic;
+  font-size: 10px;
+  color: darken($body_background, 40%);
+  padding-left: 10px;
+}
+
