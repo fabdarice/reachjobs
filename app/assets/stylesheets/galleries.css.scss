@@ -17,6 +17,9 @@
   float: left;
   display: block;
   overflow: hidden;
+    -moz-box-shadow:0 0 10px #111;
+  -webkit-box-shadow:0 0 10px #111;
+  box-shadow:0 0 10px #111;
 }
 
 .addmargin {

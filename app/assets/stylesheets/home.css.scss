@@ -144,3 +144,59 @@ a img {
   margin-bottom: 10px;
 }
 
+.view_example {
+
+  margin-left: 50px;
+
+  a {
+    text-decoration: none;
+    color:#68b4ef;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: lighten(#68b4ef, 10%);
+  }
+}
+
+.reachjobs_head_title {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: $my_blue;
+}
+
+.reachjobs_step_title {
+  font-size: 16px;
+  color: $my_orange;
+}
+
+.reachjobs_step {
+  width: 600px;
+  margin-bottom: 20px;
+  margin: auto;
+  clear: both;
+}
+
+.reachjobs_step_left {
+  float: left;
+  width: 230px;
+}
+
+.reachjobs_step_right {
+  float: right;
+  margin-left: 20px;
+  width: 350px;
+
+  img {
+      -moz-box-shadow:0 0 10px #111;
+  -webkit-box-shadow:0 0 10px #111;
+  box-shadow:0 0 10px #111;
+  }
+}

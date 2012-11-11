@@ -5,6 +5,9 @@
 
 #profile_aboutme_socialnetwork_photo {
   float: left;
+    -moz-box-shadow:0 0 10px #111;
+  -webkit-box-shadow:0 0 10px #111;
+  box-shadow:0 0 10px #111;
 }
 
 #profile_aboutme_socialnetwork_links {
