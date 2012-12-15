@@ -2,19 +2,6 @@ require 'spec_helper'
 
 describe Profile do
 
-=begin
-  before(:each) do
-    @valid_attributes = {
-      :email => "fabrice.cheng@gmail.com",
-      :password => "UCLADMIN",
-      :password_confirmation => "UCLADMIN",
-      :remember_me => true,
-      :lastname => "Cheng",
-      :firstname => "Fabrice"
-    }   
-  end
-=end
-
   #Relational Database testing
   it { should have_one(:socialnetwork) }
   it { should belong_to(:user) }
@@ -35,13 +22,15 @@ describe Profile do
   it { should ensure_length_of(:link).is_at_least(4).with_message(/4 characters minimum./) }
 
   it "is invalid with a duplicate link (case insensitive)" do
-    profile = Profile.new({:link => 'http://reachjobs.net/fabricecheng'})
+    profile = FactoryGirl.build(:profile)
+    profile.should be_valid
     profile.save == true
 
-    duplicate_profile = Profile.new({:link => 'http://reachjobs.net/fabricecheng'})
+    duplicate_profile = FactoryGirl.build(:profile)
     duplicate_profile.should_not be_valid
 
     duplicate_profile.link.upcase!
+    duplicate_profile.should_not be_valid    
   end
 
 end

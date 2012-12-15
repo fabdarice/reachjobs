@@ -61,5 +61,15 @@ module Reachjobs
 
     #  If You want to deploy on heroku : forcing your application to not access the DB or load models when precompiling your assets.
     config.assets.initialize_on_precompile = false
+
+    # Use Rspec as the default test framework
+    config.generators do |g|
+      g.fixture_replacement :factory_girl
+    end
+
+    # Use Factory Girl instead of fixtures
+    config.generators do |g|
+      g.test_framework :rspec
+    end
   end
 end
