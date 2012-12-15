@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
-  # attr_accessible :title, :body
+  
   attr_accessible :head_description, :second_description, :about_me_description, :search_description, :photo, :phone, :link
-  #attr_accessible :socialnetwork_attributes, :recommendations_attributes, :skillcategories_attributes, :workexperiences_attributes, :projects_attributes, :schools_attributes, :languages_attributes, :hobbies_attributes, :galleries_attributes
+  
   belongs_to :user
 
   validates :link, :uniqueness => { :case_sensitive => false, :message => "This link has already been taken." }
