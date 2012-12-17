@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   validates :lastname, :firstname,:password, :email, :password_confirmation, :presence => { :message => "Field cannot be empty." }
 
   validates :email, uniqueness: true
+  validates_format_of :email, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
   validates :password, :length => {:minimum => 6, :too_short => "6 characters minimum."}
   validates :password, :confirmation => true
   # attr_accessible :title, :body

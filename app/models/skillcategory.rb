@@ -1,5 +1,5 @@
 class Skillcategory < ActiveRecord::Base
-  attr_accessible :category_name, :position, :visible, :skills_attributes
+  attr_accessible :category_name, :position, :visible, :skills_attributes, :skills
 
   default_scope order('created_at ASC')
 

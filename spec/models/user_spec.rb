@@ -17,6 +17,10 @@ describe User do
     @user.errors[:email].first.should eq("Field cannot be empty.") 
   end
 
+  it "is invalid with an invalid email" do
+    @user.email = "fabricechenggmail.com"
+    @user.should_not be_valid
+  end
 
   it "is invalid without a lastname" do
     @user.lastname = nil
