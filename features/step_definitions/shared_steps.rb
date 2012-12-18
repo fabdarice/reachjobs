@@ -15,3 +15,20 @@ end
 And /^I should see "([^\"]*)" error message$/ do |errormsg|
   page.should have_content(errormsg)
 end
+
+And /^I should see "([^\"]*)" notice message$/ do |message|
+  page.should have_content(message)
+end
+
+And /^I should see "([^\"]*)" empty$/ do |field|
+  field = find_field(field)
+  field_value = (field.tag_name == 'textarea') ? field.text : field.value
+  field_value.should == nil
+end
+        
+
+And /^I should see "([^\"]*)" with "([^\"]*)"$/ do |field, value|
+  field = find_field(field)
+  field_value = (field.tag_name == 'textarea') ? field.text : field.value
+  field_value.should == value
+end        

@@ -60,3 +60,4 @@ Feature: A user must be able to register
         And I should see "doesn't match confirmation" error message   
 
 
+

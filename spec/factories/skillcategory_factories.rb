@@ -2,14 +2,15 @@
 
 FactoryGirl.define do
   factory :skillcategory do
-    category_name 'Front-end'
+    association :profile, :factory => :profile
+    category_name Faker::Lorem::words
     #skills { |s| [s.association(:skill)] }
   end
 end
 
 FactoryGirl.define do
   factory :skill do
-    skill_name 'HTML'
+    skill_name Faker::Lorem::words
     #skillcategories { |s| s.association(:skill) }
   end
 end

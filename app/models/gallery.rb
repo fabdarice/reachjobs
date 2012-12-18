@@ -4,7 +4,8 @@ class Gallery < ActiveRecord::Base
 
   default_scope order('created_at ASC')
 
-  validates :name, :headline, :avatar, :presence => { :message => "Field cannot be empty."}
+  validates :name, :headline, :description, :presence => { :message => "Field cannot be empty."}
+  validates :avatar, :attachment_presence => {:message => "Gallery Avatar cannot be undefined."}
 
   belongs_to :profile
   has_and_belongs_to_many :skills, :uniq => true
@@ -14,7 +15,7 @@ class Gallery < ActiveRecord::Base
   
   has_attached_file :avatar, :styles => {:small => "266x80!"}
   validates_attachment_content_type :avatar, :content_type => ['image/png', 'image/jpg', 'image/jpeg'], :message => "File type is not allowed (only .jpg or .png)."
-  validates_attachment :avatar, :size => {:in => 0..4.megabytes, :message => "File must be less than 4MB."}
+  validates_attachment :avatar,  :size => {:in => 0..4.megabytes, :message => "File must be less than 4MB."}
      
   before_save :create_only_if_not_exist
     

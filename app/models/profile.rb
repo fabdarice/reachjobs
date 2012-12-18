@@ -4,6 +4,7 @@ class Profile < ActiveRecord::Base
   
   belongs_to :user
 
+  validates :link, :presence => { :message => "Field cannot be empty." }
   validates :link, :uniqueness => { :case_sensitive => false, :message => "This link has already been taken." }
   validates :link, :length => {:minimum => 4, :too_short => "4 characters minimum."}
 

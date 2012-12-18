@@ -46,6 +46,12 @@ describe User do
     @user.errors[:password_confirmation].first.should eq("Field cannot be empty.") 
   end
 
+  it "is invalid with a password less than 6 characters" do
+    @user.password = "12345"   
+    @user.should_not be_valid 
+    @user.errors[:password].first.should eq("6 characters minimum.") 
+  end
+
   it "is invalid with an existing registered email" do
     @user.should be_valid
     @user.save == true

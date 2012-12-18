@@ -8,7 +8,7 @@ Then /^I am redirected to register page$/ do
 end
 
 Then /^I should stay on register page$/ do
-  current_path = new_user_registration_path
+  current_path.should == user_registration_path
   #page.should have_content("Register below and create your free online resume and portfolio")
 end
 

@@ -26,10 +26,10 @@ Feature: A user must be able to Sign in
         And I should see "Invalid email or password." error message
 
 
-    Scenario: User sign in with unexisting email (scenario doesn't works)
+    Scenario: User sign in with an incorrect password (scenario doesn't works)
       Given I go to the sign in page
         And I fill in "user_email" with "fabrice.cheng@gmail.com"
-        And I fill in "user_password" with "unknownpassword"
+        And I fill in "user_password" with "bryanpassword"
       When I press "sign_in"
       Then I am redirected to home page
         And I should not be signed in
