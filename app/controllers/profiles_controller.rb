@@ -24,9 +24,6 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.where("link = ? ", params[:link]).first
-    if !@profile
-      flash[:error] = "No profile were found."  
-    end
   end
 
   def update

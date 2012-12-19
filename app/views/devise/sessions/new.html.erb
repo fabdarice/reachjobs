@@ -34,7 +34,7 @@
 
                 <%= image_submit_tag "/images/button_sign_in.png",
                   :onmouseover => "this.src='/images/button_sign_in_hover.png'",
-                  :onmouseout => "this.src='/images/button_sign_in.png'" %>
+                  :onmouseout => "this.src='/images/button_sign_in.png'", :id => "sign_in" %>
                  <br/>
 
                 <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>

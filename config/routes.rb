@@ -47,8 +47,9 @@ Reachjobs::Application.routes.draw do
     end  
   end  
 
-  match '/:link' => 'profiles#show'
+  match '/coverage' => redirect('coverage/index.html'), :as => :coverage
 
+  match '/:link' => 'profiles#show'
 
   root :to => "home#index"
   # The priority is based upon order of creation:

@@ -1,15 +1,9 @@
 Given /^I go to the register page$/ do
-  visit new_user_registration_path
-  page.should have_content("Register below and create your free online resume and portfolio")
-end
-
-Then /^I am redirected to register page$/ do
-  visit new_user_registration_path
+  visit new_user_registration_path 
 end
 
 Then /^I should stay on register page$/ do
-  current_path.should == user_registration_path
-  #page.should have_content("Register below and create your free online resume and portfolio")
+  page.should have_content("Register below and create your free online resume and portfolio")
 end
 
 And /^I should see "([^\"]*)" on the home page$/ do |user_email|

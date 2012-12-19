@@ -19,7 +19,7 @@ $(document).ready(function() {
           <% end %>  
         </div>
         <div id="profile_header_idcard_description">
-          <span class="profile_fullname"><%= current_user.firstname %> <%= current_user.lastname %></span> <%= link_to "+ Edit", edit_user_profile_path(current_user), :class => "add_edit_link" %>
+          <span class="profile_fullname"><%= current_user.firstname %> <%= current_user.lastname %></span> <%= link_to "+ Edit", edit_user_profile_path(current_user), :class => "add_edit_link", :id => "edit_profile" %>
             <ul>
               <li><span class="profile_headline"><%= @profile.head_description %></span></li>
               <li><%= @profile.second_description %></li> <br>
@@ -30,7 +30,7 @@ $(document).ready(function() {
             </ul>
         </div> 
         <div id="profile_hader_idcard_view_profile">
-          <%= link_to image_tag("/images/button_view_profile.png", :mouseover => "/images/button_view_profile_hover.png"), root_url + @profile.link %>
+          <%= link_to image_tag("/images/button_view_profile.png", :mouseover => "/images/button_view_profile_hover.png"), root_url + @profile.link, :id => "view_profile" %>
         </div>
         <div id="profile_hader_idcard_public_link">
           <%= link_to root_url + @profile.link, root_url + @profile.link %>
