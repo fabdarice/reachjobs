@@ -55,7 +55,6 @@ Given /^the following users are created in the database:$/ do |users_table|
   end
 end 
 
-
 Given /^I am logged in as "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   visit new_user_session_path
   fill_in "user_email", :with => email
@@ -73,11 +72,22 @@ Given /^I go to my profile page$/ do
   visit show_edit_user_profile_path(@current_user)
 end 
 
+Then /^I should stay on my profile page$/ do
+  current_path.should == show_edit_user_profile_path(@current_user)
+end     
+
 Then /^I am redirected to my profile page$/ do
   current_path.should == show_edit_user_profile_path(@current_user)   
 end
 
-And /^I should see the "([^\"]*)" on my profile page$/ do |content|
+And /^I should see "([^\"]*)" on my profile page$/ do |content|
   page.should have_content(content)
 end
 
+And /^I should not see "([^\"]*)" on my profile page$/ do |content|
+  page.should_not have_content(content)
+end
+
+And /^I should see the image "(.+)"$/ do |image|
+    page.should have_xpath("//img[contains(@src, '#{image}')]")
+end

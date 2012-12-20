@@ -35,4 +35,5 @@ class RecommendationsController < ApplicationController
         format.js { }
      end
   end
+
 end

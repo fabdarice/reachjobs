@@ -3,7 +3,7 @@
 <span class="profile_title">
     Recommendations 
     <% if edit_profile %>
-      <%= link_to "+ Add", new_user_profile_recommendation_path(current_user), :class => "add_edit_link" %>
+      <%= link_to "+ Add", new_user_profile_recommendation_path(current_user), :class => "add_edit_link", :id => "add_recommendation" %>
     <% end %>  
 </span>
 <hr class="section_seperator" align="right" width="310px">
@@ -13,8 +13,8 @@
     <div class="recommendation_fieldsremovable">
         <span class="author highlight"><%= f.author %></span>  
           <% if edit_profile %>
-            <%= link_to "Edit", edit_user_profile_recommendation_path(current_user, f.id), :class => "add_edit_link_smaller" %>
-            <%= link_to "Delete", user_profile_recommendation_path(current_user, f.id), :class => "remote-delete" %>
+            <%= link_to "Edit", edit_user_profile_recommendation_path(current_user, f.id), :class => "add_edit_link_smaller", :id => "edit_recommendation_#{f.id}" %>
+            <%= link_to "Delete", user_profile_recommendation_path(current_user, f.id), :class => "remote-delete", :id => "delete_recommendation_#{f.id}" %>
           <% end %>  
           <br>
         <span class="relation"> <%= f.relation %></span><br><br>
