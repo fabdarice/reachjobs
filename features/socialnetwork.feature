@@ -15,10 +15,10 @@ Feature: An authenticated user must be able to edit his contact information
     		And I fill in "socialnetwork_twitter_link" with "<twitter_link>"
     		And I fill in "socialnetwork_facebook_link" with "<facebook_link>"
     		And I fill in "socialnetwork_reachjobs_link" with "<reachjobs_link>"
-    		And I attach the resume "FabriceCheng_Resume_WebDeveloper.pdf" to "socialnetwork_resume"
+    		And I attach the file "FabriceCheng_Resume_WebDeveloper.pdf" to "socialnetwork_resume"
 	    When I press "save"
       Then I am redirected to my profile page
-        And I should see the image "FabriceCheng_Resume_WebDeveloper"      
+        And I should see the image "FabriceCheng_Resume_WebDeveloper"
     		And I should see the link to download the resume
     		And I should see the icon "ico_linkedin.png"
     		And I should see the icon "ico_viadeo.png"
@@ -38,7 +38,7 @@ Feature: An authenticated user must be able to edit his contact information
 	Scenario: User tries to upload an invalid resume, wrong format type (error)
       Given I press on "edit_contact_me" link
 	  Then I am redirected to "Edit Contact Information" page	    
-		And I attach the resume "wrong.bmp" to "socialnetwork_resume"
+		And I attach the file "wrong.bmp" to "socialnetwork_resume"
 	  When I press "save"
       Then I should stay on "Edit Contact Information" page
 		And I should see "Error while saving the modifications." error message

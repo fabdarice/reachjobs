@@ -42,13 +42,13 @@ $(document).ready(function() {
   <span class="one_tab_empty">
   </span>
   <span class="profile_aboutme one_tab">
-    <%= link_to_function image_tag("/images/tab_aboutme.png"), "tab_to_display('profile_aboutme')" %>
+    <%= link_to_function image_tag("/images/tab_aboutme.png"), "tab_to_display('profile_aboutme')", :id => "about_Me" %>
   </span>
   <span class="profile_resume one_tab">
-     <%= link_to_function image_tag("/images/tab_resume.png"), "tab_to_display('profile_resume')" %>
+     <%= link_to_function image_tag("/images/tab_resume.png"), "tab_to_display('profile_resume')", :id => "resume" %>
   </span>
   <span class="profile_portfolio one_tab">
-    <%= link_to_function image_tag("/images/tab_portfolio.png"), "tab_to_display('profile_portfolio')" %>
+    <%= link_to_function image_tag("/images/tab_portfolio.png"), "tab_to_display('profile_portfolio')", :id => "portfolio" %>
   </span>
   <span class="one_tab_empty_end">
   </span>

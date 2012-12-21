@@ -6,19 +6,19 @@
     <span class="profile_header_flash"><%= image_tag("/images/ico_error.png") %><%= flash[:error] %></span><br><br>
   <% end %>
   <%= form_for @profile, :url => user_profile_path do |p| %>
-      <%= p.label :head_description, "Profesional headline : " %><br>
+      <%= p.label :head_description, "Profesional headline" %> :<br>
       <%= p.text_field :head_description, :placeholder => "examples: Web Developer, Web Designer, Photographer, ....", :size => "60px" %><br><br>     
 
-      <%= p.label :phone, "Phone number :" %><br>
+      <%= p.label :phone, "Phone number" %> :<br>
       <%= p.text_field :phone, :placeholder => "Enter your phone number" %><br><br>     
 
       <span class="like_label">Who am I :</span><br>
           <%= p.text_area :about_me_description, :size => "50x12", :class => "text_field_default", :placeholder => "Enter a description of yourself" %><br><br>
 
-      <span class="like_label">What am I looking for</span><br>
+      <span class="like_label">What am I looking for :</span><br>
         <%= p.text_area :search_description, :size => "50x12", :placeholder => "Enter an accurate description of what you are looking for (job, location, position, ...)" %><br/><br>
 
-      <%= p.label :link, "Public Link :" %><br>
+      <%= p.label :link, "Public Link" %> :<br>
       www.reachjobs.net/<%= p.text_field :link %><br>
       <span class="field_error_msg"><%= display_error(@profile, 'link') %></span><br>
   

@@ -8,8 +8,8 @@ Feature: A user must be able to Sign in
 
     Scenario: User sign in with valid data (scenario which works)
       Given I go to the sign in page
-        And I fill in "user_email" with "fabrice.cheng@gmail.com"
-        And I fill in "user_password" with "fabpassword"
+        And I fill in "Email" with "fabrice.cheng@gmail.com"
+        And I fill in "Password" with "fabpassword"
       When I press "sign_in"
       Then I am redirected to home page
         And I should be signed in
@@ -18,8 +18,8 @@ Feature: A user must be able to Sign in
 
     Scenario: User sign in with unexisting email (scenario doesn't works)
       Given I go to the sign in page
-        And I fill in "user_email" with "unknown@gmail.com"
-        And I fill in "user_password" with "fabpassword"
+        And I fill in "Email" with "unknown@gmail.com"
+        And I fill in "Password" with "fabpassword"
       When I press "sign_in"
       Then I should stay on the sign in page
         And I should not be signed in
@@ -28,8 +28,8 @@ Feature: A user must be able to Sign in
 
     Scenario: User sign in with an incorrect password (scenario doesn't works)
       Given I go to the sign in page
-        And I fill in "user_email" with "fabrice.cheng@gmail.com"
-        And I fill in "user_password" with "bryanpassword"
+        And I fill in "Email" with "fabrice.cheng@gmail.com"
+        And I fill in "Password" with "bryanpassword"
       When I press "sign_in"
       Then I should stay on the sign in page
         And I should not be signed in

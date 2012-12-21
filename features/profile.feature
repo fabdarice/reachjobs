@@ -11,13 +11,13 @@ Feature: An authenticated user must be able to edit his profile
     Scenario Outline: User edits his profile (scenario which works)
       Given I press on "edit_profile" link
 	    Then I am redirected to "Edit Profile Personal Data" page
-  	    And the "profile_link" field should contain "fabricecheng"	
-        And I fill in "profile_phone" with "<phone>"
-        And I fill in "profile_head_description" with "<head_description>"
+  	    And the "Public Link" field should contain "fabricecheng"	
+        And I fill in "Phone number" with "<phone>"
+        And I fill in "Profesional headline" with "<head_description>"
     		And I fill in "profile_about_me_description" with "<aboutme_description>"
     		And I fill in "profile_search_description" with "<search_description>"
-    		And I fill in "profile_link" with "<link>"
-        And I attach the resume "Fabrice_CHENG_ID_PHOTO.jpg" to "profile_photo"
+    		And I fill in "Public Link" with "<link>"
+        And I attach the file "Fabrice_CHENG_ID_PHOTO.jpg" to "profile_photo"
       When I press "save"
       Then I am redirected to my profile page
         And I should see the image "Fabrice_CHENG_ID_PHOTO"
@@ -35,8 +35,8 @@ Feature: An authenticated user must be able to edit his profile
       Given "bryan.adams@gmail.com" has a profile public link set as "bryanadams"
       Given I press on "edit_profile" link
   	  Then I am redirected to "Edit Profile Personal Data" page
-  	    And the "profile_link" field should contain "fabricecheng"
-  		  And I fill in "profile_link" with "bryanadams"
+  	    And the "Public Link" field should contain "fabricecheng"
+  		  And I fill in "Public Link" with "bryanadams"
       When I press "save"
       Then I should stay on "Edit Profile Personal Data" page
         And I should see "This link has already been taken." error message 	
@@ -46,8 +46,8 @@ Feature: An authenticated user must be able to edit his profile
     Scenario: User edits his profile with an empty public link (error)
       Given I press on "edit_profile" link
       Then I am redirected to "Edit Profile Personal Data" page
-        And the "profile_link" field should contain "fabricecheng"
-        And I fill in "profile_link" with ""
+        And the "Public Link" field should contain "fabricecheng"
+        And I fill in "Public Link" with ""
       When I press "save"
       Then I should stay on "Edit Profile Personal Data" page
         And I should see "Error while saving the modifications." error message

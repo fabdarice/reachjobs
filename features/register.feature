@@ -2,11 +2,11 @@ Feature: A user must be able to register
 
     Scenario: User registers with valid data (scenario which works)
       Given I go to the register page
-        And I fill in "user_lastname" with "Cheng"
-        And I fill in "user_firstname" with "Fabrice"
-        And I fill in "user_email" with "fabrice.cheng@gmail.com"
-        And I fill in "user_password" with "UCLApassword"
-        And I fill in "user_password_confirmation" with "UCLApassword"
+        And I fill in "Lastname" with "Cheng"
+        And I fill in "Firstname" with "Fabrice"
+        And I fill in "Email" with "fabrice.cheng@gmail.com"
+        And I fill in "Password" with "UCLApassword"
+        And I fill in "Pw Confirmation" with "UCLApassword"
       When I press "register"
       Then I am redirected to home page
         And I should be signed in
@@ -22,11 +22,11 @@ Feature: A user must be able to register
 
     Scenario: User fails to register because of incorrect email format (scenario that doesn't work)
       Given I go to the register page
-        And I fill in "user_lastname" with "Cheng"
-        And I fill in "user_firstname" with "Fabrice"
-        And I fill in "user_email" with "fabricegmail.com"
-        And I fill in "user_password" with "UCLApassword"
-        And I fill in "user_password_confirmation" with "UCLApassword"
+        And I fill in "Lastname" with "Cheng"
+        And I fill in "Firstname" with "Fabrice"
+        And I fill in "Email" with "fabricegmail.com"
+        And I fill in "Password" with "UCLApassword"
+        And I fill in "Pw Confirmation" with "UCLApassword"
       When I press "register"
       Then I should stay on register page
         And I should not be signed in
@@ -35,11 +35,11 @@ Feature: A user must be able to register
     Scenario: User fails to register because email already exists (scenario that doesn't work)
       Given a user with email "fabrice@gmail.com" already exists
       When I go to the register page
-        And I fill in "user_lastname" with "Cheng"
-        And I fill in "user_firstname" with "Fabrice"
-        And I fill in "user_email" with "fabrice@gmail.com"
-        And I fill in "user_password" with "UCLApassword"
-        And I fill in "user_password_confirmation" with "UCLApassword"
+        And I fill in "Lastname" with "Cheng"
+        And I fill in "Firstname" with "Fabrice"
+        And I fill in "Email" with "fabrice@gmail.com"
+        And I fill in "Password" with "UCLApassword"
+        And I fill in "Pw Confirmation" with "UCLApassword"
       When I press "register"
       Then I should stay on register page
         And I should not be signed in
@@ -49,11 +49,11 @@ Feature: A user must be able to register
     Scenario: User fails to register because password_confirmation doesn't match password (scenario that doesn't work)
       Given a user with email "fabrice@gmail.com" already exists
       When I go to the register page
-        And I fill in "user_lastname" with "Cheng"
-        And I fill in "user_firstname" with "Fabrice"
-        And I fill in "user_email" with "fabrice@gmail.com"
-        And I fill in "user_password" with "UCLApassword"
-        And I fill in "user_password_confirmation" with "DifferentPassword"
+        And I fill in "Lastname" with "Cheng"
+        And I fill in "Firstname" with "Fabrice"
+        And I fill in "Email" with "fabrice@gmail.com"
+        And I fill in "Password" with "UCLApassword"
+        And I fill in "Pw Confirmation" with "DifferentPassword"
       When I press "register"
       Then I should stay on register page
         And I should not be signed in
