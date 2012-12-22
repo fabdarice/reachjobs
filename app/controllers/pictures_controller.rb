@@ -14,9 +14,7 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     if @picture.update_attributes(params[:picture])
        render :text => @picture.avatar.url
-    else
-      flash[:error] = "Image Upload failed."  
-    end
+    end   
   end
 
   def destroy

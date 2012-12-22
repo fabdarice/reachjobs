@@ -54,10 +54,17 @@ Feature: An authenticated user must be able to edit his profile
         And I should see "Field cannot be empty." error message       
         
 	
-    Scenario: User access to his public profile (scenario which works)
+    Scenario: User access to his public profile - About Me tab (scenario which works)
       Given I press on "view_profile" link
       Then I am redirected to "fabrice.cheng@gmail.com" public profile page
+      Given I press on "aboutme" tab
         And I should not see any Add, Edit, View Profile link
+
+    Scenario: User access to his public profile - Resume tab (scenario which works)
+      Given I press on "view_profile" link
+      Then I am redirected to "fabrice.cheng@gmail.com" public profile page
+      Given I press on "resume" tab
+        And I should not see any Add, Edit, View Profile link    
 
  
     Scenario: User with the same lastname and firstname as someone registered in the Database will have a default public link as follow : <firstname><lastname><id>

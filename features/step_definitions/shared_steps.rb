@@ -16,7 +16,8 @@ Given /^I press on "([^\"]*)" tab$/ do |tab|
 end      
 
 And /^I press on "([^\"]*)" image$/ do |img_alt|
-  find(:xpath, "//img[@alt = '#{img_alt}']/parent::a").click()
+  img_alt[0] = img_alt.first.capitalize[0] 
+  find(:xpath, "//img[@alt='#{img_alt}']/parent::a").click()
 end
 
 Then /^I am redirected to home page$/ do

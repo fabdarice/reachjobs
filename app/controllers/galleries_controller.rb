@@ -21,9 +21,6 @@ class GalleriesController < ApplicationController
     @skills.map {|skill| skill}.join(',') 
   end
 
-  def edit_pictures
-    @gallery = Gallery.find(params[:id])
-  end
 
   def update
     @gallery = Gallery.find(params[:id])
@@ -55,6 +52,5 @@ class GalleriesController < ApplicationController
   def edit_images
     @picture = Picture.new
     @gallery = Gallery.find(params[:id])
-    
   end
 end

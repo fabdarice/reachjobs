@@ -16,7 +16,7 @@
 </div>  
   
 <div class="gallery_images_right">
-  <div class="gallery_add_images_form">  
+  <div class="gallery_add_images_form" id="gallery_list_images">  
     <div class="gallery_title">
       Gallery Images
     </div>
@@ -43,7 +43,7 @@
             <% end %>
             
             <div class="fileinputs">
-             <%= p.file_field :avatar, :class => "edit_picture_file_input" %>
+             <%= p.file_field :avatar, :class => "edit_picture_file_input", :id => "edit_picture_avatar" %>
               <div class="fakefile">
                 <a href="#" class="add_edit_link_smaller">Edit</a>
               </div>
